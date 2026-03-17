@@ -1,7 +1,6 @@
 baseURL = "https://neucrania.org/"
 languageCode = "pt-BR"
 title = "NEU — Núcleo de Estudos da Ucrânia"
-theme = ""
 enableRobotsTXT = true
 enableGitInfo = false
 
