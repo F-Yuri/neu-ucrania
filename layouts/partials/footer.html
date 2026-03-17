@@ -1,0 +1,44 @@
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
+        <div class="nav-logo-mark">NEU</div>
+        <div>
+          <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
+          <div class="nav-logo-sub">USP — Ciência Política</div>
+        </div>
+      </a>
+      <p class="footer-desc">Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Site.Params.fundacao }}.</p>
+      <a href="mailto:{{ .Site.Params.email }}" class="footer-email">{{ .Site.Params.email }}</a>
+    </div>
+    <div>
+      <div class="footer-col-title">O Núcleo</div>
+      <ul class="footer-links">
+        <li><a href="/sobre/">Sobre o NEU</a></li>
+        <li><a href="/membros/">Pesquisadores</a></li>
+        <li><a href="/contato/">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Pesquisa</div>
+      <ul class="footer-links">
+        <li><a href="/pesquisa/">Linhas de pesquisa</a></li>
+        <li><a href="/pesquisa/#bridging">Bridging Ukraine</a></li>
+        <li><a href="/publicacoes/">Publicações</a></li>
+        <li><a href="/biblioteca/">Biblioteca</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Acesso rápido</div>
+      <ul class="footer-links">
+        <li><a href="/eventos/">Eventos</a></li>
+        <li><a href="/publicacoes/?tipo=midia">Artigos na mídia</a></li>
+        <li><a href="/contato/#newsletter">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© {{ now.Year }} Núcleo de Estudos da Ucrânia — USP</div>
+    <div class="footer-copy">{{ .Site.Params.instituicao }}</div>
+  </div>
+</footer>

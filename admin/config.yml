@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/assets/img"
+public_folder: "/assets/img"
+
+locale: 'pt'
+
+# Netlify Identity widget
+site_url: https://neucrania.netlify.app
+
+collections:
+
+  - name: "publicacoes"
+    label: "Publicações"
+    label_singular: "Publicação"
+    folder: "content/publicacoes"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    preview_path: "publicacoes/{{slug}}"
+    summary: "{{title}} — {{autores}} ({{ano}})"
+    sortable_fields: ["ano", "title", "tipo"]
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Autores", name: "autores", widget: "string", hint: "Ex: FERRARO, V. ou RUSEISHVILI, S. (org.)" }
+      - label: "Tipo"
+        name: "tipo"
+        widget: "select"
+        options:
+          - { label: "Artigo acadêmico", value: "academico" }
+          - { label: "Artigo na mídia", value: "midia" }
+          - { label: "Livro", value: "livro" }
+          - { label: "Capítulo de livro", value: "capitulo" }
+          - { label: "Outro", value: "outro" }
+      - { label: "Veículo / Editora", name: "veiculo", widget: "string", required: false, hint: "Ex: Folha de São Paulo, EdUFSCar, IPSR" }
+      - { label: "Ano", name: "ano", widget: "string", hint: "Ex: 2024" }
+      - { label: "Link externo", name: "link", widget: "string", required: false, hint: "URL completa da publicação (DOI, página da editora, etc.)" }
+      - { label: "Destaque na homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Descrição / resumo (aparece na página da publicação)", name: "description", widget: "string", required: false }
+      - { label: "Corpo completo", name: "body", widget: "markdown", required: false, hint: "Resumo completo ou outros detalhes" }
+
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    folder: "content/eventos"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    preview_path: "eventos/{{slug}}"
+    summary: "{{title}} — {{data}}"
+    sortable_fields: ["data", "title", "status"]
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "data", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, hint: "Data do evento" }
+      - label: "Tipo"
+        name: "tipo"
+        widget: "select"
+        options:
+          - { label: "Palestra", value: "palestra" }
+          - { label: "Painel", value: "painel" }
+          - { label: "Seminário", value: "seminario" }
+          - { label: "Colóquio", value: "coloquio" }
+          - { label: "Congresso / Encontro", value: "congresso" }
+          - { label: "Live / Webinar", value: "live" }
+          - { label: "Conferência", value: "conferencia" }
+      - { label: "Local", name: "local", widget: "string", hint: "Ex: USP, São Paulo / Online / Viena" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Próximo", value: "proximo" }
+          - { label: "Realizado", value: "realizado" }
+        default: "proximo"
+      - label: "Vídeo principal"
+        name: "video"
+        widget: "string"
+        required: false
+        hint: "Cole a URL do YouTube ou Vimeo. Ex: https://youtu.be/abc123"
+
+      - label: "Vídeos adicionais"
+        name: "videos"
+        widget: "list"
+        required: false
+        hint: "Para eventos com mais de um vídeo (ex: painéis com múltiplas apresentações)"
+        fields:
+          - { label: "URL do vídeo", name: "url", widget: "string", hint: "YouTube ou Vimeo" }
+          - { label: "Título do vídeo", name: "titulo", widget: "string", required: false }
+
+      - label: "Podcast"
+        name: "podcast"
+        widget: "string"
+        required: false
+        hint: "URL do episódio de podcast, se houver (Spotify, Anchor, etc.)"
+
+      - label: "Galeria de fotos"
+        name: "galeria"
+        widget: "list"
+        required: false
+        hint: "Adicione as fotos do evento. Cada foto pode ter uma legenda opcional."
+        fields:
+          - label: "Foto"
+            name: "foto"
+            widget: "image"
+            hint: "Recomendado: mínimo 800px de largura, formato JPG ou WebP"
+          - label: "Legenda"
+            name: "legenda"
+            widget: "string"
+            required: false
+            hint: "Ex: Prof. Yermolenko durante apresentação — Viena, maio 2025"
+
+      - { label: "Descrição", name: "body", widget: "markdown", required: false }
+
+  - name: "membros"
+    label: "Pesquisadores"
+    label_singular: "Pesquisador"
+    folder: "content/membros"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "membros/{{slug}}"
+    summary: "{{title}} — {{instituicao}}"
+    fields:
+      - { label: "Nome completo", name: "title", widget: "string" }
+      - { label: "Sigla (2-3 letras iniciais)", name: "sigla", widget: "string", hint: "Ex: SR para Svetlana Ruseishvili — aparece no avatar" }
+      - { label: "Instituição", name: "instituicao", widget: "string", hint: "Ex: UFSCar, FGV, Univ. de Viena" }
+      - { label: "Área de pesquisa", name: "area", widget: "string", hint: "Aparece nos cards. Seja conciso." }
+      - { label: "Link Lattes / site pessoal", name: "link", widget: "string", required: false }
+      - { label: "Email institucional", name: "email", widget: "string", required: false }
+      - { label: "Foto", name: "foto", widget: "image", required: false, hint: "Recomendado: 200x200px, formato quadrado" }
+      - { label: "Biografia", name: "body", widget: "markdown", required: false }

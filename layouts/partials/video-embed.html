@@ -1,0 +1,73 @@
+{{/*
+  video-embed.html
+  Uso: {{ partial "video-embed.html" (dict "url" "https://youtu.be/xxx" "title" "Título") }}
+  Suporta: youtube.com/watch, youtu.be, youtube.com/embed, vimeo.com
+*/}}
+
+{{ $url   := .url   | default "" }}
+{{ $title := .title | default "Vídeo" }}
+{{ $label := .titulo | default "" }}
+
+{{ $ytID    := "" }}
+{{ $vimeoID := "" }}
+
+{{/* YouTube: youtu.be/ID */}}
+{{ if strings.Contains $url "youtu.be/" }}
+  {{ $ytID = $url | replaceRE `.*youtu\.be/([^?&/]+).*` "$1" }}
+
+{{/* YouTube: youtube.com/watch?v=ID */}}
+{{ else if strings.Contains $url "youtube.com/watch" }}
+  {{ $ytID = $url | replaceRE `.*[?&]v=([^&]+).*` "$1" }}
+
+{{/* YouTube: youtube.com/embed/ID */}}
+{{ else if strings.Contains $url "youtube.com/embed/" }}
+  {{ $ytID = $url | replaceRE `.*youtube\.com/embed/([^?/]+).*` "$1" }}
+
+{{/* Vimeo: vimeo.com/ID ou vimeo.com/video/ID */}}
+{{ else if strings.Contains $url "vimeo.com" }}
+  {{ $vimeoID = $url | replaceRE `.*vimeo\.com/(video/)?([0-9]+).*` "$2" }}
+{{ end }}
+
+{{/* Wrapper responsivo 16:9 */}}
+<div style="
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  background:var(--navy);
+  border:1px solid rgba(11,25,41,0.12);
+">
+  {{ if $ytID }}
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/{{ $ytID }}?rel=0&modestbranding=1&color=white"
+    title="{{ $title }}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    loading="lazy"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+  ></iframe>
+
+  {{ else if $vimeoID }}
+  <iframe
+    src="https://player.vimeo.com/video/{{ $vimeoID }}?byline=0&portrait=0&color=F5C518"
+    title="{{ $title }}"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+    loading="lazy"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+  ></iframe>
+
+  {{ else if $url }}
+  {{/* URL não reconhecida — fallback elegante */}}
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;padding:2rem;">
+    <div style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.15em;text-transform:uppercase;">Vídeo disponível em</div>
+    <a href="{{ $url }}" target="_blank" rel="noopener" class="btn-yellow">Assistir ↗</a>
+  </div>
+  {{ end }}
+</div>
+
+{{ if $label }}
+<p style="font-size:12px;font-weight:300;color:var(--muted);margin-top:8px;font-family:var(--body);font-style:italic;">{{ $label }}</p>
+{{ end }}

@@ -1,0 +1,41 @@
+baseURL = "https://neucrania.org/"
+languageCode = "pt-BR"
+title = "NEU — Núcleo de Estudos da Ucrânia"
+theme = ""
+enableRobotsTXT = true
+enableGitInfo = false
+
+# Gera sumários automáticos
+summaryLength = 30
+
+[params]
+  description = "Pesquisa interdisciplinar sobre a Ucrânia reunindo pesquisadores brasileiros e europeus. USP — Departamento de Ciência Política."
+  email = "neucrania@gmail.com"
+  instituicao = "Departamento de Ciência Política — USP"
+  fundacao = "2024"
+  twitter = ""
+  instagram = ""
+
+[taxonomies]
+  tipo = "tipos"
+  tema = "temas"
+  autor = "autores"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[minify]
+  minifyOutput = true

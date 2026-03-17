@@ -1,0 +1,16 @@
+{{ $bg := .bg | default "cream" }}
+{{ $dir := .dir | default "down" }}
+
+{{ if eq $dir "down" }}
+{{ if eq $bg "navy" }}
+<svg width="100%" height="44" style="display:block;background:var(--navy)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><pattern id="vd-navy-down" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#F5C518" stroke-width="1.2" opacity="0.32"><polyline points="4,44 4,32 12,32 12,24 20,24 20,16 28,16 28,24 36,24 36,32 44,32 44,44"/><polyline points="8,44 8,34 16,34 16,26 24,26 24,20 28,20 32,20 32,26 40,26 40,34 48,34 48,44"/><line x1="20" y1="16" x2="20" y2="10"/><line x1="17" y1="13" x2="23" y2="13"/><polygon points="4,8 8,12 4,16 0,12"/><polygon points="76,8 80,12 76,16 72,12"/></g></pattern></defs>
+  <rect width="800" height="44" fill="url(#vd-navy-down)"/>
+</svg>
+{{ else }}
+<svg width="100%" height="44" style="display:block;background:var(--cream)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><pattern id="vd-cream-down" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.14"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/><polyline points="8,0 8,10 16,10 16,18 24,18 24,24 28,24 32,24 32,18 40,18 40,10 48,10 48,0"/><line x1="20" y1="28" x2="20" y2="34"/><line x1="17" y1="31" x2="23" y2="31"/><polygon points="4,36 8,32 4,28 0,32"/><polygon points="76,36 80,32 76,28 72,32"/></g></pattern></defs>
+  <rect width="800" height="44" fill="url(#vd-cream-down)"/>
+</svg>
+{{ end }}
+{{ end }}

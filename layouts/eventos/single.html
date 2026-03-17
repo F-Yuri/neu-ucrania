@@ -1,0 +1,123 @@
+{{ define "main" }}
+
+{{ $isYT := and .Params.video (or (strings.Contains .Params.video "youtube.com") (strings.Contains .Params.video "youtu.be")) }}
+{{ $isVimeo := and .Params.video (strings.Contains .Params.video "vimeo.com") }}
+
+<!-- HERO -->
+<div class="page-hero vtex-navy" style="background:var(--navy);padding:8rem 4rem 4rem;position:relative;overflow:hidden;">
+  <div class="z1">
+    <div class="page-hero-label">
+      <span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>
+      <a href="/eventos/" style="color:rgba(245,197,24,0.75);text-decoration:none;letter-spacing:0.22em;text-transform:uppercase;font-size:10px;font-family:var(--mono);">← Eventos</a>
+    </div>
+    <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;opacity:0.8;">
+      ◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}
+    </div>
+    <h1 class="page-hero-title">{{ .Title }}</h1>
+    {{ if .Params.data }}
+    <p style="color:rgba(255,255,255,0.4);margin-top:1.2rem;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;">
+      {{ .Params.data | time.Format "02 de January de 2006" }}
+    </p>
+    {{ end }}
+    <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;">
+      {{ if .Params.video }}<a href="#video" class="btn-yellow">▶ Assistir vídeo</a>{{ end }}
+      {{ if .Params.galeria }}<a href="#galeria" class="btn-ghost-light">⊞ Ver galeria de fotos</a>{{ end }}
+    </div>
+  </div>
+</div>
+
+<svg width="100%" height="44" style="display:block;background:var(--cream)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><pattern id="p2" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.14"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/></g></pattern></defs>
+  <rect width="800" height="44" fill="url(#p2)"/>
+</svg>
+
+<!-- CONTEÚDO -->
+<div style="max-width:860px;margin:0 auto;padding:5rem 4rem;">
+
+  <!-- VÍDEO EMBED -->
+  {{ if .Params.video }}
+  <section id="video" style="margin-bottom:4rem;">
+    <div class="section-label" style="margin-bottom:1.5rem;">Vídeo</div>
+    {{ partial "video-embed.html" (dict "url" .Params.video "title" .Title) }}
+
+    {{ if .Params.videos }}
+    <div style="display:flex;flex-direction:column;gap:2rem;margin-top:2.5rem;">
+      {{ range .Params.videos }}
+      {{ partial "video-embed.html" (dict "url" .url "title" .titulo) }}
+      {{ end }}
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <!-- DESCRIÇÃO -->
+  {{ if .Content }}
+  <section style="margin-bottom:4rem;">
+    <div class="section-label" style="margin-bottom:1.5rem;">Sobre o evento</div>
+    <div style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;">
+      {{ .Content }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ if or .Params.link .Params.podcast }}
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;">
+    {{ if .Params.link }}<a href="{{ .Params.link }}" target="_blank" rel="noopener" class="btn-ghost-dark">Página do evento ↗</a>{{ end }}
+    {{ if .Params.podcast }}<a href="{{ .Params.podcast }}" target="_blank" rel="noopener" class="btn-ghost-dark">🎙 Ouvir podcast ↗</a>{{ end }}
+  </div>
+  {{ end }}
+
+</div>
+
+<!-- GALERIA -->
+{{ if .Params.galeria }}
+<section id="galeria" style="background:var(--cream-dk);padding:5rem 4rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label" style="margin-bottom:1.5rem;">Galeria de fotos</div>
+    <h2 class="section-title" style="margin-bottom:2.5rem;">{{ .Title }}</h2>
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px;">
+      {{ range $i, $foto := .Params.galeria }}
+      <button onclick="openLightbox({{ $i }})"
+        style="border:none;background:none;padding:0;cursor:pointer;overflow:hidden;aspect-ratio:4/3;display:block;position:relative;"
+        aria-label="Ver foto {{ add $i 1 }}">
+        <img src="{{ $foto.foto }}" alt="{{ $foto.legenda | default "" }}" loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;"
+          onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        {{ if $foto.legenda }}
+        <div class="foto-legenda" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(11,25,41,0.75));padding:1.5rem 1rem 0.8rem;font-size:12px;font-weight:300;color:rgba(255,255,255,0.85);font-family:var(--body);opacity:0;transition:opacity 0.2s;">{{ $foto.legenda }}</div>
+        {{ end }}
+      </button>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(7,14,26,0.96);align-items:center;justify-content:center;" role="dialog" aria-modal="true">
+  <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:var(--yellow);border:none;cursor:pointer;width:48px;height:48px;font-size:22px;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;" aria-label="Fechar">×</button>
+  <button onclick="changeLightbox(-1)" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Anterior">‹</button>
+  <div style="max-width:90vw;max-height:85vh;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+    <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:78vh;object-fit:contain;display:block;">
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span id="lb-counter" style="font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;"></span>
+      <p id="lb-caption" style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.65);font-family:var(--body);"></p>
+    </div>
+  </div>
+  <button onclick="changeLightbox(1)" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Próxima">›</button>
+</div>
+
+<style>#gallery-grid button:hover .foto-legenda{opacity:1!important;}</style>
+
+<script>
+const FOTOS=[{{ range .Params.galeria }}{src:"{{ .foto }}",caption:"{{ .legenda | default "" }}"},{{ end }}];
+let cur=0;
+function openLightbox(i){cur=i;updateLB();document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';document.body.style.overflow='';}
+function changeLightbox(d){cur=(cur+d+FOTOS.length)%FOTOS.length;updateLB();}
+function updateLB(){const f=FOTOS[cur];document.getElementById('lb-img').src=f.src;document.getElementById('lb-img').alt=f.caption;document.getElementById('lb-caption').textContent=f.caption;document.getElementById('lb-counter').textContent=(cur+1)+' / '+FOTOS.length;}
+document.addEventListener('keydown',e=>{const lb=document.getElementById('lightbox');if(lb.style.display!=='flex')return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changeLightbox(-1);if(e.key==='ArrowRight')changeLightbox(1);});
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+</script>
+{{ end }}
+
+{{ end }}

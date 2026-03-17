@@ -1,0 +1,74 @@
+{{ define "main" }}
+<div class="page-hero vtex-navy" style="background:var(--navy);padding:8rem 4rem 4rem;position:relative;overflow:hidden;">
+  <div class="z1">
+    <div class="page-hero-label"><span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>O Núcleo</div>
+    <h1 class="page-hero-title">Sobre o <em>NEU</em></h1>
+  </div>
+</div>
+<svg width="100%" height="44" style="display:block;background:var(--cream)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><pattern id="p2" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.14"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/><polygon points="4,36 8,32 4,28 0,32"/><polygon points="76,36 80,32 76,28 72,32"/></g></pattern></defs>
+  <rect width="800" height="44" fill="url(#p2)"/>
+</svg>
+
+<section class="section-cream vtex" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
+  <div class="z1">
+    <div class="section-label">Histórico</div>
+    <h2 class="section-title">Como o NEU nasceu</h2>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
+      O Núcleo de Estudos da Ucrânia (NEU) foi fundado em dezembro de 2024 no Departamento de Ciência Política da Universidade de São Paulo, em resposta à crescente necessidade de produção acadêmica qualificada sobre a Ucrânia no Brasil — um campo ainda pouco explorado na academia nacional.
+    </p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
+      A iniciativa reuniu pesquisadores de múltiplas instituições brasileiras e europeias com trajetórias em Ciência Política, Relações Internacionais, Sociologia, Filosofia e Direitos Humanos, todos dedicados a produzir análises rigorosas sobre a Ucrânia a partir de perspectivas não hegemônicas.
+    </p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;">
+      Em abril de 2025, o NEU teve seu primeiro projeto internacional aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies, em parceria com a National University of Kyiv-Mohyla Academy.
+    </p>
+  </div>
+  <div class="z1">
+    <div class="section-label">Missão</div>
+    <h2 class="section-title">O que nos move</h2>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">
+      Fortalecer a produção de conhecimento sobre a Ucrânia no Brasil — contribuindo para o debate acadêmico, a formação de pesquisadores e a compreensão pública de um conflito que redefine a ordem internacional.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <span class="theme-tag">Ciência Política</span>
+      <span class="theme-tag">Relações Internacionais</span>
+      <span class="theme-tag">História</span>
+      <span class="theme-tag">Direitos Humanos</span>
+      <span class="theme-tag">Estudos de Migração</span>
+      <span class="theme-tag">Filosofia Política</span>
+    </div>
+  </div>
+</section>
+
+<svg width="100%" height="44" style="display:block;background:var(--cream-dkk)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs><pattern id="p3" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.11"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/></g></pattern></defs>
+  <rect width="800" height="44" fill="url(#p3)"/>
+</svg>
+
+<section id="membros" class="section-cream-dkk vtex" aria-labelledby="membros-title">
+  <div style="position:relative;z-index:1;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="section-label">Equipe</div>
+        <h2 id="membros-title" class="section-title">Pesquisadores</h2>
+      </div>
+      <a href="/membros/" class="link-arrow">Ver perfis completos →</a>
+    </div>
+    <div class="card-grid-4">
+      {{ range (where .Site.RegularPages "Type" "membros") }}
+      <article class="member-card">
+        {{ if .Params.foto }}
+        <img src="{{ .Params.foto }}" alt="{{ .Title }}" width="48" height="48" style="object-fit:cover;margin-bottom:1rem;">
+        {{ else }}
+        <div class="member-avatar">{{ .Params.sigla | upper }}</div>
+        {{ end }}
+        <h3 class="member-name"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
+        <div class="member-inst">{{ .Params.instituicao }}</div>
+        <div class="member-area">{{ .Params.area }}</div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
