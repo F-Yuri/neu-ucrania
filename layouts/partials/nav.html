@@ -1,5 +1,5 @@
 <nav id="mainNav">
-  <a href="/" class="nav-logo">
+  <a href="{{ "/" | absURL }}" class="nav-logo">
     <div class="nav-logo-mark">NEU</div>
     <div>
       <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
@@ -7,16 +7,16 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="/sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
-    <li><a href="/pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
-    <li><a href="/publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
-    <li><a href="/eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
-    <li><a href="/biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
-    <li><a href="/contato/" {{ if eq .Section "contato" }}class="active"{{ end }}>Contato</a></li>
+    <li><a href="{{ "/sobre/" | absURL }}" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
+    <li><a href="{{ "/pesquisa/" | absURL }}" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
+    <li><a href="{{ "/publicacoes/" | absURL }}" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
+    <li><a href="{{ "/eventos/" | absURL }}" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
+    <li><a href="{{ "/biblioteca/" | absURL }}" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
+    <li><a href="{{ "/contato/" | absURL }}" {{ if eq .Section "contato" }}class="active"{{ end }}>Contato</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-lang"><span>PT</span> | EN</div>
-    <a href="/contato/" class="nav-cta">↗ Contato</a>
+    <a href="{{ "/contato/" | absURL }}" class="nav-cta">↗ Contato</a>
     <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
       <div class="hamburger-icon"><span></span><span></span><span></span></div>
     </button>
@@ -26,14 +26,14 @@
 <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
   <div class="mobile-drawer-vline"></div>
   <ul class="mobile-drawer-links">
-    <li><a href="/sobre/">O Núcleo</a></li>
-    <li><a href="/pesquisa/">Pesquisa</a></li>
-    <li><a href="/publicacoes/">Produções</a></li>
-    <li><a href="/eventos/">Eventos</a></li>
-    <li><a href="/biblioteca/">Biblioteca</a></li>
+    <li><a href="{{ "/sobre/" | absURL }}">O Núcleo</a></li>
+    <li><a href="{{ "/pesquisa/" | absURL }}">Pesquisa</a></li>
+    <li><a href="{{ "/publicacoes/" | absURL }}">Produções</a></li>
+    <li><a href="{{ "/eventos/" | absURL }}">Eventos</a></li>
+    <li><a href="{{ "/biblioteca/" | absURL }}">Biblioteca</a></li>
   </ul>
   <div class="mobile-drawer-bottom">
     <div class="mobile-drawer-lang"><span>PT</span> | EN</div>
-    <a href="/contato/" class="mobile-drawer-cta">↗ Contato</a>
+    <a href="{{ "/contato/" | absURL }}" class="mobile-drawer-cta">↗ Contato</a>
   </div>
 </div>
