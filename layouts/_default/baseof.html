@@ -84,11 +84,11 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap"></noscript>
 
-  <!-- CSS principal -->
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- CSS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
+  <link rel="stylesheet" href="{{ "assets/css/main.css" | relURL }}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="{{ "assets/img/favicon.svg" | relURL }}">
 
   <!-- Sitemap -->
   {{ range .AlternativeOutputFormats -}}
@@ -106,7 +106,8 @@
 {{ partial "newsletter.html" . }}
 {{ partial "footer.html" . }}
 
-<script src="/assets/js/main.js"></script>
+<!-- JS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
+<script src="{{ "assets/js/main.js" | relURL }}"></script>
 {{ block "scripts" . }}{{ end }}
 
 </body>
