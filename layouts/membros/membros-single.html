@@ -22,7 +22,7 @@
     <div>
       {{ if .Params.foto }}
       <img
-        src="{{ .Params.foto | absURL }}"
+        src="{{ .Params.foto | relURL }}"
         alt="{{ .Title }}"
         width="240"
         height="280"
