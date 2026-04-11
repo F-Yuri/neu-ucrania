@@ -1,11 +1,10 @@
 ---
 title: "Guerra na Ucrânia: olhares não hegemônicos"
-autores: "RUSEISHVILI, S. (org.)"
+autores: "RUSEISHVILI, Svetlana (org.)"
 tipo: "livro"
-veiculo: "EdUFSCar"
+veiculo: "Editora da Universidade Federal de São Carlos (EdUFSCar)"
 ano: "2023"
+link: "https://edufscar.com.br/guerra-na-ucrania-olhares-nao-hegemonicos-506700965"
 featured: true
-description: "Coletânea organizada por Svetlana Ruseishvili reunindo análises sobre a guerra da Ucrânia a partir de perspectivas não hegemônicas."
+description: "Coletânea que reúne análises sobre a guerra da Ucrânia a partir de perspectivas não hegemônicas."
 ---
-
-Coletânea organizada por Svetlana Ruseishvili reunindo análises multidisciplinares sobre a guerra da Ucrânia.
