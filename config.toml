@@ -39,3 +39,5 @@ summaryLength = 30
 
 [minify]
   minifyOutput = true
+
+  # rebuild abril 2026
