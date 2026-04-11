@@ -15,22 +15,14 @@
   <div class="z1">
     <div class="section-label">Histórico</div>
     <h2 class="section-title">Como o NEU nasceu</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
-      O Núcleo de Estudos da Ucrânia (NEU) foi fundado em dezembro de 2024 no Departamento de Ciência Política da Universidade de São Paulo, em resposta à crescente necessidade de produção acadêmica qualificada sobre a Ucrânia no Brasil — um campo ainda pouco explorado na academia nacional.
-    </p>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
-      A iniciativa reuniu pesquisadores de múltiplas instituições brasileiras e europeias com trajetórias em Ciência Política, Relações Internacionais, Sociologia, Filosofia e Direitos Humanos, todos dedicados a produzir análises rigorosas sobre a Ucrânia a partir de perspectivas não hegemônicas.
-    </p>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;">
-      Em abril de 2025, o NEU teve seu primeiro projeto internacional aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies, em parceria com a National University of Kyiv-Mohyla Academy.
-    </p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">O Núcleo de Estudos da Ucrânia (NEU) foi fundado em dezembro de 2024 no Departamento de Ciência Política da Universidade de São Paulo, em resposta à crescente necessidade de produção acadêmica qualificada sobre a Ucrânia no Brasil — um campo ainda pouco explorado na academia nacional.</p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">A iniciativa reuniu pesquisadores de múltiplas instituições brasileiras e europeias com trajetórias em Ciência Política, Relações Internacionais, Sociologia, Filosofia e Direitos Humanos, todos dedicados a produzir análises rigorosas sobre a Ucrânia a partir de perspectivas não hegemônicas.</p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;">Em abril de 2025, o NEU teve seu primeiro projeto internacional aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies, em parceria com a National University of Kyiv-Mohyla Academy.</p>
   </div>
   <div class="z1">
     <div class="section-label">Missão</div>
     <h2 class="section-title">O que nos move</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">
-      Fortalecer a produção de conhecimento sobre a Ucrânia no Brasil — contribuindo para o debate acadêmico, a formação de pesquisadores e a compreensão pública de um conflito que redefine a ordem internacional.
-    </p>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">Fortalecer a produção de conhecimento sobre a Ucrânia no Brasil — contribuindo para o debate acadêmico, a formação de pesquisadores e a compreensão pública de um conflito que redefine a ordem internacional.</p>
     <div style="display:flex;flex-wrap:wrap;gap:8px;">
       <span class="theme-tag">Ciência Política</span>
       <span class="theme-tag">Relações Internacionais</span>
@@ -47,7 +39,6 @@
   <rect width="800" height="44" fill="url(#p3)"/>
 </svg>
 
-<!-- MEMBROS — cards clicáveis, foto grande -->
 <section id="membros" class="section-cream-dkk vtex" aria-labelledby="membros-title">
   <div style="position:relative;z-index:1;">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
@@ -63,7 +54,7 @@
       <a href="{{ .Permalink }}" style="text-decoration:none;display:block;background:var(--cream-dkk);transition:background 0.2s;" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='var(--cream-dkk)'">
         {{ if .Params.foto }}
         <img
-          src="{{ .Params.foto | absURL }}"
+          src="{{ .Params.foto | relURL }}"
           alt="{{ .Title }}"
           style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block;"
           loading="lazy"
@@ -81,7 +72,6 @@
       </a>
       {{ end }}
     </div>
-
   </div>
 </section>
 {{ end }}
