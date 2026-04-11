@@ -6,4 +6,6 @@ local: "Online"
 status: "realizado"
 ---
 
-Com Svetlana Ruseishvili (UFSCar) e Vicente Ferraro (FGV).
+Live de análise de conjuntura com apoio da Rede Emancipa Sem Fronteiras.
+
+**Com:** Svetlana Ruseishvili (UFSCar) e Vicente Ferraro (FGV).

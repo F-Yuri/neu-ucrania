@@ -2,15 +2,15 @@
 title: "Propaganda: Shaping narratives in times of war"
 data: "2025-05-05"
 tipo: "painel"
-local: "Universidade Centro-Europeia, Viena"
+local: "Universidade Centro-Europeia, Viena, Áustria"
 status: "realizado"
-video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-podcast: ""
-description: "Painel internacional sobre narrativas e propaganda em tempos de guerra."
+podcast: "https://ukraineworld.org/en/podcasts/ep-376"
 ---
 
-Painel internacional realizado na Universidade Centro-Europeia (CEU) em Viena, com a participação de pesquisadores ucranianos, europeus e brasileiros.
+Painel de discussão na Universidade Centro-Europeia em Viena, Áustria, sobre o conceito de propaganda com foco na propaganda russa contra a Ucrânia.
 
-**Participantes:** Volodymyr Yermolenko (Ukrainian Institute), Juliane Fürst (ZZF Potsdam), Ivan Marques (NEU/USP).
+**Participantes:** Volodymyr Yermolenko (Kyiv-Mohyla Academy), Juliane Fürst (Universidade de Potsdam), Teresa Marques (Universidade de Barcelona).
 
-O evento integra o projeto *Bridging Ukraine and Latin America* e foi realizado em parceria com o programa Lysiak-Rudnytsky Ukrainian Studies.
+**Moderação:** Fabio Lampert (Universidade de Viena).
+
+Disponível também em podcast.
