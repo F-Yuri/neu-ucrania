@@ -8,11 +8,11 @@
   </a>
   <ul class="nav-links">
     <li><a href="{{ "/sobre/" | relURL }}" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
+    <li><a href="{{ "/membros/" | relURL }}" {{ if eq .Section "membros" }}class="active"{{ end }}>Pesquisadores</a></li>
     <li><a href="{{ "/pesquisa/" | relURL }}" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
     <li><a href="{{ "/publicacoes/" | relURL }}" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
     <li><a href="{{ "/eventos/" | relURL }}" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
     <li><a href="{{ "/biblioteca/" | relURL }}" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
-    <li><a href="{{ "/contato/" | relURL }}" {{ if eq .Section "contato" }}class="active"{{ end }}>Contato</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-lang"><span>PT</span> | EN</div>
@@ -27,6 +27,7 @@
   <div class="mobile-drawer-vline"></div>
   <ul class="mobile-drawer-links">
     <li><a href="{{ "/sobre/" | relURL }}">O Núcleo</a></li>
+    <li><a href="{{ "/membros/" | relURL }}">Pesquisadores</a></li>
     <li><a href="{{ "/pesquisa/" | relURL }}">Pesquisa</a></li>
     <li><a href="{{ "/publicacoes/" | relURL }}">Produções</a></li>
     <li><a href="{{ "/eventos/" | relURL }}">Eventos</a></li>
