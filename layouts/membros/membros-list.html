@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div class="page-hero vtex-navy" style="background:var(--navy);padding:8rem 4rem 4rem;position:relative;overflow:hidden;">
   <div class="z1">
-    <div class="page-hero-label"><span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>O Núcleo</div>
-    <h1 class="page-hero-title">Sobre o <em>NEU</em></h1>
+    <div class="page-hero-label"><span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>Equipe</div>
+    <h1 class="page-hero-title">Pesquisadores do <em>NEU</em></h1>
   </div>
 </div>
 
@@ -11,67 +11,67 @@
   <rect width="800" height="44" fill="url(#p2)"/>
 </svg>
 
-<section class="section-cream vtex" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
-  <div class="z1">
-    <div class="section-label">Histórico</div>
-    <h2 class="section-title">Como o NEU nasceu</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">O Núcleo de Estudos da Ucrânia (NEU) foi fundado em dezembro de 2024 no Departamento de Ciência Política da Universidade de São Paulo, em resposta à crescente necessidade de produção acadêmica qualificada sobre a Ucrânia no Brasil — um campo ainda pouco explorado na academia nacional.</p>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">A iniciativa reuniu pesquisadores de múltiplas instituições brasileiras e europeias com trajetórias em Ciência Política, Relações Internacionais, Sociologia, Filosofia e Direitos Humanos, todos dedicados a produzir análises rigorosas sobre a Ucrânia a partir de perspectivas não hegemônicas.</p>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;">Em abril de 2025, o NEU teve seu primeiro projeto internacional aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies, em parceria com a National University of Kyiv-Mohyla Academy.</p>
-  </div>
-  <div class="z1">
-    <div class="section-label">Missão</div>
-    <h2 class="section-title">O que nos move</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">Fortalecer a produção de conhecimento sobre a Ucrânia no Brasil — contribuindo para o debate acadêmico, a formação de pesquisadores e a compreensão pública de um conflito que redefine a ordem internacional.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <span class="theme-tag">Ciência Política</span>
-      <span class="theme-tag">Relações Internacionais</span>
-      <span class="theme-tag">História</span>
-      <span class="theme-tag">Direitos Humanos</span>
-      <span class="theme-tag">Estudos de Migração</span>
-      <span class="theme-tag">Filosofia Política</span>
-    </div>
-  </div>
-</section>
+<section class="section-cream" style="padding:5rem 4rem;">
+  <div style="max-width:900px;margin:0 auto;">
 
-<svg width="100%" height="44" style="display:block;background:var(--cream-dkk)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><pattern id="p3" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.11"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/></g></pattern></defs>
-  <rect width="800" height="44" fill="url(#p3)"/>
-</svg>
+    {{ range .Pages }}
+    <article style="display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start;padding:3rem 0;border-bottom:1px solid rgba(11,25,41,0.10);">
 
-<section id="membros" class="section-cream-dkk vtex" aria-labelledby="membros-title">
-  <div style="position:relative;z-index:1;">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+      <!-- FOTO -->
       <div>
-        <div class="section-label">Equipe</div>
-        <h2 id="membros-title" class="section-title">Pesquisadores</h2>
-      </div>
-      <a href="{{ "/membros/" | relURL }}" class="link-arrow">Ver perfis completos →</a>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(11,25,41,0.09);border:1px solid rgba(11,25,41,0.11);">
-      {{ range (where .Site.RegularPages "Type" "membros") }}
-      <a href="{{ .Permalink }}" style="text-decoration:none;display:block;background:var(--cream-dkk);transition:background 0.2s;" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='var(--cream-dkk)'">
         {{ if .Params.foto }}
         <img
           src="{{ .Params.foto | relURL }}"
           alt="{{ .Title }}"
-          style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block;"
+          width="220"
+          height="260"
+          style="width:220px;height:260px;object-fit:cover;object-position:top center;display:block;border:1px solid rgba(11,25,41,0.08);"
           loading="lazy"
         >
         {{ else }}
-        <div style="width:100%;aspect-ratio:1/1;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:3rem;font-weight:600;color:var(--yellow);">
+        <div style="width:220px;height:260px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:4rem;font-weight:600;color:var(--yellow);">
           {{ .Params.sigla | upper }}
         </div>
         {{ end }}
-        <div style="padding:1.2rem 1.4rem;">
-          <div style="font-family:var(--display);font-size:1.05rem;font-weight:600;line-height:1.25;margin-bottom:4px;color:var(--navy);">{{ .Title }}</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">{{ .Params.instituicao }}</div>
-          <div style="font-size:12px;font-weight:300;color:var(--muted);line-height:1.5;">{{ .Params.area }}</div>
+      </div>
+
+      <!-- TEXTO -->
+      <div>
+        <h2 style="font-family:var(--display);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;line-height:1.1;">{{ .Title }}</h2>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--yellow-dk);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;">{{ .Params.instituicao }}</div>
+        <div style="height:2px;width:48px;background:var(--yellow);margin-bottom:1rem;"></div>
+        <div style="font-family:var(--body);font-size:13px;color:var(--muted);margin-bottom:1.5rem;font-style:italic;">{{ .Params.area }}</div>
+
+        {{ if .Content }}
+        <div style="font-family:var(--body);font-size:1rem;font-weight:300;color:#3a4a5c;line-height:1.85;">
+          {{ .Content }}
         </div>
-      </a>
-      {{ end }}
+        {{ end }}
+
+        {{ if .Params.link }}
+        <a href="{{ .Params.link }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.2rem;font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(11,25,41,0.25);padding-bottom:2px;">Currículo Lattes ↗</a>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+
+    <!-- CTA -->
+    <div style="margin-top:4rem;padding:2.5rem;background:var(--navy);text-align:center;position:relative;overflow:hidden;" class="vtex-navy">
+      <div class="z1">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;">Faça parte</div>
+        <h3 style="font-family:var(--display);font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:0.8rem;">Gostaria de integrar o NEU?</h3>
+        <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.55);margin-bottom:1.5rem;">Escreva para nós e saiba como participar.</p>
+        <a href="mailto:neucrania@gmail.com" style="display:inline-block;background:var(--yellow);color:var(--navy);font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:13px 28px;">neucrania@gmail.com</a>
+      </div>
     </div>
+
   </div>
 </section>
+
+<style>
+@media (max-width: 640px) {
+  article { grid-template-columns: 1fr !important; }
+  article img, article > div:first-child > div { width: 100% !important; height: 240px !important; }
+}
+</style>
 {{ end }}
