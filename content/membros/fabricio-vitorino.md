@@ -3,7 +3,9 @@ title: "Fabrício Vitorino"
 sigla: "FV"
 instituicao: "UFSC / NEU"
 area: "Soberania, desinformação, guerra da informação, Leste Europeu, estratégias digitais"
+foto: "/neu-ucrania/assets/img/fabricio-vitorino.jpg"
 ---
+
 Jornalista e doutorando em Relações Internacionais pela UFSC, onde pesquisa soberania e controle da informação no espaço pós-soviético, com foco em Ucrânia, Rússia, Moldávia e Transnístria. Mestre em Literatura e Cultura Russa (USP, 2014). Graduado em Letras Português-Russo (UFRJ) e Jornalismo (UFF), com especialização linguística na Rússia (MGU) e Master em Estratégias Digitais para Empresas de Mídia (ISE Business School, 2023).
 
 Pesquisador do Núcleo de Pesquisa em Política Internacional, Segurança e Defesa (NPSeD/UFSC) e do Núcleo de Estudos da Ucrânia (NEU/UFSC). Realizou pesquisa de campo na Ucrânia e Moldávia (out/2025), com visitas a organizações jornalísticas e ONGs e aulas em duas universidades. Foi professor substituto de Língua e Literatura Russa na UFRJ.
