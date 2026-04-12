@@ -1,7 +1,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <a href="/" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
+      <a href="{{ .Site.BaseURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
         <div class="nav-logo-mark">NEU</div>
         <div>
           <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
@@ -14,26 +14,26 @@
     <div>
       <div class="footer-col-title">O Núcleo</div>
       <ul class="footer-links">
-        <li><a href="/sobre/">Sobre o NEU</a></li>
-        <li><a href="/membros/">Pesquisadores</a></li>
-        <li><a href="/contato/">Contato</a></li>
+        <li><a href="{{ .Site.BaseURL }}sobre/">Sobre o NEU</a></li>
+        <li><a href="{{ .Site.BaseURL }}membros/">Pesquisadores</a></li>
+        <li><a href="{{ .Site.BaseURL }}contato/">Contato</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Pesquisa</div>
       <ul class="footer-links">
-        <li><a href="/pesquisa/">Linhas de pesquisa</a></li>
-        <li><a href="/pesquisa/#bridging">Bridging Ukraine</a></li>
-        <li><a href="/publicacoes/">Publicações</a></li>
-        <li><a href="/biblioteca/">Biblioteca</a></li>
+        <li><a href="{{ .Site.BaseURL }}pesquisa/">Linhas de pesquisa</a></li>
+        <li><a href="{{ .Site.BaseURL }}pesquisa/#bridging">Bridging Ukraine</a></li>
+        <li><a href="{{ .Site.BaseURL }}publicacoes/">Publicações</a></li>
+        <li><a href="{{ .Site.BaseURL }}biblioteca/">Biblioteca</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Acesso rápido</div>
       <ul class="footer-links">
-        <li><a href="/eventos/">Eventos</a></li>
-        <li><a href="/publicacoes/?tipo=midia">Artigos na mídia</a></li>
-        <li><a href="/contato/#newsletter">Newsletter</a></li>
+        <li><a href="{{ .Site.BaseURL }}eventos/">Eventos</a></li>
+        <li><a href="{{ .Site.BaseURL }}publicacoes/?tipo=midia">Artigos na mídia</a></li>
+        <li><a href="{{ .Site.BaseURL }}contato/#newsletter">Newsletter</a></li>
       </ul>
     </div>
   </div>
