@@ -1,5 +1,4 @@
 baseURL = "https://f-yuri.github.io/neu-ucrania/"
-canonifyURLs = true
 languageCode = "pt-BR"
 title = "NEU — Núcleo de Estudos da Ucrânia"
 enableRobotsTXT = true
