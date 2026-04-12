@@ -6,4 +6,4 @@ local: "Cedec, São Paulo"
 status: "proximo"
 ---
 
-Conferência com o Prof. Serge Yosypenko, do Instituto de Filosofia da Academia de Ciências de Kiev, no âmbito do Centro de Estudos de Cultura Contemporânea (Cedec).
+Conferência com o Prof. Serge Yosypenko, do Instituto de Filosofia da Academia de Ciências de Kyiv, no âmbito do Centro de Estudos de Cultura Contemporânea (Cedec).
