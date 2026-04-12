@@ -15,8 +15,8 @@
     <div class="hero-bottom">
       <p class="hero-desc">{{ .Site.Params.description }}</p>
       <div class="hero-actions">
-        <a href="/sobre/" class="btn-yellow">Conheça o NEU <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h10M6 1l5 5-5 5"/></svg></a>
-        <a href="/publicacoes/" class="btn-ghost-light">Ver publicações</a>
+        <a href="{{ "/sobre/" | relURL }}" class="btn-yellow">Conheça o NEU <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h10M6 1l5 5-5 5"/></svg></a>
+        <a href="{{ "/publicacoes/" | relURL }}" class="btn-ghost-light">Ver publicações</a>
       </div>
     </div>
   </div>
@@ -90,7 +90,7 @@
       <div class="section-label on-navy">Produções recentes</div>
       <h2 id="pub-title" class="section-title on-navy">Pesquisa do NEU</h2>
     </div>
-    <a href="/publicacoes/" class="link-arrow-light" style="position:relative;z-index:1;">Ver todas →</a>
+    <a href="{{ "/publicacoes/" | relURL }}" class="link-arrow-light" style="position:relative;z-index:1;">Ver todas →</a>
   </div>
   {{ $pubs := where .Site.RegularPages "Type" "publicacoes" }}
   {{ if $pubs }}
@@ -108,12 +108,12 @@
   </div>
   {{ else }}
   <div class="card-grid-3" style="margin-bottom:2.5rem;position:relative;z-index:1;">
-    <article class="pub-card featured" data-tipo="livro"><div class="pub-type">◆ Livro</div><h3 class="pub-title"><em>Guerra na Ucrânia: olhares não hegemônicos</em></h3><div class="pub-meta"><span>RUSEISHVILI, S. (org.) — EdUFSCar, 2023</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Why Russia invaded Ukraine and how wars benefit autocrats</h3><div class="pub-meta"><span>FERRARO, V. — IPSR, 2024</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="midia"><div class="pub-type">◆ Artigo na mídia</div><h3 class="pub-title">Jornalismo na frente russa</h3><div class="pub-meta"><span>OSTRENSKY et al. — FSP, 2024</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">What is this thing called peace?</h3><div class="pub-meta"><span>LAMPERT, F. — Studia Phil. Est., 2024</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Ucrânia: política partidária, a esquerda e Zelensky</h3><div class="pub-meta"><span>BARRETO, M. — Semina, 2024</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Mobilidades forçadas: impactos da guerra da Ucrânia no refúgio</h3><div class="pub-meta"><span>VITCHMICHEN, H.S. — 2024</span><a href="/publicacoes/" class="pub-link">→</a></div></article>
+    <article class="pub-card featured" data-tipo="livro"><div class="pub-type">◆ Livro</div><h3 class="pub-title"><em>Guerra na Ucrânia: olhares não hegemônicos</em></h3><div class="pub-meta"><span>RUSEISHVILI, S. (org.) — EdUFSCar, 2023</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
+    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Why Russia invaded Ukraine and how wars benefit autocrats</h3><div class="pub-meta"><span>FERRARO, V. — IPSR, 2024</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
+    <article class="pub-card" data-tipo="midia"><div class="pub-type">◆ Artigo na mídia</div><h3 class="pub-title">Jornalismo na frente russa</h3><div class="pub-meta"><span>OSTRENSKY et al. — FSP, 2024</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
+    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">What is this thing called peace?</h3><div class="pub-meta"><span>LAMPERT, F. — Studia Phil. Est., 2024</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
+    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Ucrânia: política partidária, a esquerda e Zelensky</h3><div class="pub-meta"><span>BARRETO, M. — Semina, 2024</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
+    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Artigo acadêmico</div><h3 class="pub-title">Mobilidades forçadas: impactos da guerra da Ucrânia no refúgio</h3><div class="pub-meta"><span>VITCHMICHEN, H.S. — 2024</span><a href="{{ "/publicacoes/" | relURL }}" class="pub-link">→</a></div></article>
   </div>
   {{ end }}
 </section>
@@ -134,7 +134,7 @@
       <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Cedec</span>
       <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">ANPOCS</span>
     </div>
-    <a href="/pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
+    <a href="{{ "/pesquisa/#bridging" | relURL }}" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
   </div>
 </div>
 
@@ -146,7 +146,7 @@
       <div class="section-label">Agenda</div>
       <h2 id="eventos-title" class="section-title">Eventos recentes</h2>
     </div>
-    <a href="/eventos/" class="link-arrow">Ver todos →</a>
+    <a href="{{ "/eventos/" | relURL }}" class="link-arrow">Ver todos →</a>
   </div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:1px;background:rgba(11,25,41,0.08);border:1px solid rgba(11,25,41,0.1);position:relative;z-index:1;">
     <div style="display:flex;flex-direction:column;gap:1px;background:rgba(11,25,41,0.08);">
@@ -175,7 +175,7 @@
         <h3 style="font-family:var(--display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2025</h3>
         <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Colóquio na USP, sessão especial no 49º Encontro da ANPOCS e conferência com o Prof. Serge Yosypenko (Academia de Ciências de Kiev).</p>
       </div>
-      <a href="/eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
+      <a href="{{ "/eventos/" | relURL }}" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
     </div>
   </div>
 </section>
