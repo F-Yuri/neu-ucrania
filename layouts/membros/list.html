@@ -17,27 +17,33 @@
     {{ range .Pages }}
     <article style="display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start;padding:3rem 0;border-bottom:1px solid rgba(11,25,41,0.10);">
 
-      <!-- FOTO -->
+      <!-- FOTO clicável -->
       <div>
         {{ if .Params.foto }}
-        <img
-          src="{{ .Params.foto | relURL }}"
-          alt="{{ .Title }}"
-          width="220"
-          height="260"
-          style="width:220px;height:260px;object-fit:cover;object-position:top center;display:block;border:1px solid rgba(11,25,41,0.08);"
-          loading="lazy"
-        >
+        <a href="{{ .Permalink }}">
+          <img
+            src="{{ .Params.foto | relURL }}"
+            alt="{{ .Title }}"
+            width="220"
+            height="260"
+            style="width:220px;height:260px;object-fit:cover;object-position:top center;display:block;border:1px solid rgba(11,25,41,0.08);"
+            loading="lazy"
+          >
+        </a>
         {{ else }}
-        <div style="width:220px;height:260px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:4rem;font-weight:600;color:var(--yellow);">
-          {{ .Params.sigla | upper }}
-        </div>
+        <a href="{{ .Permalink }}" style="text-decoration:none;">
+          <div style="width:220px;height:260px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:4rem;font-weight:600;color:var(--yellow);">
+            {{ .Params.sigla | upper }}
+          </div>
+        </a>
         {{ end }}
       </div>
 
       <!-- TEXTO -->
       <div>
-        <h2 style="font-family:var(--display);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;line-height:1.1;">{{ .Title }}</h2>
+        <h2 style="font-family:var(--display);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;line-height:1.1;">
+          <a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a>
+        </h2>
         <div style="font-family:var(--mono);font-size:11px;color:var(--yellow-dk);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;">{{ .Params.instituicao }}</div>
         <div style="height:2px;width:48px;background:var(--yellow);margin-bottom:1rem;"></div>
         <div style="font-family:var(--body);font-size:13px;color:var(--muted);margin-bottom:1.5rem;font-style:italic;">{{ .Params.area }}</div>
@@ -51,6 +57,8 @@
         {{ if .Params.link }}
         <a href="{{ .Params.link }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.2rem;font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(11,25,41,0.25);padding-bottom:2px;">Currículo Lattes ↗</a>
         {{ end }}
+
+        <a href="{{ .Permalink }}" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.2rem;margin-left:1rem;font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(11,25,41,0.15);padding-bottom:2px;">Ver perfil completo →</a>
       </div>
     </article>
     {{ end }}
