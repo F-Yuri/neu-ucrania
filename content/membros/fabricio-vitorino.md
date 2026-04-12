@@ -1,7 +1,7 @@
 ---
 title: "Fabrício Vitorino"
 sigla: "FV"
-instituicao: "UFSC / NEU"
+instituicao: "Programa de Pós-Graduação em Relações Internacionais - UFSC"
 area: "Soberania, desinformação, guerra da informação, Leste Europeu, estratégias digitais"
 foto: "assets/img/fabricio-vitorino.jpg"
 ---
