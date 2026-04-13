@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEUv2 — main.js
+   NEU — main.js
 ═══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
 
