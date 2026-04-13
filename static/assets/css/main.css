@@ -343,3 +343,9 @@ body { font-size: 1.05rem; }
     padding-bottom: 2rem !important;
   }
 }
+.mobile-drawer {
+  background: red !important;
+  transform: none !important;
+  visibility: visible !important;
+  display: flex !important;
+}
