@@ -21,9 +21,10 @@ function closeMenu() {
   btn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
-    btn.addEventListener('click', () => {
-      navEl.classList.contains('nav-open') ? closeMenu() : openMenu();
-    });
+    btn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  drawer.classList.contains('drawer-open') ? closeMenu() : openMenu();
+});
     drawer.addEventListener('click', (e) => { if (e.target === drawer) closeMenu(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
