@@ -328,3 +328,19 @@ body { font-size: 1.05rem; }
     gap: 2rem !important;
   }
 }
+
+/* ── MOBILE DRAWER ── */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--navy);
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+.nav-open .mobile-drawer,
+.mobile-drawer[aria-hidden="false"] {
+  display: flex;
+}
