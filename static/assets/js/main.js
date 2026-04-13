@@ -12,17 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btn && navEl && drawer) {
     function openMenu() {
-      navEl.classList.add('nav-open');
-      btn.setAttribute('aria-expanded', 'true');
-      drawer.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-      navEl.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded', 'false');
-      drawer.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
+  drawer.classList.add('drawer-open');
+  btn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  drawer.classList.remove('drawer-open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
     btn.addEventListener('click', () => {
       navEl.classList.contains('nav-open') ? closeMenu() : openMenu();
     });
