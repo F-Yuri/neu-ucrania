@@ -105,7 +105,7 @@ nav {
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.mobile-drawer[aria-hidden="false"] { transform: translateX(0); }
+.mobile-drawer[aria-hidden="false"] { transform: translateX(0); display: flex; }
 .mobile-drawer-links { list-style: none; display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 0.5rem; }
 .mobile-drawer-links li { border-bottom: 1px solid rgba(255,255,255,0.07); }
 .mobile-drawer-links a { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: #fff; text-decoration: none; transition: color 0.2s; }
@@ -237,7 +237,6 @@ footer { background: #070E1A; padding: 4rem 4rem 2rem; border-top: 1px solid rgb
   .nav-lang  { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
-  .mobile-drawer { display: flex; }
 
   .page-hero { padding: 7rem 1.8rem 3rem; }
   .section-cream, .section-cream-dk, .section-cream-dkk, .section-navy,
@@ -263,7 +262,7 @@ footer { background: #070E1A; padding: 4rem 4rem 2rem; border-top: 1px solid rgb
   .nav-logo-sub  { display: none; }
   .nav-cta       { display: none; }
 
-  .page-hero { padding: 5.5rem 1.2rem 2.5rem; }
+  .page-hero { padding: 5.5rem 1.2rem 2rem; }
   .page-hero-title { font-size: 2.4rem; }
   .section-cream, .section-cream-dk, .section-cream-dkk, .section-navy,
   footer { padding-left: 1.2rem; padding-right: 1.2rem; }
@@ -282,6 +281,10 @@ footer { background: #070E1A; padding: 4rem 4rem 2rem; border-top: 1px solid rgb
 
   .stat-number { font-size: 3rem; }
   .stat-card   { padding: 1.8rem 1.4rem; }
+
+  /* hero compacto no mobile */
+  .hero-actions { flex-direction: column; width: 100%; }
+  .btn-yellow, .btn-ghost-light { width: 100%; justify-content: center; }
 }
 
 /* ── ESCALA TIPOGRÁFICA +20% ── */
@@ -316,7 +319,7 @@ body { font-size: 1.05rem; }
 .stat-label    { font-size: 13px; }
 .num-label     { font-size: 13px; }
 
-/* ── MOBILE: empilha todos os grids ── */
+/* ── MOBILE: empilha todos os grids inline ── */
 @media (max-width: 768px) {
   [style*="grid-template-columns"] {
     grid-template-columns: 1fr !important;
@@ -327,3 +330,8 @@ body { font-size: 1.05rem; }
   [style*="gap:6rem"] {
     gap: 2rem !important;
   }
+  [style*="padding:8rem"] {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
