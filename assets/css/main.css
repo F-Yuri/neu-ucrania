@@ -337,10 +337,7 @@ body { font-size: 1.05rem; }
 }
 
 @media (max-width: 560px) {
-  .hero-bar {
+  .hero-bar[style] {
     padding-bottom: 2rem !important;
-  }
-  .hero-bottom {
-    margin-top: 0 !important;
   }
 }
