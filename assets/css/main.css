@@ -335,3 +335,12 @@ body { font-size: 1.05rem; }
     padding-bottom: 2rem !important;
   }
 }
+
+@media (max-width: 560px) {
+  .hero-bar {
+    padding-bottom: 2rem !important;
+  }
+  .hero-bottom {
+    margin-top: 0 !important;
+  }
+}
