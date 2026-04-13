@@ -1,7 +1,6 @@
 baseURL = "https://f-yuri.github.io/neu-ucrania/"
 languageCode = "pt-BR"
-title = "NEU — Núcleo de Estudos da Ucrânia"
-enableRobotsTXT = true
+title = "NEU — Pesquisa sobre a Ucrânia no Brasil | USP"enableRobotsTXT = true
 enableGitInfo = false
 
 # Gera sumários automáticos
