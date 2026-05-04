@@ -5,10 +5,22 @@
     <p class="newsletter-sub">Publicações, eventos e análises sobre a Ucrânia diretamente no seu email.</p>
   </div>
   <div>
-    <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" action="/obrigado/">
-      <input type="hidden" name="form-name" value="newsletter">
+    <form class="newsletter-form" name="newsletter" onsubmit="neuNewsletterSubmit(event)">
       <input class="newsletter-input" type="email" name="email" placeholder="seu@email.com.br" required>
       <button class="newsletter-btn" type="submit">Inscrever-se</button>
     </form>
+    <p id="neu-newsletter-msg" style="display:none;margin-top:1rem;font-family:var(--body);font-size:13px;color:rgba(255,255,255,0.7);border-left:2px solid var(--yellow);padding-left:12px;">
+      Inscrições temporariamente indisponíveis. Em breve voltamos com novidades!
+    </p>
   </div>
 </div>
+
+<script>
+function neuNewsletterSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var msg = document.getElementById('neu-newsletter-msg');
+  form.style.display = 'none';
+  msg.style.display = 'block';
+}
+</script>
