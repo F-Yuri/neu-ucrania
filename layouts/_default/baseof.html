@@ -85,11 +85,9 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap"></noscript>
 
   <!-- CSS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-  <link rel="stylesheet" href="{{ "assets/css/main.css" | relURL }}">
-
+<link rel="stylesheet" href="{{ "assets/css/main.css" | absURL }}">
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="{{ "assets/img/favicon.svg" | relURL }}">
-
+<link rel="icon" type="image/svg+xml" href="{{ "assets/img/favicon.svg" | absURL }}">
   <!-- Sitemap -->
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
@@ -107,8 +105,7 @@
 {{ partial "footer.html" . }}
 
 <!-- JS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-<script src="{{ "assets/js/main.js" | relURL }}"></script>
-{{ block "scripts" . }}{{ end }}
+<script src="{{ "assets/js/main.js" | absURL }}"></script>
 
 </body>
 </html>
