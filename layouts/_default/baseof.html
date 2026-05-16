@@ -59,24 +59,30 @@
     "url": "{{ .Params.link }}"{{ end }}
   }
   </script>
-  {{ else if eq .Type "eventos" }}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "{{ .Title }}",
-    "startDate": "{{ .Params.data }}",
-    "location": {
-      "@type": "Place",
-      "name": "{{ .Params.local }}"
-    },
-    "organizer": {
-      "@type": "ResearchOrganization",
-      "name": "Núcleo de Estudos da Ucrânia — USP"
-    }
+ {{ else if eq .Type "eventos" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ .Title }}",
+  "startDate": "{{ .Params.data }}",
+  "endDate": "{{ .Params.data }}",
+  "eventStatus": "https://schema.org/{{ if eq .Params.status "cancelado" }}EventCancelled{{ else if eq .Params.status "proximo" }}EventScheduled{{ else }}EventScheduled{{ end }}",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "{{ .Params.local | default "A confirmar" }}",
+    "address": "{{ .Params.local | default "A confirmar" }}"
+  },
+  "description": "{{ .Summary }}",
+  "organizer": {
+    "@type": "Organization",
+    "name": "Núcleo de Estudos da Ucrânia — USP",
+    "url": "{{ .Site.BaseURL }}"
   }
-  </script>
-  {{ end }}
+}
+</script>
+{{ end }}
 
   <!-- Preconnect para fontes (performance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
