@@ -59,7 +59,7 @@
     "url": "{{ .Params.link }}"{{ end }}
   }
   </script>
- {{ else if eq .Type "eventos" }}
+ {{ else if and (eq .Type "eventos") .IsPage }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
