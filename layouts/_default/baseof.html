@@ -65,8 +65,8 @@
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "{{ .Title }}",
-  "startDate": "{{ .Params.data }}",
-  "endDate": "{{ .Params.data }}",
+  {{ with .Params.data }}"startDate": "{{ . }}T00:00:00",
+"endDate": "{{ . }}T00:00:00",{{ end }}
   "eventStatus": "https://schema.org/{{ if eq .Params.status "cancelado" }}EventCancelled{{ else if eq .Params.status "proximo" }}EventScheduled{{ else }}EventScheduled{{ end }}",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
