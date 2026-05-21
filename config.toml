@@ -16,9 +16,6 @@ summaryLength = 30
   instagram = ""
 
 [taxonomies]
-  tipo = "tipos"
-  tema = "temas"
-  autor = "autores"
 
 [outputs]
   home = ["HTML"]
