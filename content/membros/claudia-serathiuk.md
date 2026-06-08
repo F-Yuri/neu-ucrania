@@ -1,7 +1,7 @@
 ---
 title: "Cláudia Serathiuk"
 sigla: "CS"
-instituicao: "Humanitas Brasil-Ucrânia"
+instituicao: ""
 area: "Subjetividade e violência, sofrimento psíquico em situações extremas, guerra"
 foto: "assets/img/Claudia-Serathiuk.jpg"
 ---
