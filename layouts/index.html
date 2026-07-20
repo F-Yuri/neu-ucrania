@@ -47,6 +47,25 @@
   <rect width="800" height="44" fill="url(#p2)"/>
 </svg>
 
+<!-- DESTAQUE EVENTO -->
+{{ $destaque := first 1 (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) }}
+{{ range $destaque }}
+<section style="background:var(--navy);padding:0;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
+    <div style="overflow:hidden;">
+      <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div style="padding:4rem;display:flex;flex-direction:column;justify-content:center;">
+      <div class="section-label on-navy" style="margin-bottom:1rem;">Evento em destaque</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
+      <h2 style="font-family:var(--display);font-size:1.8rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1.2rem;">{{ .Title }}</h2>
+      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;">{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="btn-yellow" style="align-self:flex-start;">Ver cobertura completa →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
 <!-- MISSION + STATS -->
 <section class="section-cream vtex" aria-labelledby="mission-title" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
   <div class="z1">
@@ -156,7 +175,7 @@
         <article class="event-card">
           <div class="event-date-block">
             <div class="event-day">{{ .Params.data | time.Format "02" }}</div>
-            <div class="event-month">{{ .Params.data | time.Format "Jan 2006" }}</div>
+            <div class="event-month">{{ .Params.data | time.Format "Jan 2026" }}</div>
           </div>
           <div>
             <div class="event-type">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
@@ -173,8 +192,8 @@
     </div>
     <div class="vtex-navy" style="background:var(--navy);padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
       <div>
-        <h3 style="font-family:var(--display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2025</h3>
-        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Colóquio na USP, sessão especial no 49º Encontro da ANPOCS e conferência com o Prof. Serge Yosypenko (Academia de Ciências de Kyiv).</p>
+        <h3 style="font-family:var(--display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2026</h3>
+        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Acompanhe a agenda do NEU para os próximos meses.</p>
       </div>
       <a href="{{ .Site.BaseURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
     </div>
