@@ -1,5 +1,4 @@
-{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.destaque_ordem" }}{{ define "main" }}
-
+{{ define "main" }}
 <!-- HERO -->
 <div class="hero-bar vtex-navy" style="background:var(--navy);padding:8rem 4rem 4.5rem;position:relative;overflow:hidden;">
   <div class="z1">
@@ -48,7 +47,7 @@
 </svg>
 
 <!-- DESTAQUE EVENTO -->
-{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.destaque_ordem" }}
+{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.data" "asc" }}
 {{ $principal := first 1 $destaques }}
 {{ $secundarios := first 2 (after 1 $destaques) }}
 
@@ -62,7 +61,31 @@
       <div class="section-label on-navy" style="margin-bottom:1rem;">Evento em destaque</div>
       <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
       <h2 style="font-family:var(--display);font-size:1.8rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1.2rem;">{{ .Title }}</h2>
-      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-heigh
+      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;">{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="btn-yellow" style="align-self:flex-start;">Ver cobertura completa →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ if $secundarios }}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(11,25,41,0.15);">
+  {{ range $secundarios }}
+  <article style="background:var(--navy);padding:2.5rem 3rem;display:flex;gap:2rem;align-items:flex-start;">
+    {{ if .Params.foto }}
+    <div style="width:100px;min-width:100px;height:70px;overflow:hidden;flex-shrink:0;">
+      <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    {{ end }}
+    <div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;opacity:0.7;">◆ {{ .Params.tipo | title }}</div>
+      <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:0.6rem;"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
+      <a href="{{ .Permalink }}" style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.1em;">Ver cobertura →</a>
+    </div>
+  </article>
+  {{ end }}
+</div>
+{{ end }}
 
 <!-- MISSION + STATS -->
 <section class="section-cream vtex" aria-labelledby="mission-title" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
