@@ -1,11 +1,12 @@
 
 ---
 title: "Painel em Conferência do NEU discute papel da Ucrânia e do Brasil na construção de nova ordem internacional"
-tipo: "midia"
-autores: "NEU/USP"
-veiculo: "NEU — Núcleo de Estudos da Ucrânia"
-ano: "2026"
-imagem: "/assets/img/coloquio-usp-2026/painel_luciano_marina_conferencia_neu_SP.jpg"
+data: "2026-05-13"
+tipo: "painel"
+local: "Centro Universitário Maria Antonia — USP, São Paulo"
+status: "realizado"
+destaque: false
+foto: "assets/img/coloquio-usp-2026/painel_luciano_marina_conferencia_neu_SP.jpg"
 ---
 Promovido pelo Núcleo de Estudos Ucranianos (NEU), o painel "A costura de um novo mundo e o papel da Ucrânia e do Brasil" reuniu especialistas de diferentes instituições para discutir os impactos da guerra na Ucrânia sobre as relações internacionais, a política externa, a segurança informacional e as transformações da ordem global.
 
