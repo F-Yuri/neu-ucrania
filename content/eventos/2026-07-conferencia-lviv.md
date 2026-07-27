@@ -2,6 +2,7 @@
 ---
 title: "1ª Conferência Internacional de Estudos Ucranianos — Ukraine in the World"
 data: "2026-07-08"
+date: "2026-07-08"
 tipo: "conferência internacional"
 local: "Universidade Católica Ucraniana, Lviv"
 status: "realizado"
