@@ -6,6 +6,7 @@ tipo: "painel"
 local: "Centro Universitário Maria Antonia — USP, São Paulo"
 status: "realizado"
 destaque: true
+destaque_ordem: 3
 foto: "assets/img/coloquio-usp-2026/painel_luciano_marina_conferencia_neu_SP.jpg"
 ---
 Promovido pelo Núcleo de Estudos Ucranianos (NEU), o painel "A costura de um novo mundo e o papel da Ucrânia e do Brasil" reuniu especialistas de diferentes instituições para discutir os impactos da guerra na Ucrânia sobre as relações internacionais, a política externa, a segurança informacional e as transformações da ordem global.
