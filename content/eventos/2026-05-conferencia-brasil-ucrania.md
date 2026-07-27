@@ -6,6 +6,7 @@ tipo: "conferência internacional"
 local: "Centro Universitário Maria Antonia — USP, São Paulo"
 status: "realizado"
 destaque: true
+destaque_ordem: 1
 foto: "assets/img/coloquio-usp-2026/conferencia_ucrania_SP_15.jpg"
 galeria:
   - foto: "/assets/img/coloquio-usp-2026/conferencia_ucrania_SP_00.jpg"
