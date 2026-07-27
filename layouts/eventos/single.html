@@ -31,7 +31,7 @@
   <rect width="800" height="44" fill="url(#p2)"/>
 </svg>
 
-{{ if and .Params.foto (not .Params.galeria) }}
+{{ if .Params.foto }}
 <div style="max-width:860px;margin:3rem auto 0;padding:0 4rem;">
   <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;display:block;border-radius:2px;">
 </div>
