@@ -2,6 +2,7 @@
 ---
 title: "Painel em Conferência do NEU discute papel da Ucrânia e do Brasil na construção de nova ordem internacional"
 data: "2026-05-13"
+date: "2026-05-13"
 tipo: "painel"
 local: "Centro Universitário Maria Antonia — USP, São Paulo"
 status: "realizado"
