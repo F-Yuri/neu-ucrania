@@ -46,10 +46,9 @@
   <rect width="800" height="44" fill="url(#p2)"/>
 </svg>
 
-<!-- DESTAQUE EVENTO -->
-{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Date" "asc" }}
-{{ $principal := first 1 $destaques }}
-{{ $secundarios := first 2 (after 1 $destaques) }}
+{{ $destaques := where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true }}
+{{ $principal := where $destaques "Params.destaque_ordem" 1 }}
+{{ $secundarios := where $destaques "Params.destaque_ordem" "in" (slice 2 3) }}
 
 {{ range $principal }}
 <section style="background:var(--navy);padding:0;">
