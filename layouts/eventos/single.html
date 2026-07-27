@@ -13,7 +13,7 @@
     <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;opacity:0.8;">
       ◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}
     </div>
-    <h1 class="page-hero-title">{{ .Title }}</h1>
+    <h1 class="page-hero-title" style="font-size:clamp(1.8rem,3.5vw,3.5rem);line-height:1.1;">{{ .Title }}</h1>
     {{ if .Params.data }}
     <p style="color:rgba(255,255,255,0.4);margin-top:1.2rem;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;">
       {{ .Params.data | time.Format "02 de January de 2006" }}
@@ -30,6 +30,12 @@
   <defs><pattern id="p2" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.14"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/></g></pattern></defs>
   <rect width="800" height="44" fill="url(#p2)"/>
 </svg>
+
+{{ if and .Params.foto (not .Params.galeria) }}
+<div style="max-width:860px;margin:3rem auto 0;padding:0 4rem;">
+  <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;display:block;border-radius:2px;">
+</div>
+{{ end }}
 
 <!-- CONTEÚDO -->
 <div style="max-width:860px;margin:0 auto;padding:5rem 4rem;">
