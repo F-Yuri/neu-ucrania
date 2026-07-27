@@ -48,8 +48,11 @@
 </svg>
 
 <!-- DESTAQUE EVENTO -->
-{{ $destaque := first 1 (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) }}
-{{ range $destaque }}
+{{ $destaques := where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true }}
+{{ $principal := first 1 $destaques }}
+{{ $secundarios := first 2 (after 1 $destaques) }}
+
+{{ range $principal }}
 <section style="background:var(--navy);padding:0;">
   <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
     <div style="overflow:hidden;">
@@ -59,12 +62,7 @@
       <div class="section-label on-navy" style="margin-bottom:1rem;">Evento em destaque</div>
       <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
       <h2 style="font-family:var(--display);font-size:1.8rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1.2rem;">{{ .Title }}</h2>
-      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;">{{ .Summary }}</p>
-      <a href="{{ .Permalink }}" class="btn-yellow" style="align-self:flex-start;">Ver cobertura completa →</a>
-    </div>
-  </div>
-</section>
-{{ end }}
+      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-heigh
 
 <!-- MISSION + STATS -->
 <section class="section-cream vtex" aria-labelledby="mission-title" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
