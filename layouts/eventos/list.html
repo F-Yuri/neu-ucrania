@@ -1,4 +1,4 @@
-{{ $destaques := where .Pages "Params.destaque" true }}
+{{ $destaques := sort (where .Pages "Params.destaque" true) "Params.destaque_ordem" }}
 {{ $principal := first 1 $destaques }}
 {{ $secundarios := first 2 (after 1 $destaques) }}
 
