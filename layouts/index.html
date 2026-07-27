@@ -47,7 +47,7 @@
 </svg>
 
 <!-- DESTAQUE EVENTO -->
-{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.data" "asc" }}
+{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Date" "asc" }}
 {{ $principal := first 1 $destaques }}
 {{ $secundarios := first 2 (after 1 $destaques) }}
 
