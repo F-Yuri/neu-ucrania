@@ -1,4 +1,6 @@
-{{ $destaques := sort (where .Pages "Params.destaque" true) "Params.destaque_ordem" }}
+{{ define "main" }}
+
+{{ $destaques := sort (where .Pages "Params.destaque" true) "Params.data" "asc" }}
 {{ $principal := first 1 $destaques }}
 {{ $secundarios := first 2 (after 1 $destaques) }}
 
@@ -27,35 +29,4 @@
     </div>
     {{ end }}
     <div>
-      <div style="font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;opacity:0.7;">◆ {{ .Params.tipo | title }}</div>
-      <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:0.6rem;"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-      <a href="{{ .Permalink }}" style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.1em;">Ver cobertura →</a>
-    </div>
-  </article>
-  {{ end }}
-</div>
-{{ end }}
-
-<section class="section-cream vtex" aria-labelledby="realizados-title">
-  <div style="position:relative;z-index:1;">
-    <div class="section-label">Realizados</div>
-    <h2 id="realizados-title" class="section-title" style="margin-bottom:2.5rem;">Eventos anteriores</h2>
-    <div style="display:flex;flex-direction:column;gap:1px;background:rgba(11,25,41,0.08);border:1px solid rgba(11,25,41,0.1);">
-      {{ range $realizados }}
-      <article class="event-card">
-        <div class="event-date-block">
-          <div class="event-day">{{ .Params.data | time.Format "02" }}</div>
-          <div class="event-month">{{ .Params.data | time.Format "Jan 2006" }}</div>
-        </div>
-        <div>
-          <div class="event-type">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
-          <h3 class="event-title"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-          <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--navy);">Vídeo disponível ↗</a>{{ end }}</div>
-        </div>
-      </article>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-{{ end }}
+      <div style="font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-b
