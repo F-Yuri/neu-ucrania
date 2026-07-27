@@ -50,6 +50,12 @@
 {{ $principal := where $destaques "Params.destaque_ordem" 1 }}
 {{ $secundarios := where $destaques "Params.destaque_ordem" "in" (slice 2 3) }}
 
+<!-- DEBUG -->
+{{ range $destaques }}
+<p style="color:red;">{{ .Title }} — destaque_ordem: {{ .Params.destaque_ordem }}</p>
+{{ end }}
+<!-- /DEBUG -->
+
 {{ range $principal }}
 <section style="background:var(--navy);padding:0;">
   <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
