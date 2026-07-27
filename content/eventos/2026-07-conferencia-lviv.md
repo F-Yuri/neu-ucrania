@@ -5,7 +5,7 @@ data: "2026-07-08"
 tipo: "conferência internacional"
 local: "Universidade Católica Ucraniana, Lviv"
 status: "realizado"
-destaque: false
+destaque: true
 foto: "assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_03.jpg"
 galeria:
   - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_01.png"
