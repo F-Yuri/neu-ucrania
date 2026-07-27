@@ -2,6 +2,7 @@
 ---
 title: "I Conferência Internacional Brasil–Ucrânia"
 data: "2026-05-12"
+date: "2026-05-12"
 tipo: "conferência internacional"
 local: "Centro Universitário Maria Antonia — USP, São Paulo"
 status: "realizado"
