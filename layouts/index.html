@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.destaque_ordem" }}{{ define "main" }}
 
 <!-- HERO -->
 <div class="hero-bar vtex-navy" style="background:var(--navy);padding:8rem 4rem 4.5rem;position:relative;overflow:hidden;">
@@ -48,7 +48,7 @@
 </svg>
 
 <!-- DESTAQUE EVENTO -->
-{{ $destaques := where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true }}
+{{ $destaques := sort (where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true) "Params.destaque_ordem" }}
 {{ $principal := first 1 $destaques }}
 {{ $secundarios := first 2 (after 1 $destaques) }}
 
