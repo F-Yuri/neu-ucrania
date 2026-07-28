@@ -8,11 +8,11 @@ veiculo: "Folha de S.Paulo"
 status: "publicado"
 destaque: true
 destaque_ordem: 4
-foto: "assets/img/publicacoes/claudia_serathiuk_folha_SP_01.jpg"
+foto: "static/assets/img/claudia_serathiuk_folha_SP_01.jpg"
 galeria:
-  - foto: "/assets/img/publicacoes/claudia_serathiuk_folha_SP_01.jpg"
+  - foto: "static/assets/img/claudia_serathiuk_folha_SP_01.jpg"
     legenda: ""
-  - foto: "/assets/img/publicacoes/claudia_serathiuk_folha_SP_02.jpg"
+  - foto: "static/assets/img/claudia_serathiuk_folha_SP_02.jpg"
     legenda: ""
 link: "https://www1.folha.uol.com.br/mundo/2026/07/psicologa-atende-brasileiros-que-estao-no-front-da-guerra-da-ucrania.shtml"
 ---
