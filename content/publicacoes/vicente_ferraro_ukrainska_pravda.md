@@ -8,7 +8,7 @@ veiculo: "Ukrainska Pravda"
 status: "publicado"
 destaque: true
 destaque_ordem: 3
-foto: "assets/img/publicacoes/vicente-ferraro-ukrainska-pravda.jpg"
+foto: "static/assets/img/vicente-ferraro-ukrainska-pravda.jpg"
 link: "https://www.pravda.com.ua/eng/columns/2026/07/01/8041697/"
 ---
 
