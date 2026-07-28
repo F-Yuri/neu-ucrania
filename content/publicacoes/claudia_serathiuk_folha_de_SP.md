@@ -10,7 +10,7 @@ destaque: true
 destaque_ordem: 4
 foto: "assets/img/publicacoes/claudia_serathiuk_folha_SP_01.jpg"
 galeria:
-  - foto: "/assets/img/publicacoes/claudia_serathiuk_folha_SP_01.png"
+  - foto: "/assets/img/publicacoes/claudia_serathiuk_folha_SP_01.jpg"
     legenda: ""
   - foto: "/assets/img/publicacoes/claudia_serathiuk_folha_SP_02.jpg"
     legenda: ""
