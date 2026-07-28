@@ -8,7 +8,7 @@ veiculo: "Público"
 status: "publicado"
 destaque: true
 destaque_ordem: 5
-foto: "assets/img/publicacoes/fabricio_vitorino_publico_01.jpg"
+foto: "assets/img/publicacoes/fabricio_vitorino_publico_01.png"
 link: "https://www.publico.pt/2026/07/15/publico-brasil/opiniao/hedge-virou-bet-brasil-brics-conta-russa-2181754"
 ---
 
