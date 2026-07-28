@@ -1,1 +1,21 @@
 
+---
+title: "Pesquisador do NEU escreve no Ukrainska Pravda sobre a educação como linha de frente do genocídio cultural na Ucrânia"
+data: "2026-07-01"
+date: "2026-07-01"
+tipo: "artigo de divulgação"
+veiculo: "Ukrainska Pravda"
+status: "publicado"
+destaque: true
+destaque_ordem: 3
+foto: "assets/img/publicacoes/vicente-ferraro-ukrainska-pravda.jpg"
+link: "https://www.pravda.com.ua/eng/columns/2026/07/01/8041697/"
+---
+
+O pesquisador do NEU/USP Vicente Ferraro publicou no jornal ucraniano *Ukrainska Pravda* (1º/7) uma coluna sobre a educação nos territórios ucranianos sob ocupação russa, que ele descreve como uma das linhas de frente do genocídio cultural na Ucrânia.
+
+Cientista político, Ferraro é pesquisador da Fundação Getulio Vargas (FGV) e do Núcleo de Estudos da Ucrânia (NEU/USP). A coluna sintetiza um artigo acadêmico que ele assina com Gabriela Lotta e Mykhailo Honchar, com apoio da organização Resilient Ukraine, publicado em periódico da Oxford University Press (*Journal of Public Administration Research and Theory*).
+
+O texto se baseia em trabalho de campo de março de 2025 em Mykolaiv e em comunidades próximas a Kherson, com entrevistas a dezenas de professores, diretores e gestores escolares que viveram sob ocupação. Ferraro argumenta que as autoridades russas transformaram escolas e universidades em instrumentos de russificação — imposição do russo, supressão da língua, da história e da cultura ucranianas e doutrinação de crianças —, combinando cooptação (salários, bônus) e coerção (ameaças, detenções, tortura). Recuperando o conceito de genocídio cultural de Raphael Lemkin, mostra como os educadores reagiram por quatro caminhos: sair dos territórios ocupados, colaborar, resistir ou recorrer à "adaptação remota" — caso de universidades deslocadas, como a de Kherson (hoje em Ivano-Frankivsk) e a de Mariupol (em Kyiv).
+
+A coluna leva a um dos principais veículos de imprensa da Ucrânia uma pesquisa brasileira de peso — publicada em periódico internacional de primeira linha — sobre uma dimensão da guerra em geral ofuscada pelos mapas militares: a disputa pela memória, pela identidade e pelo futuro da nação ucraniana.
