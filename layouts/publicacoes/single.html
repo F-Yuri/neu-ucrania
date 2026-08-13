@@ -8,8 +8,11 @@
     <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;opacity:0.8;">◆ {{ .Params.tipo | title }}</div>
 <h1 style="font-family:var(--display);font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:600;line-height:1.1;color:#fff;margin-bottom:0.5rem;">{{ .Title }}</h1>
     <div style="margin-top:1.5rem;font-size:0.95rem;color:rgba(255,255,255,0.5);font-weight:300;">
-      {{ .Params.autores }}{{ if .Params.veiculo }} — <em>{{ .Params.veiculo }}</em>{{ end }}{{ if .Params.ano }}, {{ .Params.ano }}{{ end }}
+      {{ .Params.autores }}{{ if .Params.veiculo }} — <em>{{ .Params.veiculo }}</em>{{ end }}
     </div>
+    {{ if .Params.ano }}
+    <div style="margin-top:0.75rem;font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.22em;text-transform:uppercase;opacity:0.75;">{{ .Params.ano }}</div>
+    {{ end }}
     {{ if .Params.link }}
     <a href="{{ .Params.link }}" target="_blank" rel="noopener" class="btn-yellow" style="margin-top:2rem;display:inline-flex;">
       Acessar publicação ↗
