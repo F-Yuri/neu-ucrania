@@ -41,10 +41,10 @@
   <div style="max-width:1200px;margin:0 auto;">
     <div class="section-label" style="margin-bottom:1.5rem;">Galeria de fotos</div>
     <h2 class="section-title" style="margin-bottom:2.5rem;">{{ .Title }}</h2>
-    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px;">
+    <div id="gallery-grid" class="neu-gallery-grid">
       {{ range $i, $foto := .Params.galeria }}
       <button onclick="openLightbox({{ $i }})"
-        style="border:none;background:none;padding:0;cursor:pointer;overflow:hidden;aspect-ratio:4/3;display:block;position:relative;"
+        style="background:none;padding:0;cursor:pointer;display:block;position:relative;"
         aria-label="Ver foto {{ add $i 1 }}">
         <img src="{{ $foto.foto }}" alt="{{ $foto.legenda | default "" }}" loading="lazy"
           style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;"
@@ -59,17 +59,17 @@
 </section>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(16,22,31,0.96);align-items:center;justify-content:center;" role="dialog" aria-modal="true">
-  <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:var(--amarelo);border:none;cursor:pointer;width:48px;height:48px;font-size:22px;color:var(--azul-institucional);display:flex;align-items:center;justify-content:center;font-weight:700;" aria-label="Fechar">×</button>
-  <button onclick="changeLightbox(-1)" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Anterior">‹</button>
+<div id="lightbox" class="neu-lightbox" style="display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;" role="dialog" aria-modal="true">
+  <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:var(--amarelo);border:none;border-radius:var(--radius-botao);cursor:pointer;width:48px;height:48px;font-size:22px;color:var(--azul-institucional);display:flex;align-items:center;justify-content:center;font-weight:700;" aria-label="Fechar">×</button>
+  <button onclick="changeLightbox(-1)" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-botao);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Anterior">‹</button>
   <div style="max-width:90vw;max-height:85vh;display:flex;flex-direction:column;align-items:center;gap:1rem;">
-    <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:78vh;object-fit:contain;display:block;">
+    <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:78vh;object-fit:contain;display:block;border-radius:var(--radius-card);">
     <div style="display:flex;align-items:center;gap:1.5rem;">
-      <span id="lb-counter" style="font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;"></span>
+      <span id="lb-counter" class="neu-lightbox__counter"></span>
       <p id="lb-caption" style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.65);font-family:var(--font-body);"></p>
     </div>
   </div>
-  <button onclick="changeLightbox(1)" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Próxima">›</button>
+  <button onclick="changeLightbox(1)" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-botao);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Próxima">›</button>
 </div>
 
 <style>#gallery-grid button:hover .foto-legenda{opacity:1!important;}</style>
