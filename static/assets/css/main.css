@@ -22,7 +22,7 @@
   --muted:     #464E58; /* = --texto-corpo */
   --display:   'Montserrat', sans-serif; /* = --font-display */
   --body:      'Manrope', sans-serif;    /* = --font-body */
-  --mono:      'Manrope', sans-serif;    /* tokens.css não define fonte mono — labels usam --font-body maiúsculo, ver --label-*/--tag-* */
+  --mono:      'Manrope', sans-serif;    /* tokens.css não define fonte mono — labels usam --font-body maiúsculo, ver --label-tag tokens */
   --nav-h:     60px;
 }
 
@@ -36,6 +36,9 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
 }
+/* nav é fixed (fora do fluxo) + divisor serrilhado fixo logo abaixo — compensa aqui pra ninguém ficar coberto */
+#main-content { padding-top: calc(var(--nav-h) + 10px); }
+@media (max-width: 640px) { #main-content { padding-top: calc(56px + 10px); } }
 
 /* ── VYSHYVKA TEXTURES ── */
 .vtex::before, .vtex-navy::before, .vtex-yellow::before {
@@ -213,7 +216,7 @@ nav {
 .newsletter-btn:hover { background: var(--yellow-lt); }
 
 /* ── FOOTER ── */
-footer { background: #070E1A; padding: 4rem 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.04); }
+footer { background: var(--ink); padding: 4rem 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.04); }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
 .footer-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.8; margin: 1rem 0 1.5rem; max-width: 260px; }
 .footer-email { font-family: var(--mono); font-size: 11px; color: var(--yellow); text-decoration: none; }

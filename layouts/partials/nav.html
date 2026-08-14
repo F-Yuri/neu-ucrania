@@ -1,10 +1,6 @@
 <nav id="mainNav">
   <a href="{{ .Site.BaseURL }}" class="nav-logo">
-    <div class="nav-logo-mark">NEU</div>
-    <div>
-      <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
-      <div class="nav-logo-sub">USP — Ciência Política</div>
-    </div>
+    <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="32">
   </a>
   <ul class="nav-links">
     <li><a href="{{ .Site.BaseURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
@@ -15,6 +11,11 @@
     <li><a href="{{ .Site.BaseURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
   </ul>
   <div class="nav-right">
+    <!-- busca visual — sem índice de busca implementado ainda -->
+    <div class="nav-search" role="search">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="4.5"/><path d="M9.5 9.5L13 13"/></svg>
+      <input type="text" placeholder="Buscar…" aria-label="Buscar no site" disabled>
+    </div>
     <div class="nav-lang"><span>PT</span> | EN</div>
     <a href="{{ .Site.BaseURL }}contato/" class="nav-cta">↗ Contato</a>
     <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
@@ -22,6 +23,7 @@
     </button>
   </div>
 </nav>
+<div class="neu-nav-divider" aria-hidden="true"></div>
 
 <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
   <div class="mobile-drawer-vline"></div>

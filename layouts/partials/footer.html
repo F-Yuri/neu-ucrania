@@ -2,11 +2,7 @@
   <div class="footer-top">
     <div>
       <a href="{{ .Site.BaseURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
-        <div class="nav-logo-mark">NEU</div>
-        <div>
-          <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
-          <div class="nav-logo-sub">USP — Ciência Política</div>
-        </div>
+        <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="32">
       </a>
       <p class="footer-desc">Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Site.Params.fundacao }}.</p>
       <a href="mailto:{{ .Site.Params.email }}" class="footer-email">{{ .Site.Params.email }}</a>

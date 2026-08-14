@@ -1,37 +1,26 @@
 {{ define "main" }}
-<!-- HERO -->
-<div style="background:var(--azul-institucional);padding:56px 0 40px;">
+<div style="background:var(--fundo-neutro);padding:24px 0 64px;">
   <div class="neu-container">
-    <div class="neu-eyebrow neu-eyebrow--on-azul" style="margin-bottom:20px;">
-      <span style="width:24px;height:1px;background:var(--amarelo);opacity:0.6;display:inline-block;"></span>
-      USP · Ciência Política · Fundado em {{ .Site.Params.fundacao }}
-    </div>
-    <h1 class="neu-h1" style="color:#fff;max-width:680px;margin-bottom:16px;">Referência em estudos sobre a Ucrânia no Brasil</h1>
-    <p style="font-family:var(--font-body);font-size:15px;font-weight:500;color:rgba(255,255,255,0.75);max-width:560px;line-height:1.7;margin-bottom:28px;">{{ .Site.Params.description }}</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="{{ .Site.BaseURL }}sobre/" class="btn-primario">Conheça o NEU</a>
-      <a href="{{ .Site.BaseURL }}publicacoes/" class="btn-fantasma-escuro">Ver publicações</a>
-    </div>
-  </div>
-</div>
 
-<!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
-<div style="background:var(--branco);border-bottom:1px solid var(--borda-padrao);padding:16px 0;">
-  <div class="neu-container">
-    <div class="theme-chips" role="list" aria-label="Temas de pesquisa">
-      <button class="theme-chip" type="button" aria-pressed="true">Todos</button>
-      <button class="theme-chip" type="button" aria-pressed="false">Colonialismo e Imperialismo Russo</button>
-      <button class="theme-chip" type="button" aria-pressed="false">Sociedade Civil Ucraniana</button>
-      <button class="theme-chip" type="button" aria-pressed="false">Guerra e Justiça</button>
-      <button class="theme-chip" type="button" aria-pressed="false">Diáspora e Deslocamento</button>
-    </div>
-  </div>
-</div>
+    <!-- HERO (card branco) -->
+    <div class="neu-hero-card" style="margin-bottom:24px;">
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">USP · Ciência Política · Fundado em {{ .Site.Params.fundacao }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">Referência em estudos sobre a Ucrânia no Brasil</h1>
 
-<!-- FEED + SIDEBAR "O NÚCLEO" -->
-{{ $pubs := where .Site.RegularPages "Type" "publicacoes" }}
-<section style="background:var(--fundo-neutro);padding:40px 0 64px;">
-  <div class="neu-container neu-layout-2col">
+      <!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
+      <div class="theme-chips" role="list" aria-label="Temas de pesquisa">
+        <button class="theme-chip" type="button" aria-pressed="true">Todos</button>
+        <button class="theme-chip" type="button" aria-pressed="false">Colonialismo e Imperialismo Russo</button>
+        <button class="theme-chip" type="button" aria-pressed="false">Sociedade Civil Ucraniana</button>
+        <button class="theme-chip" type="button" aria-pressed="false">Guerra e Justiça</button>
+        <button class="theme-chip" type="button" aria-pressed="false">Diáspora e Deslocamento</button>
+      </div>
+    </div>
+
+    <!-- FEED + SIDEBAR -->
+    {{ $pubs := where .Site.RegularPages "Type" "publicacoes" }}
+    {{ $pesquisadores := where .Site.RegularPages "Type" "membros" }}
+    <div class="neu-layout-2col">
 
     <div>
       {{ if $pubs }}
@@ -56,14 +45,39 @@
       {{ end }}
     </div>
 
-    <aside class="sidebar-nucleo">
-      <div class="sidebar-nucleo__title">O Núcleo</div>
-      <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país. Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica.</p>
-      <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
+    <aside style="display:flex;flex-direction:column;gap:24px;">
+      <div class="sidebar-nucleo">
+        <div class="sidebar-nucleo__title">O Núcleo</div>
+        <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país. Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica.</p>
+        <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
+      </div>
+
+      {{ if $pesquisadores }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">Pesquisadores</div>
+        <ul class="sidebar-researchers">
+          {{ range first 4 $pesquisadores }}
+          <li>
+            {{ if .Params.foto }}
+            <img class="researcher-card__avatar" src="{{ .Params.foto | relURL }}" alt="">
+            {{ else }}
+            <div class="researcher-card__avatar">{{ .Params.sigla | upper }}</div>
+            {{ end }}
+            <div>
+              <a href="{{ .Permalink }}" class="sidebar-researchers__name" style="text-decoration:none;">{{ .Title }}</a><br>
+              <span class="sidebar-researchers__meta">{{ .Params.instituicao | default "Pesquisador(a)" }}</span>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+        <a href="{{ .Site.BaseURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">Ver todos →</a>
+      </div>
+      {{ end }}
     </aside>
 
+    </div>
   </div>
-</section>
+</div>
 
 <!-- PROJETO BRIDGING -->
 <div style="display:grid;grid-template-columns:1fr 1fr;min-height:420px;" id="bridging">
