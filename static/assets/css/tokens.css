@@ -1,0 +1,209 @@
+/* ============================================
+   NEU — Design Tokens (identidade nova, 2026)
+   Traduzido da especificação técnica aprovada
+   ============================================ */
+
+:root {
+  /* --- Cores --- */
+  --azul-institucional: #004573;       /* header, footer, cards destaque, botão primário */
+  --azul-institucional-claro: #005C83; /* pill de busca desktop */
+  --azul-claro: #80C1E1;               /* ícone/favicon, barra esquerda da marca */
+  --amarelo: #FFEF00;                  /* marca, tags, acentos, links sobre azul */
+  --tinta: #10161F;                    /* texto principal, fundo do rodapé */
+  --branco: #FFFFFF;
+
+  --fundo-neutro: #ECEFF1;             /* áreas cinza atrás dos cards */
+  --borda-padrao: #DCDEE0;             /* borda de card */
+  --borda-sutil: #D2D4D7;              /* chips, divisores internos */
+
+  --texto-secundario: #6A727E;         /* metadados: autor, data, legendas */
+  --texto-corpo: #464E58;              /* parágrafos */
+  --texto-terciario: #5C646F;          /* placeholders, ícones neutros */
+  --texto-sobre-amarelo: #00345D;      /* navy escurecido p/ contraste sobre tag amarela */
+  --label-dourado: #795900;            /* labels sobre fundo branco, ex "USP · fundado em 2024" */
+
+  --link: #0850AB;
+  --link-hover: #003B95;
+
+  --rodape-link: #DCDEE0;              /* texto de link no rodapé, sobre --tinta */
+  --rodape-corpo: #ACAEB0;
+  --rodape-copyright: #7E8082;
+
+  --placeholder-img-1: #E9EBEE;        /* fundo de placeholder de imagem, listrado 2 tons */
+  --placeholder-img-2: #F3F5F8;
+
+  /* --- Tipografia --- */
+  --font-display: 'Montserrat', sans-serif;   /* títulos, wordmark */
+  --font-body: 'Manrope', sans-serif;         /* corpo, UI, menus, legendas */
+
+  /* Escala — mobile-first, ajuste via media query onde indicado */
+  --h1-size: 24px;            /* desktop: 36–38px */
+  --h1-size-evento: 22px;
+  --h1-weight: 700;
+
+  --h2-size: 18px;            /* 17–19px, destaque: 21–23px */
+  --h2-weight: 700;
+
+  --h3-size: 16px;            /* 15–17px */
+  --h3-weight: 700;
+
+  --wordmark-size: 18px;      /* 16–20px conforme contexto de header */
+  --wordmark-weight: 700;
+  --wordmark-tracking: -0.01em;
+
+  --corpo-size: 14px;         /* 14–14.5px */
+  --corpo-weight: 500;
+
+  --legenda-size: 12px;       /* 11–12.5px */
+  --legenda-weight: 600;
+
+  --label-size: 11px;
+  --label-weight: 700;
+  --label-tracking: 0.1em;
+
+  --tag-size: 11px;
+  --tag-weight: 800;
+  --tag-tracking: 0.05em;
+
+  --botao-size: 13.5px;       /* 13–14px */
+  --botao-weight: 700;
+
+  --tagline-size: 8px;        /* 7.5–9px */
+  --tagline-weight: 700;
+  --tagline-tracking: 0.035em;
+
+  /* --- Espaçamento e grid --- */
+  --max-width-mobile: 430px;   /* referência de design, não teto real */
+  --max-width-tablet: 640px;   /* recomendado, não validado */
+  --max-width-desktop: 1180px;
+
+  --padding-secao-mobile: 18px;
+  --padding-secao-desktop: 40px;
+
+  --padding-card-mobile: 16px;   /* 14–18px */
+  --padding-card-desktop: 28px;  /* 24–32px */
+
+  --gap-cards-desktop: 24px;     /* 20–28px, colunas */
+  --gap-sidebar-desktop: 40px;   /* entre coluna principal e sidebar */
+  --gap-cards-mobile: 14px;
+
+  --radius-card: 10px;
+  --radius-botao: 6px;
+  --radius-avatar: 100px;
+
+  /* --- Estados de interação --- */
+  --hover-escurecer: 10%;
+  --active-escurecer: 15%;      /* +5% sobre o hover */
+  --focus-outline-width: 2px;
+  --focus-outline-offset: 2px;
+}
+
+/* ============================================
+   Componentes de referência rápida
+   ============================================ */
+
+/* Tag/pill de categoria */
+.neu-tag {
+  background: var(--amarelo);
+  color: var(--texto-sobre-amarelo);
+  font-family: var(--font-body);
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  text-transform: uppercase;
+  letter-spacing: var(--tag-tracking);
+  padding: 3px 9px;
+  border-radius: var(--radius-botao);
+}
+
+/* Badge de destaque (mesmo padrão do tag, maior) */
+.neu-badge-destaque {
+  background: var(--amarelo);
+  color: var(--texto-sobre-amarelo);
+  font-family: var(--font-body);
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  text-transform: uppercase;
+  letter-spacing: var(--tag-tracking);
+  padding: 4px 10px;
+  border-radius: var(--radius-botao);
+}
+
+/* Botão primário */
+.btn-primario {
+  background: var(--azul-institucional);
+  color: var(--branco);
+  font-family: var(--font-body);
+  font-size: var(--botao-size);
+  font-weight: var(--botao-weight);
+  padding: 12px 20px;
+  border-radius: var(--radius-botao);
+  border: none;
+  transition: background 0.15s ease;
+}
+.btn-primario:hover { background: #003A61; } /* -10% */
+.btn-primario:active { background: #002E4D; transform: scale(0.98); } /* -15% */
+.btn-primario:focus-visible { outline: var(--focus-outline-width) solid var(--amarelo); outline-offset: var(--focus-outline-offset); }
+.btn-primario:disabled { background: var(--borda-sutil); color: var(--texto-secundario); cursor: not-allowed; }
+
+/* Botão fantasma claro (equivalente ao antigo btn-ghost-light) */
+.btn-fantasma-claro {
+  background: transparent;
+  color: #282E38;
+  border: 1.5px solid var(--borda-sutil);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-botao);
+  padding: 12px 20px;
+  transition: background 0.15s ease;
+}
+.btn-fantasma-claro:hover { background: var(--placeholder-img-2); }
+.btn-fantasma-claro:active { background: var(--fundo-neutro); }
+.btn-fantasma-claro:focus-visible { outline: var(--focus-outline-width) solid var(--azul-institucional); outline-offset: var(--focus-outline-offset); }
+.btn-fantasma-claro:disabled { border-color: var(--borda-padrao); color: var(--rodape-corpo); }
+
+/* Botão fantasma escuro (equivalente ao antigo btn-ghost-dark, sobre azul) */
+.btn-fantasma-escuro {
+  background: transparent;
+  color: var(--branco);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-botao);
+  padding: 12px 20px;
+  transition: background 0.15s ease;
+}
+.btn-fantasma-escuro:hover { background: rgba(255,255,255,0.1); }
+.btn-fantasma-escuro:active { background: rgba(255,255,255,0.18); }
+.btn-fantasma-escuro:focus-visible { outline: var(--focus-outline-width) solid var(--amarelo); outline-offset: var(--focus-outline-offset); }
+.btn-fantasma-escuro:disabled { opacity: 0.4; }
+
+/* Card clicável (post, pesquisador) */
+.neu-card {
+  background: var(--branco);
+  border: 1px solid var(--borda-padrao);
+  border-radius: var(--radius-card);
+  padding: var(--padding-card-mobile);
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+@media (min-width: 1024px) {
+  .neu-card { padding: var(--padding-card-desktop); }
+}
+.neu-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.neu-card:active { transform: scale(0.99); }
+.neu-card:focus-visible { outline: var(--focus-outline-width) solid var(--azul-institucional); outline-offset: var(--focus-outline-offset); }
+
+/* Link padrão */
+a.neu-link {
+  color: var(--link);
+  transition: color 0.15s ease;
+}
+a.neu-link:hover { color: var(--link-hover); }
+a.neu-link:focus-visible { outline: var(--focus-outline-width) solid var(--link); outline-offset: var(--focus-outline-offset); }
+a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
+
+/* Import de fontes — colar no <head> do baseof.html */
+/*
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+*/
