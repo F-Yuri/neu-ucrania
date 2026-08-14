@@ -26,10 +26,10 @@
         alt="{{ .Title }}"
         width="240"
         height="280"
-        style="width:240px;height:280px;object-fit:cover;object-position:top center;display:block;border:1px solid rgba(0,69,115,0.08);"
+        style="width:240px;height:280px;object-fit:cover;object-position:top center;display:block;border:1px solid var(--borda-padrao);border-radius:var(--radius-card);"
       >
       {{ else }}
-      <div style="width:240px;height:280px;background:var(--azul-institucional);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:5rem;font-weight:600;color:var(--amarelo);">
+      <div style="width:240px;height:280px;background:var(--azul-institucional);border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:5rem;font-weight:600;color:var(--amarelo);">
         {{ .Params.sigla | upper }}
       </div>
       {{ end }}
