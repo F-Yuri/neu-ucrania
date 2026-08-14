@@ -1,8 +1,8 @@
 
 ---
 title: "Pesquisador do NEU escreve no Ukrainska Pravda sobre a educação como linha de frente do genocídio cultural na Ucrânia"
-data: "2026-07-01"
 date: "2026-07-01"
+ano: "2026"
 tipo: "artigo de divulgação"
 veiculo: "Ukrainska Pravda"
 status: "publicado"

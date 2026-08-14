@@ -1,8 +1,8 @@
 
 ---
 title: "Pesquisador do NEU publica coluna no Público sobre Brasil, BRICS e a guerra na Ucrânia"
-data: "2026-07-15"
 date: "2026-07-15"
+ano: "2026"
 tipo: "artigo de opinião"
 veiculo: "Público"
 status: "publicado"
