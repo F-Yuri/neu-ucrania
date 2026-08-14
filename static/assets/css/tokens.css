@@ -492,16 +492,9 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   height: 10px;
   z-index: 199;
   background-color: var(--azul-institucional);
-  background-image: repeating-linear-gradient(
-    to right,
-    transparent 0, transparent 2px,
-    var(--amarelo) 2px, var(--amarelo) 3.5px,
-    transparent 3.5px, transparent 8px
-  );
-  background-position: 0 2px;
-  background-size: 16px 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpolyline points='0,8 12,3 24,8' fill='none' stroke='%23FFEF00' stroke-width='1.5' opacity='0.85'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  opacity: 0.9;
+  background-position: 0 0;
 }
 .neu-nav-divider::after {
   content: '';

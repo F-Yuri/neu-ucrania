@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" width="220" height="56">
-  <rect x="0" y="0" width="19" height="56" fill="#80C1E1"></rect>
-  <text x="9.5" y="54.5" font-family="Montserrat, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="middle">У</text>
-  <rect x="25" y="0" width="19" height="56" fill="#FFEF00"></rect>
-  <text x="58" y="30" font-family="Montserrat, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.3" fill="#FFFFFF">NEU</text>
-  <text x="58" y="42" font-family="Manrope, sans-serif" font-weight="700" font-size="9" letter-spacing="0.3" fill="#ACAEB0">NÚCLEO DE ESTUDOS</text>
-  <text x="58" y="52" font-family="Manrope, sans-serif" font-weight="700" font-size="9" letter-spacing="0.3" fill="#ACAEB0">DA UCRÂNIA</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" width="240" height="56">
+  <rect x="0" y="0" width="24" height="56" fill="#80C1E1"></rect>
+  <text x="12" y="40" font-family="Montserrat, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF" text-anchor="middle">У</text>
+  <rect x="32" y="0" width="24" height="56" fill="#FFEF00"></rect>
+  <text x="68" y="32" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.3" fill="#FFFFFF">NEU</text>
+  <text x="68" y="44" font-family="Manrope, sans-serif" font-weight="700" font-size="10" letter-spacing="0.3" fill="#ACAEB0">NÚCLEO DE ESTUDOS</text>
+  <text x="68" y="54" font-family="Manrope, sans-serif" font-weight="700" font-size="10" letter-spacing="0.3" fill="#ACAEB0">DA UCRÂNIA</text>
 </svg>
