@@ -6,19 +6,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@200;300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  --navy:      #0B1929;
-  --navy-mid:  #122035;
-  --navy-lt:   #1C3050;
-  --yellow:    #F5C518;
-  --yellow-lt: #FDE98A;
-  --cream:     #F5F1EA;
-  --cream-dk:  #EDE8DF;
-  --cream-dkk: #E3DDD4;
-  --ink:       #0B1929;
-  --muted:     #6B7A8D;
-  --display:   'Cormorant', serif;
-  --body:      'Jost', sans-serif;
-  --mono:      'DM Mono', monospace;
+  /* Redesign 2026 — valores realinhados para a paleta de static/assets/css/tokens.css.
+     Nomes de variável mantidos por compatibilidade: quem ainda referencia var(--navy) etc.
+     (nav.html, footer.html, *.list.html, .btn-yellow, .pub-card...) herda a identidade nova
+     automaticamente. Ver tokens.css para os nomes semânticos novos (--azul-institucional etc). */
+  --navy:      #004573; /* = --azul-institucional */
+  --navy-mid:  #005C83; /* = --azul-institucional-claro */
+  --navy-lt:   #80C1E1; /* = --azul-claro */
+  --yellow:    #FFEF00; /* = --amarelo */
+  --yellow-lt: #FFF799; /* tint aproximado — tokens.css não define um "amarelo claro" */
+  --cream:     #FFFFFF; /* = --branco */
+  --cream-dk:  #ECEFF1; /* = --fundo-neutro */
+  --cream-dkk: #E3E6E9; /* tint aproximado — tokens.css só tem 1 nível de cinza (--fundo-neutro) */
+  --ink:       #10161F; /* = --tinta */
+  --muted:     #464E58; /* = --texto-corpo */
+  --display:   'Montserrat', sans-serif; /* = --font-display */
+  --body:      'Manrope', sans-serif;    /* = --font-body */
+  --mono:      'Manrope', sans-serif;    /* tokens.css não define fonte mono — labels usam --font-body maiúsculo, ver --label-*/--tag-* */
   --nav-h:     60px;
 }
 
