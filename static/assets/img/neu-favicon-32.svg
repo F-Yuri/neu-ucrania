@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect x="0" y="0" width="32" height="32" fill="#80C1E1"></rect>
-  <text x="16" y="14" font-family="Montserrat, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">у</text>
+  <rect x="0" y="0" width="13.44" height="32" fill="#80C1E1"></rect>
+  <text x="6.72" y="31" font-family="Montserrat, sans-serif" font-weight="700" font-size="12.6" fill="#FFFFFF" text-anchor="middle">У</text>
+  <rect x="16.64" y="0" width="15.36" height="32" fill="#FFEF00"></rect>
 </svg>

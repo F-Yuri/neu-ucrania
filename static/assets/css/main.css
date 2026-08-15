@@ -37,8 +37,8 @@ body {
   overflow-x: hidden;
 }
 /* nav é fixed (fora do fluxo) + divisor serrilhado fixo logo abaixo — compensa aqui pra ninguém ficar coberto */
-#main-content { padding-top: calc(var(--nav-h) + 10px); }
-@media (max-width: 640px) { #main-content { padding-top: calc(56px + 10px); } }
+#main-content { padding-top: calc(var(--nav-h) + 14px); }
+@media (max-width: 640px) { #main-content { padding-top: calc(56px + 14px); } }
 
 /* ── VYSHYVKA TEXTURES ── */
 .vtex::before, .vtex-navy::before, .vtex-yellow::before {

@@ -485,26 +485,18 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
 .nav-search input::placeholder { color: rgba(255,255,255,0.55); }
 @media (max-width: 900px) { .nav-search { display: none; } }
 
-/* divisor "escadinha" fixo sob o header — spec item 10 (aproximado: não temos o array exato de pontos do arquivo de mockup original) */
+/* divisor "escadinha" fixo sob o header — asset exato do projeto de design (neu-divider-pattern.svg), período 16.8/amplitude 6.3/passo 2.1 */
 .neu-nav-divider {
   position: fixed;
   top: var(--nav-h);
   left: 0;
   right: 0;
-  height: 10px;
+  height: 14px;
   z-index: 199;
   background-color: var(--azul-institucional);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpolyline points='0,8 12,3 24,8' fill='none' stroke='%23FFEF00' stroke-width='1.5' opacity='0.85'/%3E%3C/svg%3E");
+  background-image: url("/assets/img/neu-divider-pattern.svg");
   background-repeat: repeat-x;
   background-position: 0 0;
-}
-.neu-nav-divider::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1.5px;
-  background: var(--amarelo);
-  opacity: 0.75;
 }
 @media (max-width: 640px) { .neu-nav-divider { top: 56px; } }
 
