@@ -270,7 +270,7 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   background: var(--branco);
   color: #282E38;
 }
-.theme-chip[aria-pressed="true"] {
+.theme-chip[aria-pressed="true"], .theme-chip.active {
   background: var(--azul-institucional);
   border-color: var(--azul-institucional);
   color: var(--branco);
