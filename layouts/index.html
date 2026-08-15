@@ -18,14 +18,18 @@
     </div>
 
     <!-- FEED + SIDEBAR -->
-    {{ $pubs := where .Site.RegularPages "Type" "publicacoes" }}
     {{ $pesquisadores := where .Site.RegularPages "Type" "membros" }}
+
+    <!-- feed de destaques unificado: eventos + publicações, até 3, ordenado por destaque_ordem -->
+    {{ $todasPaginas := union (where .Site.RegularPages "Type" "publicacoes") (where .Site.RegularPages "Type" "eventos") }}
+    {{ $destaques := where $todasPaginas "Params.destaque" true }}
+    {{ $destaques = $destaques.ByParam "destaque_ordem" }}
     <div class="neu-layout-2col">
 
     <div>
-      {{ if $pubs }}
+      {{ if $destaques }}
       <div class="feed-grid">
-        {{ range $i, $p := first 7 $pubs }}
+        {{ range $i, $p := first 3 $destaques }}
         <a href="{{ $p.Permalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
           <div class="feed-card__media">
             {{ if eq $i 0 }}
@@ -37,7 +41,13 @@
           </div>
           <div class="feed-card__body">
             <h2 class="feed-card__title">{{ $p.Title }}</h2>
-            <div class="feed-card__meta">{{ $p.Params.autores }}{{ if $p.Params.veiculo }} — {{ $p.Params.veiculo }}{{ end }}{{ if $p.Params.ano }}, {{ $p.Params.ano }}{{ end }}</div>
+            <div class="feed-card__meta">
+              {{ if eq $p.Type "publicacoes" }}
+                {{ $p.Params.autores }}{{ if $p.Params.veiculo }} — {{ $p.Params.veiculo }}{{ end }}{{ if $p.Params.ano }}, {{ $p.Params.ano }}{{ end }}
+              {{ else }}
+                {{ $p.Params.local }}{{ if $p.Params.data }} · {{ $p.Params.data | time.Format "02 Jan 2006" }}{{ end }}
+              {{ end }}
+            </div>
           </div>
         </a>
         {{ end }}

@@ -7,7 +7,7 @@ tipo: "artigo de divulgação"
 veiculo: "Ukrainska Pravda"
 status: "publicado"
 destaque: true
-destaque_ordem: 3
+destaque_ordem: 4
 foto: "static/assets/img/vicente-ferraro-ukrainska-pravda.jpg"
 link: "https://www.pravda.com.ua/eng/columns/2026/07/01/8041697/"
 ---

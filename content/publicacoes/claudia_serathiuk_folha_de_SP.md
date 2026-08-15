@@ -7,7 +7,7 @@ tipo: "entrevista"
 veiculo: "Folha de S.Paulo"
 status: "publicado"
 destaque: true
-destaque_ordem: 4
+destaque_ordem: 3
 foto: "assets/img/claudia_serathiuk_folha_SP_01.jpg"
 galeria:
   - foto: "/assets/img/claudia_serathiuk_folha_SP_01.jpg"
