@@ -7,109 +7,110 @@
   <div class="neu-container">
 
     <!-- BREADCRUMB -->
-    <a href="{{ .Site.BaseURL }}eventos/" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:600;text-decoration:none;margin-bottom:16px;">← Eventos</a>
+    <a href="{{ .Site.BaseURL }}eventos/" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Eventos</a>
 
-    <!-- HERO (card branco) -->
-    <div class="neu-hero-card" style="margin-bottom:24px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">
-        {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}
-      </div>
-      <h1 class="neu-h1 neu-h1--evento" style="color:var(--tinta);margin-bottom:12px;">{{ .Title }}</h1>
-      {{ if .Params.data }}
-      <p style="color:var(--texto-secundario);font-family:var(--font-body);font-size:13px;font-weight:600;">{{ .Params.data | time.Format "02 de January de 2006" }}</p>
-      {{ end }}
-      {{ if or .Params.video .Params.galeria }}
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        {{ if .Params.video }}<a href="#video" class="btn-primario">▶ Assistir vídeo</a>{{ end }}
-        {{ if .Params.galeria }}<a href="#galeria" class="btn-fantasma-claro">⊞ Ver galeria de fotos</a>{{ end }}
-      </div>
-      {{ end }}
-    </div>
-
-    {{ if .Params.foto }}
-    <div class="neu-hero-card" style="margin-bottom:24px;padding:0;overflow:hidden;">
-      <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;display:block;">
-    </div>
-    {{ end }}
-
-    <!-- CONTEÚDO + SIDEBAR -->
     <div class="neu-layout-2col">
 
-    <div>
-      <!-- VÍDEO EMBED -->
-      {{ if .Params.video }}
-      <section id="video" style="margin-bottom:2.5rem;">
-        <div class="section-label" style="margin-bottom:1.5rem;">Vídeo</div>
-        {{ partial "video-embed.html" (dict "url" .Params.video "title" .Title) }}
+      <div style="display:flex;flex-direction:column;gap:20px;">
 
-        {{ if .Params.videos }}
-        <div style="display:flex;flex-direction:column;gap:2rem;margin-top:2.5rem;">
-          {{ range .Params.videos }}
-          {{ partial "video-embed.html" (dict "url" .url "title" .titulo) }}
+        <!-- TITLE CARD -->
+        <div class="neu-hero-card">
+          <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:10px;">
+            {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}
+          </div>
+          <h1 style="font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1.3;margin:0 0 8px;color:var(--tinta);">{{ .Title }}</h1>
+          {{ if .Params.data }}
+          <div style="font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--texto-secundario);">{{ .Params.data | time.Format "02 de January de 2006" }}</div>
+          {{ end }}
+        </div>
+
+        <!-- HERO IMAGE -->
+        {{ if .Params.foto }}
+        <div class="neu-hero-card" style="padding:0;overflow:hidden;">
+          <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
+        </div>
+        {{ end }}
+
+        <!-- VÍDEO EMBED -->
+        {{ if .Params.video }}
+        <div class="neu-hero-card">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:17px;margin:0 0 12px;color:var(--tinta);">Vídeo</h2>
+          {{ partial "video-embed.html" (dict "url" .Params.video "title" .Title) }}
+          {{ if .Params.videos }}
+          <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem;">
+            {{ range .Params.videos }}
+            {{ partial "video-embed.html" (dict "url" .url "title" .titulo) }}
+            {{ end }}
+          </div>
           {{ end }}
         </div>
         {{ end }}
-      </section>
-      {{ end }}
 
-      <!-- DESCRIÇÃO -->
-      {{ if .Content }}
-      <section>
-        <div class="section-label" style="margin-bottom:1.5rem;">Sobre o evento</div>
-        <div style="font-size:1rem;font-weight:300;color:var(--texto-corpo);line-height:1.9;">
-          {{ .Content }}
+        <!-- SOBRE O EVENTO -->
+        {{ if .Content }}
+        <div class="neu-hero-card">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:17px;margin:0 0 12px;color:var(--tinta);">Sobre o evento</h2>
+          <div style="font-family:var(--font-body);font-size:14.5px;line-height:1.65;color:var(--texto-corpo);">
+            {{ .Content }}
+          </div>
         </div>
-      </section>
-      {{ end }}
-    </div>
+        {{ end }}
 
-    <!-- SIDEBAR "O NÚCLEO" + MATERIAIS -->
-    <aside style="display:flex;flex-direction:column;gap:24px;">
-      <div class="sidebar-nucleo">
-        <div class="sidebar-nucleo__title">O Núcleo</div>
-        <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país.</p>
-        <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
+        {{ if or .Params.link .Params.podcast }}
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          {{ if .Params.link }}<a href="{{ .Params.link }}" target="_blank" rel="noopener" class="btn-fantasma-claro">Página do evento ↗</a>{{ end }}
+          {{ if .Params.podcast }}<a href="{{ .Params.podcast }}" target="_blank" rel="noopener" class="btn-fantasma-claro">🎙 Ouvir podcast ↗</a>{{ end }}
+        </div>
+        {{ end }}
+
+        <!-- GALERIA (dentro da coluna de conteúdo, como no mockup) -->
+        {{ if .Params.galeria }}
+        <div>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:17px;margin:0 0 12px;color:var(--tinta);">Galeria de fotos</h2>
+          <div id="gallery-grid" class="neu-gallery-grid">
+            {{ range $i, $foto := .Params.galeria }}
+            <button onclick="openLightbox({{ $i }})"
+              style="background:none;padding:0;cursor:pointer;display:block;position:relative;"
+              aria-label="Ver foto {{ add $i 1 }}">
+              <img src="{{ $foto.foto }}" alt="{{ $foto.legenda | default "" }}" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;"
+                onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+              {{ if $foto.legenda }}
+              <div class="foto-legenda" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,69,115,0.75));padding:1.5rem 1rem 0.8rem;font-size:12px;font-weight:300;color:rgba(255,255,255,0.85);font-family:var(--font-body);opacity:0;transition:opacity 0.2s;">{{ $foto.legenda }}</div>
+              {{ end }}
+            </button>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+
       </div>
 
-      {{ if or .Params.link .Params.podcast }}
-      <div class="sidebar-card">
-        <div class="sidebar-card__title">Materiais apresentados</div>
-        <ul>
-          {{ if .Params.link }}<li><a href="{{ .Params.link }}" target="_blank" rel="noopener">Página do evento ↗</a></li>{{ end }}
-          {{ if .Params.podcast }}<li><a href="{{ .Params.podcast }}" target="_blank" rel="noopener">🎙 Ouvir podcast ↗</a></li>{{ end }}
-        </ul>
-      </div>
-      {{ end }}
-    </aside>
+      <!-- SIDEBAR "O NÚCLEO" + MATERIAIS -->
+      <aside style="display:flex;flex-direction:column;gap:20px;">
+        <div class="sidebar-nucleo">
+          <div class="sidebar-nucleo__title">O Núcleo</div>
+          <p class="sidebar-nucleo__text">O NEU reúne pesquisadores do Departamento de Ciência Política da USP dedicados à produção de conhecimento sobre a Ucrânia contemporânea.</p>
+          <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Conheça o Núcleo →</a>
+        </div>
+
+        {{ if or .Params.link .Params.podcast }}
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Materiais apresentados</div>
+          <ul>
+            {{ if .Params.link }}<li><a href="{{ .Params.link }}" target="_blank" rel="noopener">Página do evento ↗</a></li>{{ end }}
+            {{ if .Params.podcast }}<li><a href="{{ .Params.podcast }}" target="_blank" rel="noopener">🎙 Ouvir podcast ↗</a></li>{{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </aside>
 
     </div>
   </div>
 </div>
 
-<!-- GALERIA -->
-{{ if .Params.galeria }}
-<section id="galeria" style="background:var(--fundo-neutro);padding:5rem 4rem;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="section-label" style="margin-bottom:1.5rem;">Galeria de fotos</div>
-    <h2 class="section-title" style="margin-bottom:2.5rem;">{{ .Title }}</h2>
-    <div id="gallery-grid" class="neu-gallery-grid">
-      {{ range $i, $foto := .Params.galeria }}
-      <button onclick="openLightbox({{ $i }})"
-        style="background:none;padding:0;cursor:pointer;display:block;position:relative;"
-        aria-label="Ver foto {{ add $i 1 }}">
-        <img src="{{ $foto.foto }}" alt="{{ $foto.legenda | default "" }}" loading="lazy"
-          style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;"
-          onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        {{ if $foto.legenda }}
-        <div class="foto-legenda" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,69,115,0.75));padding:1.5rem 1rem 0.8rem;font-size:12px;font-weight:300;color:rgba(255,255,255,0.85);font-family:var(--font-body);opacity:0;transition:opacity 0.2s;">{{ $foto.legenda }}</div>
-        {{ end }}
-      </button>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
 <!-- LIGHTBOX -->
+{{ if .Params.galeria }}
 <div id="lightbox" class="neu-lightbox" style="display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;" role="dialog" aria-modal="true">
   <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:var(--amarelo);border:none;border-radius:var(--radius-botao);cursor:pointer;width:48px;height:48px;font-size:22px;color:var(--azul-institucional);display:flex;align-items:center;justify-content:center;font-weight:700;" aria-label="Fechar">×</button>
   <button onclick="changeLightbox(-1)" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-botao);cursor:pointer;width:52px;height:52px;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;" aria-label="Anterior">‹</button>
