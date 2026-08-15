@@ -2,7 +2,10 @@
 title: "Svetlana Ruseishvili"
 sigla: "SR"
 instituicao: "Departamento de Sociologia — UFSCar"
-area: "Migrações, refúgio, políticas migratórias e humanitárias na América Latina"
+area:
+  - "Migrações"
+  - "refúgio"
+  - "políticas migratórias e humanitárias na América Latina"
 foto: "assets/img/Svetlana-Ruseishvili.jpg"
 link: "http://lattes.cnpq.br/8978076849998172"
 ---

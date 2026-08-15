@@ -2,7 +2,11 @@
 title: "Fabrício Vitorino"
 sigla: "FV"
 instituicao: "Programa de Pós-Graduação em Relações Internacionais - UFSC"
-area: "Soberania, desinformação, guerra da informação, jornalismo"
+area:
+  - "Soberania"
+  - "desinformação"
+  - "guerra da informação"
+  - "jornalismo"
 foto: "assets/img/fabricio-vitorino.jpg"
 ---
 

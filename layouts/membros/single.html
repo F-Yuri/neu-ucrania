@@ -43,7 +43,14 @@
     <div>
       <div style="font-family:var(--font-body);font-size:11px;color:var(--label-dourado);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">{{ .Params.instituicao }}</div>
       <div style="height:2px;width:48px;background:var(--amarelo);margin-bottom:1rem;"></div>
-      <div style="font-family:var(--font-body);font-size:14px;color:var(--texto-corpo);margin-bottom:2rem;font-style:italic;">{{ .Params.area }}</div>
+
+      {{ if .Params.area }}
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;">
+        {{ range .Params.area }}
+        <span class="neu-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
 
       {{ if .Content }}
       <div style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:#3a4a5c;line-height:1.9;">

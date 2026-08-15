@@ -2,7 +2,10 @@
 title: "Fabio Lampert"
 sigla: "FL"
 instituicao: "Universidade de Viena"
-area: "Filosofia da linguagem, teoria do conhecimento, metafísica e lógica"
+area:
+  - "Filosofia da linguagem"
+  - "teoria do conhecimento"
+  - "metafísica e lógica"
 foto: "assets/img/fabio-lampert.jpg"
 ---
 

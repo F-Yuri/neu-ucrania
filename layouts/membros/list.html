@@ -23,7 +23,7 @@
         <div class="researcher-card__body">
           <div class="researcher-card__name">{{ .Title }}</div>
           {{ if .Params.instituicao }}<div class="researcher-card__afiliacao">{{ .Params.instituicao }}</div>{{ end }}
-          {{ if .Params.area }}<div class="researcher-card__bio">{{ .Params.area }}</div>{{ end }}
+          {{ if .Params.area }}<div class="researcher-card__bio">{{ delimit .Params.area ", " }}</div>{{ end }}
           <span class="researcher-card__link">Ver perfil completo →</span>
         </div>
       </a>
