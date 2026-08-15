@@ -1,62 +1,88 @@
 {{ define "main" }}
-{{ $proximos := where .Pages "Params.status" "proximo" }}
-{{ $realizados := where .Pages "Params.status" "realizado" }}
+{{ $todos := .Pages }}
+{{ $destaques := where $todos "Params.destaque" true }}
+{{ $destaques = $destaques.ByParam "destaque_ordem" }}
+{{ $featured := "" }}
+{{ if $destaques }}{{ $featured = index $destaques 0 }}{{ end }}
+{{ $outros := $todos.ByParam "data" }}
+{{ $outros = $outros.Reverse }}
+{{ if $featured }}{{ $outros = where $outros "RelPermalink" "!=" $featured.RelPermalink }}{{ end }}
+{{ $visiveis := first 5 $outros }}
+{{ $restantes := after 5 $outros }}
+
 <div style="background:var(--fundo-neutro);padding:24px 0 64px;">
   <div class="neu-container">
 
-    <!-- HERO (sem card, mesmo padrão do Pesquisa) -->
+    <!-- HERO (sem card) -->
     <div style="padding:8px 0 4px;max-width:640px;">
       <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Agenda</div>
       <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">Eventos</h1>
-      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Conferências, painéis e atividades do NEU sobre a Ucrânia.</p>
+      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Conferências, seminários e painéis promovidos pelo NEU.</p>
     </div>
 
-    {{ if $proximos }}
-    <div style="margin:32px 0 8px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:14px;">Próximos</div>
-      <div class="feed-grid">
-        {{ range $proximos }}
-        <a href="{{ .Permalink }}" class="neu-card feed-card">
-          <div class="feed-card__media">
-            <span class="neu-tag feed-card__badge">{{ .Params.tipo | title }}</span>
-            {{ if .Params.foto }}<img src="/{{ .Params.foto }}" alt="" loading="lazy">{{ end }}
+    <!-- EM DESTAQUE -->
+    {{ if $featured }}
+    <div style="margin:28px 0 8px;">
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:14px;">{{ $featured.Params.data | time.Format "2006" }}</div>
+      <a href="{{ $featured.Permalink }}" style="display:block;background:var(--azul-institucional);border-radius:var(--radius-card);overflow:hidden;text-decoration:none;">
+        <style>@media (min-width:768px){.evento-destaque{grid-template-columns:1fr 1fr!important;}}</style>
+        <div class="evento-destaque" style="display:grid;grid-template-columns:1fr;">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,var(--azul-institucional-claro),var(--azul-institucional));{{ if $featured.Params.foto }}background-image:url('/{{ $featured.Params.foto }}');background-size:cover;background-position:center;{{ end }}"></div>
+          <div style="padding:32px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+              <span class="neu-tag">{{ $featured.Params.tipo | title }}</span>
+              {{ if $featured.Params.data }}<span style="background:rgba(255,255,255,0.15);color:#fff;font-family:var(--font-body);font-size:11px;font-weight:700;padding:6px 12px;border-radius:var(--radius-botao);">{{ $featured.Params.data | time.Format "02 Jan 2006" }}</span>{{ end }}
+            </div>
+            <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 10px;color:#fff;line-height:1.3;">{{ $featured.Title }}</h2>
+            {{ if $featured.Summary }}<p style="font-family:var(--font-body);font-size:14px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0 0 14px;">{{ $featured.Summary }}</p>{{ end }}
+            <span style="font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--amarelo);">Ver detalhes →</span>
           </div>
-          <div class="feed-card__body">
-            <h2 class="feed-card__title">{{ .Title }}</h2>
-            <div class="feed-card__meta">{{ .Params.local }}{{ if .Params.data }} · {{ .Params.data | time.Format "02 Jan 2006" }}{{ end }}</div>
-          </div>
-        </a>
-        {{ end }}
-      </div>
+        </div>
+      </a>
     </div>
     {{ end }}
 
-    <div style="margin:32px 0 8px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:14px;">Realizados</div>
-      {{ if $realizados }}
-      <div class="feed-grid">
-        {{ range $i, $e := $realizados }}
-        <a href="{{ $e.Permalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
-          <div class="feed-card__media">
-            {{ if eq $i 0 }}
-            <span class="neu-badge-destaque feed-card__badge">{{ $e.Params.tipo | title }}</span>
-            {{ else }}
-            <span class="neu-tag feed-card__badge">{{ $e.Params.tipo | title }}</span>
-            {{ end }}
-            {{ if $e.Params.foto }}<img src="/{{ $e.Params.foto }}" alt="" loading="lazy">{{ end }}
+    <!-- EVENTOS ANTERIORES -->
+    <div style="margin:36px 0 8px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+        <div class="neu-eyebrow neu-eyebrow--on-branco">Eventos anteriores</div>
+      </div>
+      <div style="background:var(--branco);border:1px solid var(--borda-padrao);border-radius:var(--radius-card);overflow:hidden;">
+        {{ range $i, $e := $visiveis }}
+        <a href="{{ $e.Permalink }}" style="display:flex;align-items:center;gap:16px;padding:16px 20px;text-decoration:none;{{ if ne $i (sub (len $visiveis) 1) }}border-bottom:1px solid var(--borda-sutil);{{ end }}">
+          <div style="flex-shrink:0;width:48px;text-align:center;">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--azul-institucional);line-height:1;">{{ $e.Params.data | time.Format "02" }}</div>
+            <div style="font-family:var(--font-body);font-size:10px;font-weight:700;text-transform:uppercase;color:var(--texto-secundario);margin-top:3px;">{{ $e.Params.data | time.Format "Jan 2006" }}</div>
           </div>
-          <div class="feed-card__body">
-            <h2 class="feed-card__title">{{ $e.Title }}</h2>
-            <div class="feed-card__meta">{{ $e.Params.local }}{{ if $e.Params.data }} · {{ $e.Params.data | time.Format "02 Jan 2006" }}{{ end }}{{ if $e.Params.video }} · <a href="{{ $e.Params.video }}" style="color:var(--link);">Vídeo ↗</a>{{ end }}</div>
+          <div style="width:130px;flex-shrink:0;display:none;" class="evento-cat-desktop">
+            <span style="font-family:var(--font-body);font-size:10.5px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:var(--label-dourado);">{{ $e.Params.tipo | title }}</span>
           </div>
+          <div style="flex:1;min-width:0;font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ $e.Title }}</div>
+          <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
         </a>
         {{ end }}
+        {{ if $restantes }}
+        <div id="eventos-restantes" style="display:none;">
+          {{ range $restantes }}
+          <a href="{{ .Permalink }}" style="display:flex;align-items:center;gap:16px;padding:16px 20px;text-decoration:none;border-top:1px solid var(--borda-sutil);">
+            <div style="flex-shrink:0;width:48px;text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--azul-institucional);line-height:1;">{{ .Params.data | time.Format "02" }}</div>
+              <div style="font-family:var(--font-body);font-size:10px;font-weight:700;text-transform:uppercase;color:var(--texto-secundario);margin-top:3px;">{{ .Params.data | time.Format "Jan 2006" }}</div>
+            </div>
+            <div style="flex:1;min-width:0;font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ .Title }}</div>
+            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
-      {{ else }}
-      <p style="font-family:var(--font-body);color:var(--texto-secundario);">Nenhum evento realizado ainda.</p>
+      {{ if $restantes }}
+      <button type="button" onclick="document.getElementById('eventos-restantes').style.display='block';this.style.display='none';" class="btn-fantasma-claro" style="display:block;width:100%;text-align:center;margin-top:14px;">Ver todos ({{ len $outros }})</button>
       {{ end }}
     </div>
 
   </div>
 </div>
+
+<style>@media (min-width:640px){.evento-cat-desktop{display:block!important;}}</style>
 {{ end }}
