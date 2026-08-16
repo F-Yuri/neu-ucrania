@@ -34,7 +34,7 @@
               {{ if $featured.Params.data }}<span style="background:rgba(255,255,255,0.15);color:#fff;font-family:var(--font-body);font-size:11px;font-weight:700;padding:6px 12px;border-radius:var(--radius-botao);">{{ $featured.Params.data | time.Format "02 Jan 2006" }}</span>{{ end }}
             </div>
             <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 10px;color:#fff;line-height:1.3;">{{ $featured.Title }}</h2>
-            {{ if $featured.Summary }}<p style="font-family:var(--font-body);font-size:14px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0 0 14px;">{{ $featured.Summary }}</p>{{ end }}
+            {{ if $featured.Summary }}<div style="font-family:var(--font-body);font-size:14px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0 0 14px;">{{ $featured.Summary }}</div>{{ end }}
             <span style="font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--amarelo);">Ver detalhes →</span>
           </div>
         </div>
