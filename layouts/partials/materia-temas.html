@@ -1,0 +1,16 @@
+{{/*
+  materia-temas.html — selos de tema (taxonomia `tema`), no fim da matéria.
+  Uso: {{ partial "materia-temas.html" (dict "page" .) }}
+*/}}
+{{ $page := .page }}
+{{ $termos := $page.GetTerms "temas" }}
+{{ if $termos }}
+<div style="padding-top:22px;border-top:1px solid var(--borda-padrao);">
+  <div class="neu-subseccao-label" style="margin-top:0;">Temas</div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;">
+    {{ range $termos }}
+    <a href="{{ .Permalink }}" class="neu-selo"><span class="neu-selo__hash">#</span>{{ .Title }}</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

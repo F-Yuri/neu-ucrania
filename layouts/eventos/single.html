@@ -24,27 +24,8 @@
           {{ end }}
         </div>
 
-        <!-- HERO IMAGE -->
-        {{ if .Params.foto }}
-        <div class="neu-hero-card" style="padding:0;overflow:hidden;">
-          <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
-        </div>
-        {{ end }}
-
-        <!-- VÍDEO EMBED -->
-        {{ if .Params.video }}
-        <div class="neu-hero-card">
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:17px;margin:0 0 12px;color:var(--tinta);">Vídeo</h2>
-          {{ partial "video-embed.html" (dict "url" .Params.video "title" .Title) }}
-          {{ if .Params.videos }}
-          <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem;">
-            {{ range .Params.videos }}
-            {{ partial "video-embed.html" (dict "url" .url "title" .titulo) }}
-            {{ end }}
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
+        <!-- MÍDIA DE ABERTURA: vídeo, foto única ou embed externo (um dos três, ou nenhum) -->
+        {{ partial "materia-media-abertura.html" (dict "page" .) }}
 
         <!-- SOBRE O EVENTO -->
         {{ if .Content }}
@@ -56,12 +37,8 @@
         </div>
         {{ end }}
 
-        {{ if or .Params.link .Params.podcast }}
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          {{ if .Params.link }}<a href="{{ .Params.link }}" target="_blank" rel="noopener" class="btn-fantasma-claro">Página do evento ↗</a>{{ end }}
-          {{ if .Params.podcast }}<a href="{{ .Params.podcast }}" target="_blank" rel="noopener" class="btn-fantasma-claro">🎙 Ouvir podcast ↗</a>{{ end }}
-        </div>
-        {{ end }}
+        <!-- TEMAS -->
+        {{ partial "materia-temas.html" (dict "page" .) }}
 
         <!-- GALERIA (dentro da coluna de conteúdo, como no mockup) -->
         {{ if .Params.galeria }}
@@ -94,15 +71,7 @@
           <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Conheça o Núcleo →</a>
         </div>
 
-        {{ if or .Params.link .Params.podcast }}
-        <div class="sidebar-card">
-          <div class="sidebar-card__title">Materiais apresentados</div>
-          <ul>
-            {{ if .Params.link }}<li><a href="{{ .Params.link }}" target="_blank" rel="noopener">Página do evento ↗</a></li>{{ end }}
-            {{ if .Params.podcast }}<li><a href="{{ .Params.podcast }}" target="_blank" rel="noopener">🎙 Ouvir podcast ↗</a></li>{{ end }}
-          </ul>
-        </div>
-        {{ end }}
+        {{ partial "materia-relacionados.html" (dict "page" .) }}
       </aside>
 
     </div>

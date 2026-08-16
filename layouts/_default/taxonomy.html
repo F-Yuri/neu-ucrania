@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div style="background:var(--fundo-neutro);padding:24px 0 64px;">
+  <div class="neu-container">
+
+    <a href="{{ .Site.BaseURL }}" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Início</a>
+
+    <div style="padding:8px 0 4px;max-width:640px;">
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Temas</div>
+      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">Temas de pesquisa</h1>
+      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Navegue por publicações e eventos do NEU organizados por tema.</p>
+    </div>
+
+    {{ $termos := .Pages }}
+    {{ if $termos }}
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding:28px 0 4px;">
+      {{ range $termos }}
+      <a href="{{ .Permalink }}" class="neu-selo"><span class="neu-selo__hash">#</span>{{ .Title }} <span style="color:var(--texto-secundario);font-weight:400;">({{ len .Pages }})</span></a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p style="font-family:var(--font-body);color:var(--texto-secundario);padding-top:20px;">Nenhum tema cadastrado ainda.</p>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}
