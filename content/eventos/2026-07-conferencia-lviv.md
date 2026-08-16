@@ -10,9 +10,9 @@ destaque: true
 destaque_ordem: 2
 foto: "assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_03.jpg"
 galeria:
-  - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_01.png"
+  - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_01.jpg"
     legenda: ""
-  - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_02.png"
+  - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_02.jpg"
     legenda: ""
   - foto: "/assets/img/lviv-2026/fabricio vitorino_conferencia_ucrania_lviv_03.jpg"
     legenda: ""

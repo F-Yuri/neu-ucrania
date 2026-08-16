@@ -39,7 +39,7 @@
   <div style="display:flex;flex-direction:column;gap:10px;">
     {{ range $internos }}
     <a href="{{ .link }}" class="related-link">
-      <div class="related-link__thumb">{{ if .foto }}<img src="/{{ .foto }}" alt="">{{ end }}</div>
+      <div class="related-link__thumb">{{ if .foto }}<img src="/{{ .foto }}" alt="" loading="lazy">{{ end }}</div>
       <div>
         <div class="related-link__kind">{{ .kind }}</div>
         <div class="related-link__title">{{ .title }}</div>
