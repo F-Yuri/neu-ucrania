@@ -94,13 +94,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- CSS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-<link rel="stylesheet" href="{{ "assets/css/main.css" | absURL }}">
+<link rel="stylesheet" href="{{ "assets/css/main.css" | relURL }}">
   <!-- Design tokens da identidade nova (redesign 2026) -->
-  <link rel="stylesheet" href="{{ "assets/css/tokens.css" | absURL }}">
+  <link rel="stylesheet" href="{{ "assets/css/tokens.css" | relURL }}">
   <!-- Favicon — identidade nova (redesign 2026), ícone "У" -->
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "assets/img/neu-favicon-16.png" | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "assets/img/neu-favicon-32.png" | absURL }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "assets/img/neu-apple-touch-icon-180.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "assets/img/neu-favicon-16.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "assets/img/neu-favicon-32.png" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "assets/img/neu-apple-touch-icon-180.png" | relURL }}">
   <!-- Sitemap -->
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
@@ -118,7 +118,7 @@
 {{ partial "footer.html" . }}
 
 <!-- JS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-<script src="{{ "assets/js/main.js" | absURL }}"></script>
+<script src="{{ "assets/js/main.js" | relURL }}"></script>
 
 </body>
 </html>
