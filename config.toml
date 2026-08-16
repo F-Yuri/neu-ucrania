@@ -1,5 +1,10 @@
+# Deploy: Cloudflare Pages. A env var HUGO_VERSION precisa estar setada em AMBOS os
+# ambientes (Production E Preview) em Settings → Environment variables — não é óbvio
+# e sem isso o Cloudflare cai num Hugo antigo (0.121.0 detectado em ago/2026) que não
+# suporta funções usadas aqui (ex.: hugo.Data) e quebra o build. Vale pra qualquer
+# outro projeto Hugo no Cloudflare Pages (ex.: NPSeD).
 baseURL = "https://www.neu-ucrania.org/"
-languageCode = "pt-BR"
+locale = "pt-BR"
 title = "NEU — Pesquisa sobre a Ucrânia no Brasil | USP"
 enableRobotsTXT = true
 enableGitInfo = false
