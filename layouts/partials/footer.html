@@ -1,7 +1,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <a href="{{ .Site.BaseURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
+      <a href="{{ "/" | relURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
         <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="32">
       </a>
       <p class="footer-desc">Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Site.Params.fundacao }}.</p>
@@ -10,26 +10,26 @@
     <div>
       <div class="footer-col-title">O Núcleo</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}sobre/">Sobre o NEU</a></li>
-        <li><a href="{{ .Site.BaseURL }}membros/">Pesquisadores</a></li>
-        <li><a href="{{ .Site.BaseURL }}contato/">Contato</a></li>
+        <li><a href="{{ "/" | relURL }}sobre/">Sobre o NEU</a></li>
+        <li><a href="{{ "/" | relURL }}membros/">Pesquisadores</a></li>
+        <li><a href="{{ "/" | relURL }}contato/">Contato</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Pesquisa</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}pesquisa/">Linhas de pesquisa</a></li>
-        <li><a href="{{ .Site.BaseURL }}pesquisa/#bridging">Bridging Ukraine</a></li>
-        <li><a href="{{ .Site.BaseURL }}publicacoes/">Publicações</a></li>
-        <li><a href="{{ .Site.BaseURL }}biblioteca/">Biblioteca</a></li>
+        <li><a href="{{ "/" | relURL }}pesquisa/">Linhas de pesquisa</a></li>
+        <li><a href="{{ "/" | relURL }}pesquisa/#bridging">Bridging Ukraine</a></li>
+        <li><a href="{{ "/" | relURL }}publicacoes/">Publicações</a></li>
+        <li><a href="{{ "/" | relURL }}biblioteca/">Biblioteca</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Acesso rápido</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}eventos/">Eventos</a></li>
-        <li><a href="{{ .Site.BaseURL }}publicacoes/?tipo=midia">Artigos na mídia</a></li>
-        <li><a href="{{ .Site.BaseURL }}contato/#newsletter">Newsletter</a></li>
+        <li><a href="{{ "/" | relURL }}eventos/">Eventos</a></li>
+        <li><a href="{{ "/" | relURL }}publicacoes/?tipo=midia">Artigos na mídia</a></li>
+        <li><a href="{{ "/" | relURL }}contato/#newsletter">Newsletter</a></li>
       </ul>
     </div>
   </div>

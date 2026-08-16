@@ -1,14 +1,14 @@
 <nav id="mainNav">
-  <a href="{{ .Site.BaseURL }}" class="nav-logo">
+  <a href="{{ "/" | relURL }}" class="nav-logo">
     <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="32">
   </a>
   <ul class="nav-links">
-    <li><a href="{{ .Site.BaseURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
-    <li><a href="{{ .Site.BaseURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>Pesquisadores</a></li>
-    <li><a href="{{ .Site.BaseURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
-    <li><a href="{{ .Site.BaseURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
-    <li><a href="{{ .Site.BaseURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
-    <li><a href="{{ .Site.BaseURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
+    <li><a href="{{ "/" | relURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
+    <li><a href="{{ "/" | relURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>Pesquisadores</a></li>
+    <li><a href="{{ "/" | relURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
+    <li><a href="{{ "/" | relURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
+    <li><a href="{{ "/" | relURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
+    <li><a href="{{ "/" | relURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
   </ul>
   <div class="nav-right">
     <!-- busca visual — sem índice de busca implementado ainda -->
@@ -17,7 +17,7 @@
       <input type="text" placeholder="Buscar…" aria-label="Buscar no site" disabled>
     </div>
     <div class="nav-lang"><span>PT</span> | EN</div>
-    <a href="{{ .Site.BaseURL }}contato/" class="nav-cta">↗ Contato</a>
+    <a href="{{ "/" | relURL }}contato/" class="nav-cta">↗ Contato</a>
     <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
       <div class="hamburger-icon"><span></span><span></span><span></span></div>
     </button>
@@ -28,15 +28,15 @@
 <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
   <div class="mobile-drawer-vline"></div>
   <ul class="mobile-drawer-links">
-    <li><a href="{{ .Site.BaseURL }}sobre/">O Núcleo</a></li>
-    <li><a href="{{ .Site.BaseURL }}membros/">Pesquisadores</a></li>
-    <li><a href="{{ .Site.BaseURL }}pesquisa/">Pesquisa</a></li>
-    <li><a href="{{ .Site.BaseURL }}publicacoes/">Produções</a></li>
-    <li><a href="{{ .Site.BaseURL }}eventos/">Eventos</a></li>
-    <li><a href="{{ .Site.BaseURL }}biblioteca/">Biblioteca</a></li>
+    <li><a href="{{ "/" | relURL }}sobre/">O Núcleo</a></li>
+    <li><a href="{{ "/" | relURL }}membros/">Pesquisadores</a></li>
+    <li><a href="{{ "/" | relURL }}pesquisa/">Pesquisa</a></li>
+    <li><a href="{{ "/" | relURL }}publicacoes/">Produções</a></li>
+    <li><a href="{{ "/" | relURL }}eventos/">Eventos</a></li>
+    <li><a href="{{ "/" | relURL }}biblioteca/">Biblioteca</a></li>
   </ul>
   <div class="mobile-drawer-bottom">
     <div class="mobile-drawer-lang"><span>PT</span> | EN</div>
-    <a href="{{ .Site.BaseURL }}contato/" class="mobile-drawer-cta">↗ Contato</a>
+    <a href="{{ "/" | relURL }}contato/" class="mobile-drawer-cta">↗ Contato</a>
   </div>
 </div>

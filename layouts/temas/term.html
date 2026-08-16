@@ -2,7 +2,7 @@
 <div style="background:var(--fundo-neutro);padding:24px 0 64px;">
   <div class="neu-container">
 
-    <a href="{{ .Site.BaseURL }}" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Início</a>
+    <a href="{{ "/" | relURL }}" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Início</a>
 
     <div style="padding:8px 0 4px;max-width:640px;">
       <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Tema</div>
@@ -15,7 +15,7 @@
     <div style="padding:28px 0 4px;">
       <div class="feed-grid">
         {{ range $paginas }}
-        <a href="{{ .Permalink }}" class="neu-card feed-card">
+        <a href="{{ .RelPermalink }}" class="neu-card feed-card">
           <div class="feed-card__media">
             <span class="neu-tag feed-card__badge">{{ .Params.tipo | title }}</span>
             {{ if .Params.foto }}<img src="/{{ .Params.foto }}" alt="" loading="lazy">{{ end }}

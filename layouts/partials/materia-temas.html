@@ -9,7 +9,7 @@
   <div class="neu-subseccao-label" style="margin-top:0;">Temas</div>
   <div style="display:flex;flex-wrap:wrap;gap:10px;">
     {{ range $termos }}
-    <a href="{{ .Permalink }}" class="neu-selo"><span class="neu-selo__hash">#</span>{{ .Title }}</a>
+    <a href="{{ .RelPermalink }}" class="neu-selo"><span class="neu-selo__hash">#</span>{{ .Title }}</a>
     {{ end }}
   </div>
 </div>

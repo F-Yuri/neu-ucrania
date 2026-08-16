@@ -14,7 +14,7 @@
 
     <div class="researcher-grid">
       {{ range .Pages }}
-      <a href="{{ .Permalink }}" class="neu-card researcher-card">
+      <a href="{{ .RelPermalink }}" class="neu-card researcher-card">
         {{ if .Params.foto }}
         <img class="researcher-card__avatar" src="{{ .Params.foto | relURL }}" alt="{{ .Title }}" loading="lazy">
         {{ else }}

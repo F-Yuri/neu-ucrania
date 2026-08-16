@@ -19,7 +19,7 @@
 
     <div class="feed-grid">
       {{ range .Pages }}
-      <a href="{{ .Permalink }}" class="neu-card feed-card pub-card" data-tipo="{{ .Params.tipo }}">
+      <a href="{{ .RelPermalink }}" class="neu-card feed-card pub-card" data-tipo="{{ .Params.tipo }}">
         <div class="feed-card__media">
           <span class="neu-tag feed-card__badge">{{ if eq .Params.tipo "midia" }}Mídia{{ else if eq .Params.tipo "academico" }}Acadêmico{{ else if eq .Params.tipo "livro" }}Livro{{ else if eq .Params.tipo "capitulo" }}Capítulo{{ else }}{{ .Params.tipo | title }}{{ end }}</span>
           {{ if .Params.foto }}<img src="/{{ .Params.foto }}" alt="" loading="lazy">{{ end }}

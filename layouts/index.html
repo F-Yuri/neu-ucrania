@@ -30,7 +30,7 @@
       {{ if $destaques }}
       <div class="feed-grid">
         {{ range $i, $p := first 3 $destaques }}
-        <a href="{{ $p.Permalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
+        <a href="{{ $p.RelPermalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
           <div class="feed-card__media">
             {{ if eq $i 0 }}
             <span class="neu-badge-destaque feed-card__badge">{{ $p.Params.tipo | title }}</span>
@@ -59,7 +59,7 @@
       <div class="sidebar-nucleo">
         <div class="sidebar-nucleo__title">O Núcleo</div>
         <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país. Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica.</p>
-        <a href="{{ .Site.BaseURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
+        <a href="{{ "/" | relURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
       </div>
 
       {{ if $pesquisadores }}
@@ -74,13 +74,13 @@
             <div class="researcher-card__avatar">{{ .Params.sigla | upper }}</div>
             {{ end }}
             <div>
-              <a href="{{ .Permalink }}" class="sidebar-researchers__name" style="text-decoration:none;">{{ .Title }}</a><br>
+              <a href="{{ .RelPermalink }}" class="sidebar-researchers__name" style="text-decoration:none;">{{ .Title }}</a><br>
               <span class="sidebar-researchers__meta">{{ .Params.instituicao | default "Pesquisador(a)" }}</span>
             </div>
           </li>
           {{ end }}
         </ul>
-        <a href="{{ .Site.BaseURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">Ver todos →</a>
+        <a href="{{ "/" | relURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">Ver todos →</a>
       </div>
       {{ end }}
     </aside>
@@ -105,7 +105,7 @@
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Cedec</span>
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">ANPOCS</span>
     </div>
-    <a href="{{ .Site.BaseURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
+    <a href="{{ "/" | relURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
   </div>
 </div>
 
@@ -117,7 +117,7 @@
       <div class="section-label">Agenda</div>
       <h2 id="eventos-title" class="section-title">Eventos recentes</h2>
     </div>
-    <a href="{{ .Site.BaseURL }}eventos/" class="link-arrow">Ver todos →</a>
+    <a href="{{ "/" | relURL }}eventos/" class="link-arrow">Ver todos →</a>
   </div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:1px;background:rgba(0,69,115,0.08);border:1px solid rgba(0,69,115,0.1);position:relative;z-index:1;">
     <div style="display:flex;flex-direction:column;gap:1px;background:rgba(0,69,115,0.08);">
@@ -130,7 +130,7 @@
           </div>
           <div>
             <div class="event-type">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
-            <h3 class="event-title"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
+            <h3 class="event-title"><a href="{{ .RelPermalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
             <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--azul-institucional);">Vídeo disponível</a>{{ end }}</div>
           </div>
         </article>
@@ -146,7 +146,7 @@
         <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2026</h3>
         <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Acompanhe a agenda do NEU para os próximos meses.</p>
       </div>
-      <a href="{{ .Site.BaseURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
+      <a href="{{ "/" | relURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
     </div>
   </div>
 </section>

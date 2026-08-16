@@ -15,7 +15,7 @@
     {{ with $site.GetPage .ref }}
       {{ $kind := "Publicação" }}
       {{ if eq .Type "eventos" }}{{ $kind = "Evento" }}{{ end }}
-      {{ $internos = $internos | append (dict "kind" $kind "title" .Title "link" .Permalink "foto" .Params.foto) }}
+      {{ $internos = $internos | append (dict "kind" $kind "title" .Title "link" .RelPermalink "foto" .Params.foto) }}
     {{ end }}
   {{ else if eq .tipo "externo" }}
     {{ $externos = $externos | append (dict "label" .label "link" .link) }}
