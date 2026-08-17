@@ -1,0 +1,96 @@
+# UI strings — English
+# Content (publications, events, bios) is not translated yet — interface chrome only.
+
+nav_sobre = "About Us"
+nav_pesquisadores = "Researchers"
+nav_pesquisa = "Research"
+nav_producoes = "Publications"
+nav_eventos = "Events"
+nav_biblioteca = "Library"
+nav_contato = "Contact"
+nav_buscar_placeholder = "Search…"
+nav_buscar_aria = "Search site"
+nav_abrir_menu = "Open menu"
+
+footer_sobre_neu = "About NEU"
+footer_col_nucleo = "About Us"
+footer_col_pesquisa = "Research"
+footer_col_acesso_rapido = "Quick links"
+footer_linhas_pesquisa = "Research areas"
+footer_bridging = "Bridging Ukraine"
+footer_publicacoes = "Publications"
+footer_artigos_midia = "Media coverage"
+footer_newsletter = "Newsletter"
+footer_copy_org = "Center for Ukrainian Studies — USP"
+
+cta_saiba_mais = "Learn more →"
+cta_ver_todos = "View all →"
+cta_conheca_nucleo = "Learn about the Center →"
+cta_ver_perfis_completos = "View full profiles →"
+cta_ver_perfil_completo = "View full profile →"
+cta_ver_detalhes = "View details →"
+cta_ver_agenda = "View schedule →"
+
+fallback_conteudo_pt = "Content available only in Portuguese (PT-BR)"
+
+page_eventos_eyebrow = "Schedule"
+page_eventos_title = "Events"
+page_eventos_desc = "Conferences, seminars and panels hosted by NEU."
+page_eventos_anteriores = "Past events"
+
+page_publicacoes_eyebrow = "Publications"
+page_publicacoes_title = "Publications and articles"
+page_publicacoes_desc = "Academic research, opinion pieces and NEU's press coverage."
+
+page_membros_eyebrow = "Team"
+page_membros_title = "NEU Researchers"
+
+page_sobre_eyebrow = "About Us"
+page_sobre_title = "About NEU"
+
+page_pesquisa_eyebrow = "Research Focus"
+page_pesquisa_title = "Research"
+page_pesquisa_desc = "NEU's research lines and ongoing projects on Ukraine."
+
+page_biblioteca_eyebrow = "Collection"
+page_biblioteca_title = "Library"
+page_biblioteca_desc = "Reference materials curated by NEU for research on Ukraine."
+
+filtro_todos = "All"
+filtro_academicos = "Academic"
+filtro_midia = "Media"
+filtro_livros = "Books"
+tipo_midia = "Media"
+tipo_academico = "Academic"
+tipo_livro = "Book"
+tipo_capitulo = "Chapter"
+
+cta_faca_parte_eyebrow = "Join us"
+cta_faca_parte_titulo = "Interested in joining NEU?"
+cta_faca_parte_desc = "Write to us to find out how to get involved."
+
+home_eventos_recentes = "Recent events"
+video_disponivel = "Video available"
+home_proximos_eventos_titulo = "Upcoming events in 2026"
+home_proximos_eventos_desc = "Follow NEU's schedule for the coming months."
+
+contato_eyebrow = "Contact"
+contato_titulo_hero = "Get in"
+contato_titulo_hero_em = "touch"
+contato_fale_conosco = "Talk to us"
+contato_titulo = "Contact"
+contato_desc = "For academic collaborations, press inquiries, information about the research program, or event participation, get in touch."
+contato_label_email = "Email"
+contato_label_endereco = "Address"
+contato_label_fundado_em = "Founded in"
+contato_fundado_mes = "December"
+newsletter_titulo = "Get our updates"
+newsletter_desc = "Publications, events and analysis about Ukraine straight to your inbox. No spam."
+placeholder_nome = "Your name"
+cta_inscrever = "Subscribe →"
+
+[footer_desc]
+other = "Producing knowledge and academic dialogue about Ukraine — strengthening Ukrainian studies in Brazil since {{ .Fundacao }}."
+
+[cta_ver_todos_count]
+other = "View all ({{ .Count }})"

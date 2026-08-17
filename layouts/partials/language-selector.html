@@ -1,0 +1,22 @@
+{{/*
+  language-selector.html — PT · EN · УКР
+  Linka pra tradução da página atual se existir; senão cai pra home
+  daquele idioma (nunca gera link morto). Uso:
+  {{ partial "language-selector.html" . }}
+*/}}
+{{ $currentLang := .Site.Language.Lang }}
+{{ $page := . }}
+{{ range $i, $s := hugo.Sites }}
+  {{ if $i }}<span class="nav-lang-sep">·</span>{{ end }}
+  {{ $code := $s.Language.Lang }}
+  {{ $sigla := cond (eq $code "pt") "PT" (cond (eq $code "en") "EN" "УКР") }}
+  {{ $target := $s.Home.Permalink }}
+  {{ if eq $code $currentLang }}
+    {{ $target = $page.Permalink }}
+  {{ else }}
+    {{ with $page.Translations }}
+      {{ range . }}{{ if eq .Language.Lang $code }}{{ $target = .Permalink }}{{ end }}{{ end }}
+    {{ end }}
+  {{ end }}
+  <a href="{{ $target }}"{{ if eq $code $currentLang }} class="active" aria-current="true"{{ end }}>{{ $sigla }}</a>
+{{ end }}

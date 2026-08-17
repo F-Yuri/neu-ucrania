@@ -4,8 +4,8 @@
 
     <!-- HERO (sem card, mesmo padrão de Pesquisa/Eventos/Produções) -->
     <div style="padding:8px 0 4px;max-width:640px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">O Núcleo</div>
-      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">Sobre o NEU</h1>
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">{{ i18n "page_sobre_eyebrow" }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">{{ i18n "page_sobre_title" }}</h1>
       <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">{{ .Site.Params.description }}</p>
     </div>
 
@@ -39,13 +39,15 @@
     </div>
 
     <!-- PESQUISADORES -->
-    {{ $pesquisadores := where .Site.RegularPages "Type" "membros" }}
+    {{ $rp := partial "lib/pages-for-type.html" (dict "site" .Site "type" "membros") }}
+    {{ $pesquisadores := $rp.pages }}
     {{ if $pesquisadores }}
     <div style="margin:36px 0 8px;">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
-        <div class="neu-eyebrow neu-eyebrow--on-branco">Equipe</div>
-        <a href="{{ "/" | relURL }}membros/" class="neu-link" style="font-family:var(--font-body);font-size:13px;font-weight:700;">Ver perfis completos →</a>
+        <div class="neu-eyebrow neu-eyebrow--on-branco">{{ i18n "page_membros_eyebrow" }}</div>
+        <a href="{{ "/" | relURL }}membros/" class="neu-link" style="font-family:var(--font-body);font-size:13px;font-weight:700;">{{ i18n "cta_ver_perfis_completos" }}</a>
       </div>
+      {{ if $rp.fallback }}<div style="margin-bottom:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
       <div class="researcher-grid">
         {{ range $pesquisadores }}
         <a href="{{ .RelPermalink }}" class="neu-card researcher-card">

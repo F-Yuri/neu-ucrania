@@ -1,11 +1,13 @@
 {{ define "main" }}
+{{ $r := partial "lib/pages-for-type.html" (dict "site" .Site "type" "membros") }}
 <div style="background:var(--azul-institucional);padding:56px 0 40px;">
   <div class="neu-container">
     <div class="neu-eyebrow neu-eyebrow--on-azul" style="margin-bottom:16px;">
       <span style="width:24px;height:1px;background:var(--amarelo);opacity:0.6;display:inline-block;"></span>
-      Equipe
+      {{ i18n "page_membros_eyebrow" }}
     </div>
-    <h1 class="neu-h1" style="color:#fff;">Pesquisadores do NEU</h1>
+    <h1 class="neu-h1" style="color:#fff;">{{ i18n "page_membros_title" }}</h1>
+    {{ if $r.fallback }}<div style="margin-top:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
   </div>
 </div>
 
@@ -13,7 +15,7 @@
   <div class="neu-container">
 
     <div class="researcher-grid">
-      {{ range .Pages }}
+      {{ range $r.pages }}
       <a href="{{ .RelPermalink }}" class="neu-card researcher-card">
         {{ if .Params.foto }}
         <img class="researcher-card__avatar" src="{{ .Params.foto | relURL }}" alt="{{ .Title }}" loading="lazy">
@@ -24,7 +26,7 @@
           <div class="researcher-card__name">{{ .Title }}</div>
           {{ if .Params.instituicao }}<div class="researcher-card__afiliacao">{{ .Params.instituicao }}</div>{{ end }}
           {{ if .Params.area }}<div class="researcher-card__bio">{{ delimit .Params.area ", " }}</div>{{ end }}
-          <span class="researcher-card__link">Ver perfil completo →</span>
+          <span class="researcher-card__link">{{ i18n "cta_ver_perfil_completo" }}</span>
         </div>
       </a>
       {{ end }}
@@ -32,9 +34,9 @@
 
     <!-- CTA -->
     <div class="neu-card" style="margin-top:32px;padding:32px;background:var(--azul-institucional);text-align:center;border:none;">
-      <div class="neu-eyebrow neu-eyebrow--on-azul" style="justify-content:center;margin-bottom:12px;">Faça parte</div>
-      <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;">Gostaria de integrar o NEU?</h3>
-      <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:20px;">Escreva para nós e saiba como participar.</p>
+      <div class="neu-eyebrow neu-eyebrow--on-azul" style="justify-content:center;margin-bottom:12px;">{{ i18n "cta_faca_parte_eyebrow" }}</div>
+      <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;">{{ i18n "cta_faca_parte_titulo" }}</h3>
+      <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:20px;">{{ i18n "cta_faca_parte_desc" }}</p>
       <a href="mailto:neucrania@gmail.com" class="btn-primario" style="display:inline-flex;">neucrania@gmail.com</a>
     </div>
 

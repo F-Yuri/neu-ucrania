@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div class="page-hero vtex-navy" style="background:var(--navy);padding:8rem 4rem 4rem;position:relative;overflow:hidden;">
   <div class="z1">
-    <div class="page-hero-label"><span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>Contato</div>
-    <h1 class="page-hero-title">Entre em <em>contato</em></h1>
+    <div class="page-hero-label"><span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>{{ i18n "contato_eyebrow" }}</div>
+    <h1 class="page-hero-title">{{ i18n "contato_titulo_hero" }} <em>{{ i18n "contato_titulo_hero_em" }}</em></h1>
   </div>
 </div>
 <svg width="100%" height="44" style="display:block;background:var(--cream)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -12,18 +12,18 @@
 
 <section class="section-cream vtex" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
   <div style="position:relative;z-index:1;">
-    <div class="section-label">Fale conosco</div>
-    <h2 class="section-title">Contato</h2>
+    <div class="section-label">{{ i18n "contato_fale_conosco" }}</div>
+    <h2 class="section-title">{{ i18n "contato_titulo" }}</h2>
     <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2.5rem;">
-      Para colaborações acadêmicas, solicitações de imprensa, informações sobre o programa de pesquisa ou participação em eventos, entre em contato.
+      {{ i18n "contato_desc" }}
     </p>
     <div style="display:flex;flex-direction:column;gap:2rem;">
       <div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">Email</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">{{ i18n "contato_label_email" }}</div>
         <a href="mailto:{{ .Site.Params.email }}" style="font-family:var(--display);font-size:1.4rem;font-weight:600;color:var(--navy);text-decoration:none;">{{ .Site.Params.email }}</a>
       </div>
       <div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">Endereço</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">{{ i18n "contato_label_endereco" }}</div>
         <p style="font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8;">
           {{ .Site.Params.instituicao }}<br>
           Faculdade de Filosofia, Letras e Ciências Humanas<br>
@@ -32,28 +32,28 @@
         </p>
       </div>
       <div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">Fundado em</div>
-        <p style="font-size:0.95rem;font-weight:300;color:var(--muted);">Dezembro de {{ .Site.Params.fundacao }}</p>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;">{{ i18n "contato_label_fundado_em" }}</div>
+        <p style="font-size:0.95rem;font-weight:300;color:var(--muted);">{{ i18n "contato_fundado_mes" }} {{ .Site.Params.fundacao }}</p>
       </div>
     </div>
   </div>
 
   <div id="newsletter-form" style="position:relative;z-index:1;">
-    <div class="section-label">Newsletter</div>
-    <h2 class="section-title">Receba nossas novidades</h2>
+    <div class="section-label">{{ i18n "footer_newsletter" }}</div>
+    <h2 class="section-title">{{ i18n "newsletter_titulo" }}</h2>
     <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">
-      Publicações, eventos e análises sobre a Ucrânia diretamente no seu email. Sem spam.
+      {{ i18n "newsletter_desc" }}
     </p>
     <form name="newsletter" method="POST" data-netlify="true" action="/obrigado/" style="display:flex;flex-direction:column;gap:12px;">
       <input type="hidden" name="form-name" value="newsletter">
-      <input type="text" name="nome" placeholder="Seu nome"
+      <input type="text" name="nome" placeholder="{{ i18n "placeholder_nome" }}"
         style="background:var(--cream-dk);border:1px solid rgba(11,25,41,0.15);color:var(--navy);font-family:var(--body);font-size:14px;font-weight:300;padding:14px 18px;outline:none;width:100%;transition:border-color .2s;"
         onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='rgba(11,25,41,0.15)'">
       <input type="email" name="email" placeholder="seu@email.com.br" required
         style="background:var(--cream-dk);border:1px solid rgba(11,25,41,0.15);color:var(--navy);font-family:var(--body);font-size:14px;font-weight:300;padding:14px 18px;outline:none;width:100%;transition:border-color .2s;"
         onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='rgba(11,25,41,0.15)'">
       <button type="submit" class="btn-yellow" style="width:100%;justify-content:center;">
-        Inscrever-se →
+        {{ i18n "cta_inscrever" }}
       </button>
     </form>
   </div>

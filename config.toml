@@ -4,16 +4,46 @@
 # suporta funções usadas aqui (ex.: hugo.Data) e quebra o build. Vale pra qualquer
 # outro projeto Hugo no Cloudflare Pages (ex.: NPSeD).
 baseURL = "https://www.neu-ucrania.org/"
-locale = "pt-BR"
-title = "NEU — Pesquisa sobre a Ucrânia no Brasil | USP"
 enableRobotsTXT = true
 enableGitInfo = false
 
 # Gera sumários automáticos
 summaryLength = 30
 
+# ── Multilíngue ──────────────────────────────────────────────
+# PT-BR é o idioma padrão e fica na raiz (sem prefixo /pt/). EN e UK
+# ficam em /en/ e /uk/. Conteúdo (publicações, eventos, bios) segue só
+# em PT por enquanto — decisão separada, ainda não tomada, sobre
+# tradução manual vs. IA. As strings de INTERFACE (nav, botões, labels)
+# já são traduzidas via i18n/*.toml. Onde não existe tradução de
+# conteúdo, o site cai pro item em PT com aviso visual (não esconde).
+defaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.pt]
+    label = "Português"
+    locale = "pt-BR"
+    weight = 1
+    title = "NEU — Pesquisa sobre a Ucrânia no Brasil | USP"
+    [languages.pt.params]
+      description = "Pesquisa interdisciplinar sobre a Ucrânia reunindo pesquisadores brasileiros e europeus. USP — Departamento de Ciência Política."
+  [languages.en]
+    label = "English"
+    locale = "en"
+    weight = 2
+    title = "NEU — Ukraine Research in Brazil | USP"
+    [languages.en.params]
+      description = "Interdisciplinary research on Ukraine bringing together Brazilian and European researchers. USP — Department of Political Science."
+  [languages.uk]
+    label = "Українська"
+    locale = "uk"
+    weight = 3
+    title = "NEU — Дослідження України в Бразилії | USP"
+    [languages.uk.params]
+      description = "Міждисциплінарні дослідження України, що об'єднують бразильських та європейських дослідників. USP — факультет політології."
+
 [params]
-  description = "Pesquisa interdisciplinar sobre a Ucrânia reunindo pesquisadores brasileiros e europeus. USP — Departamento de Ciência Política."
   email = "neucrania@gmail.com"
   instituicao = "Departamento de Ciência Política — USP"
   fundacao = "2024"

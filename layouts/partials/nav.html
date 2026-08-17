@@ -3,40 +3,46 @@
     <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="32">
   </a>
   <ul class="nav-links">
-    <li><a href="{{ "/" | relURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
-    <li><a href="{{ "/" | relURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>Pesquisadores</a></li>
-    <li><a href="{{ "/" | relURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
-    <li><a href="{{ "/" | relURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
-    <li><a href="{{ "/" | relURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
-    <li><a href="{{ "/" | relURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
+    <li><a href="{{ "/" | relURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>{{ i18n "nav_sobre" }}</a></li>
+    <li><a href="{{ "/" | relURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>{{ i18n "nav_pesquisadores" }}</a></li>
+    <li><a href="{{ "/" | relURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>{{ i18n "nav_pesquisa" }}</a></li>
+    <li><a href="{{ "/" | relURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>{{ i18n "nav_producoes" }}</a></li>
+    <li><a href="{{ "/" | relURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>{{ i18n "nav_eventos" }}</a></li>
+    <li><a href="{{ "/" | relURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
   <div class="nav-right">
-    <!-- busca visual — sem índice de busca implementado ainda -->
-    <div class="nav-search" role="search">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="4.5"/><path d="M9.5 9.5L13 13"/></svg>
-      <input type="text" placeholder="Buscar…" aria-label="Buscar no site" disabled>
+    <div class="nav-utility">
+      <div class="nav-lang-selector">{{ partial "language-selector.html" . }}</div>
+      <!-- busca visual — sem índice de busca implementado ainda -->
+      <div class="nav-search" role="search">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="4.5"/><path d="M9.5 9.5L13 13"/></svg>
+        <input type="text" placeholder="{{ i18n "nav_buscar_placeholder" }}" aria-label="{{ i18n "nav_buscar_aria" }}" disabled>
+      </div>
     </div>
-    <div class="nav-lang"><span>PT</span> | EN</div>
-    <a href="{{ "/" | relURL }}contato/" class="nav-cta">↗ Contato</a>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
+    <a href="{{ "/" | relURL }}contato/" class="nav-cta">↗ {{ i18n "nav_contato" }}</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="{{ i18n "nav_abrir_menu" }}" aria-expanded="false">
       <div class="hamburger-icon"><span></span><span></span><span></span></div>
     </button>
   </div>
 </nav>
+<!-- faixa de idioma mobile — sempre visível, separada do menu hambúrguer -->
+<div class="mobile-lang-strip">
+  <div class="mobile-lang-strip__langs">{{ partial "language-selector.html" . }}</div>
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+</div>
 <div class="neu-nav-divider" aria-hidden="true"></div>
 
 <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
   <div class="mobile-drawer-vline"></div>
   <ul class="mobile-drawer-links">
-    <li><a href="{{ "/" | relURL }}sobre/">O Núcleo</a></li>
-    <li><a href="{{ "/" | relURL }}membros/">Pesquisadores</a></li>
-    <li><a href="{{ "/" | relURL }}pesquisa/">Pesquisa</a></li>
-    <li><a href="{{ "/" | relURL }}publicacoes/">Produções</a></li>
-    <li><a href="{{ "/" | relURL }}eventos/">Eventos</a></li>
-    <li><a href="{{ "/" | relURL }}biblioteca/">Biblioteca</a></li>
+    <li><a href="{{ "/" | relURL }}sobre/">{{ i18n "nav_sobre" }}</a></li>
+    <li><a href="{{ "/" | relURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
+    <li><a href="{{ "/" | relURL }}pesquisa/">{{ i18n "nav_pesquisa" }}</a></li>
+    <li><a href="{{ "/" | relURL }}publicacoes/">{{ i18n "nav_producoes" }}</a></li>
+    <li><a href="{{ "/" | relURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
+    <li><a href="{{ "/" | relURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
   <div class="mobile-drawer-bottom">
-    <div class="mobile-drawer-lang"><span>PT</span> | EN</div>
-    <a href="{{ "/" | relURL }}contato/" class="mobile-drawer-cta">↗ Contato</a>
+    <a href="{{ "/" | relURL }}contato/" class="mobile-drawer-cta">↗ {{ i18n "nav_contato" }}</a>
   </div>
 </div>

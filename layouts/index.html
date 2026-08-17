@@ -18,16 +18,21 @@
     </div>
 
     <!-- FEED + SIDEBAR -->
-    {{ $pesquisadores := where .Site.RegularPages "Type" "membros" }}
+    {{ $rm := partial "lib/pages-for-type.html" (dict "site" .Site "type" "membros") }}
+    {{ $pesquisadores := $rm.pages }}
 
     <!-- feed de destaques unificado: eventos + publicações, até 3, ordenado por destaque_ordem -->
-    {{ $todasPaginas := union (where .Site.RegularPages "Type" "publicacoes") (where .Site.RegularPages "Type" "eventos") }}
+    {{ $rpub := partial "lib/pages-for-type.html" (dict "site" .Site "type" "publicacoes") }}
+    {{ $rev := partial "lib/pages-for-type.html" (dict "site" .Site "type" "eventos") }}
+    {{ $todasPaginas := union $rpub.pages $rev.pages }}
+    {{ $destaquesFallback := or $rpub.fallback $rev.fallback }}
     {{ $destaques := where $todasPaginas "Params.destaque" true }}
     {{ $destaques = $destaques.ByParam "destaque_ordem" }}
     <div class="neu-layout-2col">
 
     <div>
       {{ if $destaques }}
+      {{ if $destaquesFallback }}<div style="margin-bottom:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
       <div class="feed-grid">
         {{ range $i, $p := first 3 $destaques }}
         <a href="{{ $p.RelPermalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
@@ -57,14 +62,15 @@
 
     <aside style="display:flex;flex-direction:column;gap:24px;">
       <div class="sidebar-nucleo">
-        <div class="sidebar-nucleo__title">O Núcleo</div>
+        <div class="sidebar-nucleo__title">{{ i18n "page_sobre_eyebrow" }}</div>
         <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país. Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica.</p>
-        <a href="{{ "/" | relURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Saiba mais →</a>
+        <a href="{{ "/" | relURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">{{ i18n "cta_saiba_mais" }}</a>
       </div>
 
       {{ if $pesquisadores }}
       <div class="sidebar-card">
-        <div class="sidebar-card__title">Pesquisadores</div>
+        <div class="sidebar-card__title">{{ i18n "nav_pesquisadores" }}</div>
+        {{ if $rm.fallback }}<div style="margin-bottom:10px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
         <ul class="sidebar-researchers">
           {{ range first 4 $pesquisadores }}
           <li>
@@ -80,7 +86,7 @@
           </li>
           {{ end }}
         </ul>
-        <a href="{{ "/" | relURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">Ver todos →</a>
+        <a href="{{ "/" | relURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">{{ i18n "cta_ver_todos" }}</a>
       </div>
       {{ end }}
     </aside>
@@ -105,20 +111,21 @@
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Cedec</span>
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">ANPOCS</span>
     </div>
-    <a href="{{ "/" | relURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
+    <a href="{{ "/" | relURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">{{ i18n "cta_saiba_mais" }}</a>
   </div>
 </div>
 
 <!-- EVENTOS RECENTES -->
-{{ $eventos := where .Site.RegularPages "Type" "eventos" }}
+{{ $eventos := $rev.pages }}
 <section class="section-cream vtex" aria-labelledby="eventos-title">
   <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;position:relative;z-index:1;">
     <div>
-      <div class="section-label">Agenda</div>
-      <h2 id="eventos-title" class="section-title">Eventos recentes</h2>
+      <div class="section-label">{{ i18n "page_eventos_eyebrow" }}</div>
+      <h2 id="eventos-title" class="section-title">{{ i18n "home_eventos_recentes" }}</h2>
     </div>
-    <a href="{{ "/" | relURL }}eventos/" class="link-arrow">Ver todos →</a>
+    <a href="{{ "/" | relURL }}eventos/" class="link-arrow">{{ i18n "cta_ver_todos" }}</a>
   </div>
+  {{ if $rev.fallback }}<div style="margin:-2rem 0 2rem;position:relative;z-index:1;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:1px;background:rgba(0,69,115,0.08);border:1px solid rgba(0,69,115,0.1);position:relative;z-index:1;">
     <div style="display:flex;flex-direction:column;gap:1px;background:rgba(0,69,115,0.08);">
       {{ if $eventos }}
@@ -131,7 +138,7 @@
           <div>
             <div class="event-type">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
             <h3 class="event-title"><a href="{{ .RelPermalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-            <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--azul-institucional);">Vídeo disponível</a>{{ end }}</div>
+            <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--azul-institucional);">{{ i18n "video_disponivel" }}</a>{{ end }}</div>
           </div>
         </article>
         {{ end }}
@@ -143,10 +150,10 @@
     </div>
     <div class="vtex-navy" style="background:var(--azul-institucional);padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
       <div>
-        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2026</h3>
-        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Acompanhe a agenda do NEU para os próximos meses.</p>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">{{ i18n "home_proximos_eventos_titulo" }}</h3>
+        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">{{ i18n "home_proximos_eventos_desc" }}</p>
       </div>
-      <a href="{{ "/" | relURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
+      <a href="{{ "/" | relURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">{{ i18n "cta_ver_agenda" }}</a>
     </div>
   </div>
 </section>

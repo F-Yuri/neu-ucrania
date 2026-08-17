@@ -1,27 +1,29 @@
 {{ define "main" }}
+{{ $r := partial "lib/pages-for-type.html" (dict "site" .Site "type" "publicacoes") }}
 <div style="background:var(--fundo-neutro);padding:24px 0 64px;">
   <div class="neu-container">
 
     <!-- HERO (sem card, mesmo padrão do Pesquisa/Eventos) -->
     <div style="padding:8px 0 4px;max-width:640px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Produções</div>
-      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">Publicações e artigos</h1>
-      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Pesquisa acadêmica, artigos de opinião e participações do NEU na imprensa.</p>
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">{{ i18n "page_publicacoes_eyebrow" }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">{{ i18n "page_publicacoes_title" }}</h1>
+      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">{{ i18n "page_publicacoes_desc" }}</p>
+      {{ if $r.fallback }}<div style="margin-top:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
     </div>
 
     <!-- FILTROS (mesma lógica JS de sempre: .filter-btn + data-filter + .pub-card + data-tipo) -->
     <div class="theme-chips" role="group" aria-label="Filtrar por tipo" style="margin:28px 0 20px;">
-      <button class="theme-chip filter-btn active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-      <button class="theme-chip filter-btn" type="button" data-filter="academico" aria-pressed="false">Acadêmicos</button>
-      <button class="theme-chip filter-btn" type="button" data-filter="midia" aria-pressed="false">Mídia</button>
-      <button class="theme-chip filter-btn" type="button" data-filter="livro" aria-pressed="false">Livros</button>
+      <button class="theme-chip filter-btn active" type="button" data-filter="todos" aria-pressed="true">{{ i18n "filtro_todos" }}</button>
+      <button class="theme-chip filter-btn" type="button" data-filter="academico" aria-pressed="false">{{ i18n "filtro_academicos" }}</button>
+      <button class="theme-chip filter-btn" type="button" data-filter="midia" aria-pressed="false">{{ i18n "filtro_midia" }}</button>
+      <button class="theme-chip filter-btn" type="button" data-filter="livro" aria-pressed="false">{{ i18n "filtro_livros" }}</button>
     </div>
 
     <div class="feed-grid">
-      {{ range .Pages }}
+      {{ range $r.pages }}
       <a href="{{ .RelPermalink }}" class="neu-card feed-card pub-card" data-tipo="{{ .Params.tipo }}">
         <div class="feed-card__media">
-          <span class="neu-tag feed-card__badge">{{ if eq .Params.tipo "midia" }}Mídia{{ else if eq .Params.tipo "academico" }}Acadêmico{{ else if eq .Params.tipo "livro" }}Livro{{ else if eq .Params.tipo "capitulo" }}Capítulo{{ else }}{{ .Params.tipo | title }}{{ end }}</span>
+          <span class="neu-tag feed-card__badge">{{ if eq .Params.tipo "midia" }}{{ i18n "tipo_midia" }}{{ else if eq .Params.tipo "academico" }}{{ i18n "tipo_academico" }}{{ else if eq .Params.tipo "livro" }}{{ i18n "tipo_livro" }}{{ else if eq .Params.tipo "capitulo" }}{{ i18n "tipo_capitulo" }}{{ else }}{{ .Params.tipo | title }}{{ end }}</span>
           {{ if .Params.foto }}<img src="/{{ .Params.foto }}" alt="" loading="lazy">{{ end }}
         </div>
         <div class="feed-card__body">

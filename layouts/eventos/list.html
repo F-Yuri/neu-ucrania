@@ -1,5 +1,6 @@
 {{ define "main" }}
-{{ $todos := .Pages }}
+{{ $r := partial "lib/pages-for-type.html" (dict "site" .Site "type" "eventos") }}
+{{ $todos := $r.pages }}
 {{ $destaques := where $todos "Params.destaque" true }}
 {{ $destaques = $destaques.ByParam "destaque_ordem" }}
 {{ $featured := "" }}
@@ -15,9 +16,10 @@
 
     <!-- HERO (sem card) -->
     <div style="padding:8px 0 4px;max-width:640px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Agenda</div>
-      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">Eventos</h1>
-      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Conferências, seminários e painéis promovidos pelo NEU.</p>
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">{{ i18n "page_eventos_eyebrow" }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">{{ i18n "page_eventos_title" }}</h1>
+      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">{{ i18n "page_eventos_desc" }}</p>
+      {{ if $r.fallback }}<div style="margin-top:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
     </div>
 
     <!-- EM DESTAQUE -->
@@ -35,7 +37,7 @@
             </div>
             <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 10px;color:#fff;line-height:1.3;">{{ $featured.Title }}</h2>
             {{ if $featured.Summary }}<div style="font-family:var(--font-body);font-size:14px;line-height:1.6;color:rgba(255,255,255,0.75);margin:0 0 14px;">{{ $featured.Summary }}</div>{{ end }}
-            <span style="font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--amarelo);">Ver detalhes →</span>
+            <span style="font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--amarelo);">{{ i18n "cta_ver_detalhes" }}</span>
           </div>
         </div>
       </a>
@@ -45,7 +47,7 @@
     <!-- EVENTOS ANTERIORES -->
     <div style="margin:36px 0 8px;">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
-        <div class="neu-eyebrow neu-eyebrow--on-branco">Eventos anteriores</div>
+        <div class="neu-eyebrow neu-eyebrow--on-branco">{{ i18n "page_eventos_anteriores" }}</div>
       </div>
       <div style="background:var(--branco);border:1px solid var(--borda-padrao);border-radius:var(--radius-card);overflow:hidden;">
         {{ range $i, $e := $visiveis }}
@@ -77,7 +79,7 @@
         {{ end }}
       </div>
       {{ if $restantes }}
-      <button type="button" onclick="document.getElementById('eventos-restantes').style.display='block';this.style.display='none';" class="btn-fantasma-claro" style="display:block;width:100%;text-align:center;margin-top:14px;">Ver todos ({{ len $outros }})</button>
+      <button type="button" onclick="document.getElementById('eventos-restantes').style.display='block';this.style.display='none';" class="btn-fantasma-claro" style="display:block;width:100%;text-align:center;margin-top:14px;">{{ i18n "cta_ver_todos_count" (dict "Count" (len $outros)) }}</button>
       {{ end }}
     </div>
 
