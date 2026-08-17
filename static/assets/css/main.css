@@ -24,6 +24,7 @@
   --body:      'Manrope', sans-serif;    /* = --font-body */
   --mono:      'Manrope', sans-serif;    /* tokens.css não define fonte mono — labels usam --font-body maiúsculo, ver --label-tag tokens */
   --nav-h:     60px;
+  --mobile-lang-strip-h: 40px; /* altura da faixa de idioma fixa no mobile (≤900px) */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,9 +37,10 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
 }
-/* nav é fixed (fora do fluxo) + divisor serrilhado fixo logo abaixo — compensa aqui pra ninguém ficar coberto */
+/* nav é fixed (fora do fluxo) + divisor serrilhado fixo logo abaixo — compensa aqui pra ninguém ficar coberto.
+   ≤900px a faixa de idioma mobile (também fixed) entra no meio, então soma a altura dela também. */
 #main-content { padding-top: calc(var(--nav-h) + 14px); }
-@media (max-width: 640px) { #main-content { padding-top: calc(56px + 14px); } }
+@media (max-width: 900px) { #main-content { padding-top: calc(var(--nav-h) + var(--mobile-lang-strip-h) + 14px); } }
 
 /* ── VYSHYVKA TEXTURES ── */
 .vtex::before, .vtex-navy::before, .vtex-yellow::before {
@@ -100,7 +102,7 @@ nav {
 
 /* ── MOBILE DRAWER ── */
 .mobile-drawer {
-  display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+  display: none; position: fixed; top: calc(var(--nav-h) + var(--mobile-lang-strip-h)); left: 0; right: 0; bottom: 0;
   background: var(--navy); z-index: 300; flex-direction: column;
   padding: 2rem 1.8rem 3rem; overflow-y: auto;
   transform: translateX(100%);
@@ -231,7 +233,8 @@ footer { background: var(--ink); padding: 4rem 4rem 2rem; border-top: 1px solid 
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 1.8rem; --nav-h: 60px; }
+  :root { --nav-h: 60px; }
+  nav { padding: 0 1.8rem; }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
@@ -255,7 +258,8 @@ footer { background: var(--ink); padding: 4rem 4rem 2rem; border-top: 1px solid 
 }
 
 @media (max-width: 560px) {
-  nav { padding: 0 1.2rem; height: 56px; --nav-h: 56px; }
+  :root { --nav-h: 56px; }
+  nav { padding: 0 1.2rem; height: 56px; }
   .nav-logo-text { font-size: 11px; }
   .nav-logo-sub  { display: none; }
   .nav-cta       { display: none; }
