@@ -1,0 +1,7 @@
+{{/*
+  breadcrumb-navy.html — breadcrumb "← Voltar" pro padrão de hero navy
+  (page-hero/vtex-navy). Branco pleno, 10:1 de contraste sobre
+  --azul-institucional — confirmado WCAG AAA mesmo em texto pequeno.
+  Uso: {{ partial "breadcrumb-navy.html" (dict "href" "/membros/" "label" "Pesquisadores") }}
+*/}}
+<a href="{{ .href }}" style="color:var(--branco);text-decoration:none;letter-spacing:0.22em;text-transform:uppercase;font-size:12px;font-weight:700;font-family:var(--font-body);">← {{ .label }}</a>
