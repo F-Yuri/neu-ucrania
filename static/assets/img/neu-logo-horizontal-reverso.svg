@@ -2,7 +2,7 @@
   <rect x="0" y="0" width="22" height="56" fill="#80C1E1"></rect>
   <text x="11" y="54.5" font-family="Montserrat, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF" text-anchor="middle">У</text>
   <rect x="28" y="0" width="22" height="56" fill="#FFEF00"></rect>
-  <text x="64" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.3" fill="#FFFFFF">NEU</text>
+  <text x="64" y="19" font-family="Montserrat, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.3" fill="#FFFFFF">NEU</text>
   <text x="64" y="37" font-family="Manrope, sans-serif" font-weight="700" font-size="9" letter-spacing="0.3" fill="#DCDEE0">NÚCLEO DE ESTUDOS</text>
   <text x="64" y="49" font-family="Manrope, sans-serif" font-weight="700" font-size="9" letter-spacing="0.3" fill="#DCDEE0">DA UCRÂNIA</text>
 </svg>
