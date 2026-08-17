@@ -37,7 +37,7 @@
             {{ else }}
             <span class="neu-tag feed-card__badge">{{ $p.Params.tipo | title }}</span>
             {{ end }}
-            {{ if $p.Params.foto }}<img src="/{{ $p.Params.foto }}" alt="" loading="lazy">{{ end }}
+            {{ if $p.Params.foto }}{{ if eq $i 0 }}<img src="/{{ $p.Params.foto }}" alt="" fetchpriority="high">{{ else }}<img src="/{{ $p.Params.foto }}" alt="" loading="lazy">{{ end }}{{ end }}
           </div>
           <div class="feed-card__body">
             <h2 class="feed-card__title">{{ $p.Title }}</h2>
