@@ -8,7 +8,7 @@
       <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">{{ .Params.hero_titulo }}</h1>
 
       <!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
-      <div class="theme-chips" role="list" aria-label="{{ i18n "aria_temas_pesquisa" }}">
+      <div class="theme-chips" role="group" aria-label="{{ i18n "aria_temas_pesquisa" }}">
         <button class="theme-chip" type="button" aria-pressed="true">{{ i18n "filtro_todos" }}</button>
         {{ range .Params.temas }}
         <button class="theme-chip" type="button" aria-pressed="false">{{ . }}</button>

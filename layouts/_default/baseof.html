@@ -25,12 +25,16 @@
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:site_name" content="NEU — Núcleo de Estudos da Ucrânia">
   <meta property="og:locale" content="{{ cond (eq .Site.Language.Lang "pt") "pt_BR" (cond (eq .Site.Language.Lang "en") "en_US" "uk_UA") }}">
-  {{ if .Params.image }}<meta property="og:image" content="{{ .Params.image | absURL }}">{{ end }}
+  {{ $ogImage := "assets/img/neu-og-default.jpg" | absURL }}
+  {{ if .Params.image }}{{ $ogImage = .Params.image | absURL }}
+  {{ else if .Params.foto }}{{ $ogImage = printf "/%s" .Params.foto | absURL }}{{ end }}
+  <meta property="og:image" content="{{ $ogImage }}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}">
   <meta name="twitter:description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ $ogImage }}">
   {{ if .Site.Params.twitter }}<meta name="twitter:site" content="{{ .Site.Params.twitter }}">{{ end }}
 
   <!-- Schema.org JSON-LD (Google Rich Results) -->
