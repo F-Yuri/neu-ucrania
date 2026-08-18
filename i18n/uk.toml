@@ -90,16 +90,18 @@ contato_label_fundado_em = "Засновано у"
 contato_fundado_mes = "грудні"
 newsletter_titulo = "Отримуйте наші новини"
 newsletter_desc = "Публікації, події та аналітика про Україну прямо на вашу пошту. Без спаму."
-placeholder_nome = "Ваше ім'я"
 cta_inscrever = "Підписатися →"
 
 home_newsletter_label = "Будьте в курсі"
 home_newsletter_titulo = "Отримуйте новини NEU"
 home_newsletter_sub = "Публікації, події та аналітика про Україну прямо на вашу пошту."
-newsletter_email_placeholder = "you@email.com"
+newsletter_email_placeholder = "Ваша ел. пошта"
 cta_inscrever_se = "Підписатися"
 newsletter_indisponivel_msg = "Підписка тимчасово недоступна. Незабаром повернемось з новинами!"
 label_pesquisador_generico = "Дослідник(-ця)"
+
+aviso_erro_texto = "Знайшли помилку в тексті?"
+aviso_erro_cta = "Повідомте нас"
 
 [footer_desc]
 other = "Створення знань та академічного діалогу про Україну — зміцнення україністики в Бразилії з {{ .Fundacao }} року."

@@ -22,6 +22,8 @@
   --texto-terciario: #5C646F;          /* placeholders, ícones neutros */
   --texto-sobre-amarelo: #00345D;      /* navy escurecido p/ contraste sobre tag amarela */
   --label-dourado: #795900;            /* labels sobre fundo branco, ex "USP · fundado em 2024" */
+  --fundo-aviso-erro: #FBF7EC;         /* fundo do aviso "encontrou um erro?" */
+  --borda-aviso-erro: #D9BE7A;         /* borda tracejada do aviso "encontrou um erro?" */
 
   --link: #0850AB;
   --link-hover: #003B95;
@@ -215,6 +217,37 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   padding: 0 var(--padding-secao-mobile);
 }
 @media (min-width: 1024px) { .neu-container { padding: 0 var(--padding-secao-desktop); } }
+
+/* aviso "encontrou um erro?" — borda tracejada, sempre logo antes da newsletter */
+.neu-aviso-erro {
+  max-width: var(--max-width-desktop);
+  margin: 24px auto;
+  padding: 0 var(--padding-secao-mobile);
+}
+.neu-aviso-erro__box {
+  background: var(--fundo-aviso-erro);
+  border: 1.5px dashed var(--borda-aviso-erro);
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.neu-aviso-erro__box svg { flex-shrink: 0; }
+.neu-aviso-erro__texto {
+  font-family: var(--font-body);
+  font-size: var(--corpo-size);
+  font-weight: 700;
+  color: var(--tinta);
+}
+.neu-aviso-erro__texto a { color: var(--azul-institucional); text-decoration: underline; text-underline-offset: 2px; }
+@media (min-width: 1024px) {
+  .neu-aviso-erro { padding: 0 var(--padding-secao-desktop); }
+  .neu-aviso-erro__box { padding: 16px; gap: 9px; }
+  .neu-aviso-erro__texto { font-size: 14px; }
+}
 
 /* duas colunas (conteúdo + sidebar) — spec seção 4, desktop ≥1024px */
 .neu-layout-2col {

@@ -90,16 +90,18 @@ contato_label_fundado_em = "Fundado em"
 contato_fundado_mes = "Dezembro"
 newsletter_titulo = "Receba nossas novidades"
 newsletter_desc = "Publicações, eventos e análises sobre a Ucrânia diretamente no seu email. Sem spam."
-placeholder_nome = "Seu nome"
 cta_inscrever = "Inscrever-se →"
 
 home_newsletter_label = "Fique informado"
 home_newsletter_titulo = "Receba as novidades do NEU"
-home_newsletter_sub = "Publicações, eventos e análises sobre a Ucrânia diretamente no seu email."
-newsletter_email_placeholder = "seu@email.com.br"
-cta_inscrever_se = "Inscrever-se"
+home_newsletter_sub = "Publicações, eventos e análises sobre a Ucrânia direto no seu e-mail."
+newsletter_email_placeholder = "Seu e-mail"
+cta_inscrever_se = "Assinar"
 newsletter_indisponivel_msg = "Inscrições temporariamente indisponíveis. Em breve voltamos com novidades!"
 label_pesquisador_generico = "Pesquisador(a)"
+
+aviso_erro_texto = "Encontrou algum erro no texto?"
+aviso_erro_cta = "Avise-nos"
 
 [footer_desc]
 other = "Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Fundacao }}."

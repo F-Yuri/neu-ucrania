@@ -90,16 +90,18 @@ contato_label_fundado_em = "Founded in"
 contato_fundado_mes = "December"
 newsletter_titulo = "Get our updates"
 newsletter_desc = "Publications, events and analysis about Ukraine straight to your inbox. No spam."
-placeholder_nome = "Your name"
 cta_inscrever = "Subscribe →"
 
 home_newsletter_label = "Stay informed"
 home_newsletter_titulo = "Get NEU's updates"
-home_newsletter_sub = "Publications, events and analysis about Ukraine straight to your inbox."
-newsletter_email_placeholder = "you@email.com"
+home_newsletter_sub = "Publications, events and analysis about Ukraine straight to your email."
+newsletter_email_placeholder = "Your email"
 cta_inscrever_se = "Subscribe"
 newsletter_indisponivel_msg = "Subscriptions are temporarily unavailable. We'll be back soon with news!"
 label_pesquisador_generico = "Researcher"
+
+aviso_erro_texto = "Found a mistake in the text?"
+aviso_erro_cta = "Let us know"
 
 [footer_desc]
 other = "Producing knowledge and academic dialogue about Ukraine — strengthening Ukrainian studies in Brazil since {{ .Fundacao }}."
