@@ -42,7 +42,7 @@
     <div style="margin:36px 0 8px;">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
         <div class="neu-eyebrow neu-eyebrow--on-branco">{{ i18n "page_membros_eyebrow" }}</div>
-        <a href="{{ "/" | relURL }}membros/" class="neu-link" style="font-family:var(--font-body);font-size:13px;font-weight:700;">{{ i18n "cta_ver_perfis_completos" }}</a>
+        <a href="{{ "/" | relLangURL }}membros/" class="neu-link" style="font-family:var(--font-body);font-size:13px;font-weight:700;">{{ i18n "cta_ver_perfis_completos" }}</a>
       </div>
       {{ if $rp.fallback }}<div style="margin-bottom:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
       <div class="researcher-grid">

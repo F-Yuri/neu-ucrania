@@ -3,7 +3,7 @@
   <div class="z1">
     <div class="page-hero-label">
       <span style="width:28px;height:1px;background:var(--amarelo);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>
-      {{ partial "breadcrumb-navy.html" (dict "href" ("/membros/" | relURL) "label" "Pesquisadores") }}
+      {{ partial "breadcrumb-navy.html" (dict "href" ("/membros/" | relLangURL) "label" "Pesquisadores") }}
     </div>
     <h1 class="page-hero-title">{{ .Title }}</h1>
     <div style="font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.12em;text-transform:uppercase;margin-top:1rem;">{{ .Params.instituicao }}</div>

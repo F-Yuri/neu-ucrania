@@ -1,7 +1,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <a href="{{ "/" | relURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
+      <a href="{{ "/" | relLangURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
         <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="42">
       </a>
       <p class="footer-desc">{{ i18n "footer_desc" (dict "Fundacao" .Site.Params.fundacao) }}</p>
@@ -10,26 +10,26 @@
     <div>
       <div class="footer-col-title">{{ i18n "footer_col_nucleo" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ "/" | relURL }}sobre/">{{ i18n "footer_sobre_neu" }}</a></li>
-        <li><a href="{{ "/" | relURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
-        <li><a href="{{ "/" | relURL }}contato/">{{ i18n "nav_contato" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}sobre/">{{ i18n "footer_sobre_neu" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}contato/">{{ i18n "nav_contato" }}</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">{{ i18n "footer_col_pesquisa" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ "/" | relURL }}pesquisa/">{{ i18n "footer_linhas_pesquisa" }}</a></li>
-        <li><a href="{{ "/" | relURL }}pesquisa/#bridging">{{ i18n "footer_bridging" }}</a></li>
-        <li><a href="{{ "/" | relURL }}publicacoes/">{{ i18n "footer_publicacoes" }}</a></li>
-        <li><a href="{{ "/" | relURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}pesquisa/">{{ i18n "footer_linhas_pesquisa" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}pesquisa/#bridging">{{ i18n "footer_bridging" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "footer_publicacoes" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">{{ i18n "footer_col_acesso_rapido" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ "/" | relURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
-        <li><a href="{{ "/" | relURL }}publicacoes/?tipo=midia">{{ i18n "footer_artigos_midia" }}</a></li>
-        <li><a href="{{ "/" | relURL }}contato/#newsletter">{{ i18n "footer_newsletter" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}publicacoes/?tipo=midia">{{ i18n "footer_artigos_midia" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}contato/#newsletter">{{ i18n "footer_newsletter" }}</a></li>
       </ul>
     </div>
   </div>

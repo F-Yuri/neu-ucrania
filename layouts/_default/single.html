@@ -3,7 +3,7 @@
   <div class="z1">
     <div class="page-hero-label">
       <span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>
-      {{ partial "breadcrumb-navy.html" (dict "href" (printf "/%s/" .Type) "label" "Voltar") }}
+      {{ partial "breadcrumb-navy.html" (dict "href" (printf "/%s/" .Type | relLangURL) "label" "Voltar") }}
     </div>
     <h1 class="page-hero-title">{{ .Title }}</h1>
     {{ if .Params.autores }}<p style="color:rgba(255,255,255,0.5);margin-top:1rem;font-weight:300;">{{ .Params.autores }}</p>{{ end }}

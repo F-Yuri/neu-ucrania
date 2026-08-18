@@ -4,7 +4,7 @@
   <div class="neu-container">
 
     <!-- BREADCRUMB -->
-    <a href="{{ "/" | relURL }}publicacoes/" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Publicações</a>
+    <a href="{{ "/" | relLangURL }}publicacoes/" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Publicações</a>
 
     <div class="neu-layout-2col">
 
@@ -68,7 +68,7 @@
         <div class="sidebar-nucleo">
           <div class="sidebar-nucleo__title">O Núcleo</div>
           <p class="sidebar-nucleo__text">O NEU reúne pesquisadores do Departamento de Ciência Política da USP dedicados à produção de conhecimento sobre a Ucrânia contemporânea.</p>
-          <a href="{{ "/" | relURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Conheça o Núcleo →</a>
+          <a href="{{ "/" | relLangURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">Conheça o Núcleo →</a>
         </div>
 
         {{ partial "materia-relacionados.html" (dict "page" .) }}
