@@ -56,6 +56,10 @@ page_biblioteca_eyebrow = "Колекція"
 page_biblioteca_title = "Бібліотека"
 page_biblioteca_desc = "Довідкові матеріали, відібрані NEU для досліджень з україністики."
 
+label_projeto_destaque = "Проєкт у фокусі"
+label_projeto = "Проєкт"
+aria_temas_pesquisa = "Теми досліджень"
+
 filtro_todos = "Усі"
 filtro_academicos = "Академічні"
 filtro_midia = "ЗМІ"
@@ -88,6 +92,14 @@ newsletter_titulo = "Отримуйте наші новини"
 newsletter_desc = "Публікації, події та аналітика про Україну прямо на вашу пошту. Без спаму."
 placeholder_nome = "Ваше ім'я"
 cta_inscrever = "Підписатися →"
+
+home_newsletter_label = "Будьте в курсі"
+home_newsletter_titulo = "Отримуйте новини NEU"
+home_newsletter_sub = "Публікації, події та аналітика про Україну прямо на вашу пошту."
+newsletter_email_placeholder = "you@email.com"
+cta_inscrever_se = "Підписатися"
+newsletter_indisponivel_msg = "Підписка тимчасово недоступна. Незабаром повернемось з новинами!"
+label_pesquisador_generico = "Дослідник(-ця)"
 
 [footer_desc]
 other = "Створення знань та академічного діалогу про Україну — зміцнення україністики в Бразилії з {{ .Fundacao }} року."

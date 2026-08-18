@@ -12,59 +12,20 @@
     <!-- LISTAS DE LINKS, por categoria (dado real do site) -->
     <div style="display:flex;flex-direction:column;gap:32px;padding:28px 0 4px;">
 
+      {{ range .Params.categorias }}
       <div>
-        <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">Dados e monitoramento</div>
+        <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">{{ .titulo }}</div>
         <div style="background:var(--branco);border:1px solid var(--borda-padrao);border-radius:var(--radius-card);overflow:hidden;">
-          <a href="https://acleddata.com" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">ACLED — Conflict Data ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Dados em tempo real sobre conflitos armados no mundo</div></div>
+          {{ $links := .links }}
+          {{ range $i, $l := $links }}
+          <a href="{{ $l.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;{{ if ne $i (sub (len $links) 1) }}border-bottom:1px solid var(--borda-sutil);{{ end }}">
+            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">{{ $l.label }} ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">{{ $l.desc }}</div></div>
             <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
           </a>
-          <a href="https://www.unhcr.org/ua" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">ACNUR / UNHCR ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Dados sobre refugiados e deslocados ucranianos</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-          <a href="https://www.iom.int/countries/ukraine" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">OIM — Organização Internacional para Migrações ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Monitoramento de fluxos migratórios</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
+          {{ end }}
         </div>
       </div>
-
-      <div>
-        <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">Centros acadêmicos parceiros</div>
-        <div style="background:var(--branco);border:1px solid var(--borda-padrao);border-radius:var(--radius-card);overflow:hidden;">
-          <a href="https://ukma.edu.ua/en/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Kyiv-Mohyla Academy ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Parceiro do projeto Bridging Ukraine</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-          <a href="https://www.ucu.edu.ua/en/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Ukrainian Catholic University ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Lviv — pesquisa em humanidades e ciências sociais</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-          <a href="https://www.kas.de/en/web/ukraine" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Konrad Adenauer Stiftung — Ucrânia ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Análises políticas e publicações sobre a Ucrânia</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">Periódicos e mídia</div>
-        <div style="background:var(--branco);border:1px solid var(--borda-padrao);border-radius:var(--radius-card);overflow:hidden;">
-          <a href="https://www.kritiki.net" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Krytyka — журнал ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Revista acadêmica ucraniana de humanidades</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-          <a href="https://foreignpolicy.com/tag/ukraine/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--borda-sutil);">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Foreign Policy — Ukraine ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Análises e reportagens internacionais</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-          <a href="https://www.currenttime.tv" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;">
-            <div><div style="font-family:var(--font-display);font-size:14.5px;font-weight:700;color:var(--tinta);margin-bottom:3px;">Радіо Свобода ↗</div><div style="font-family:var(--font-body);font-size:12.5px;color:var(--texto-secundario);">Rádio Liberdade — jornalismo independente em ucraniano</div></div>
-            <span style="color:var(--texto-secundario);flex-shrink:0;">→</span>
-          </a>
-        </div>
-      </div>
+      {{ end }}
 
     </div>
 

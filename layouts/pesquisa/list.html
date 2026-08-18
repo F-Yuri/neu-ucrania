@@ -13,11 +13,12 @@
     <div style="display:grid;grid-template-columns:1fr;gap:14px;padding:28px 0 4px;">
       <style>@media (min-width:768px){.linhas-grid{grid-template-columns:repeat(3,1fr)!important;gap:20px!important;}}</style>
       <div class="linhas-grid" style="display:grid;grid-template-columns:1fr;gap:14px;">
+        {{ $lang := .Site.Language.Lang }}
         {{ range hugo.Data.linhas_pesquisa }}
         <div class="neu-card">
           <div style="width:38px;height:38px;border-radius:8px;background:var(--placeholder-img-1);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--azul-institucional);margin-bottom:14px;">{{ .n }}</div>
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:16.5px;margin:0 0 8px;color:var(--tinta);">{{ .title }}</h2>
-          <p style="font-size:13.5px;line-height:1.6;color:var(--texto-corpo);margin:0;">{{ .desc }}</p>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:16.5px;margin:0 0 8px;color:var(--tinta);">{{ index .title $lang }}</h2>
+          <p style="font-size:13.5px;line-height:1.6;color:var(--texto-corpo);margin:0;">{{ index .desc $lang }}</p>
         </div>
         {{ end }}
       </div>
@@ -25,7 +26,7 @@
 
     <!-- PROJETO EM DESTAQUE -->
     <div style="margin:36px 0 8px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:14px;">Projeto em destaque</div>
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:14px;">{{ i18n "label_projeto_destaque" }}</div>
       <div style="background:var(--azul-institucional);border-radius:var(--radius-card);overflow:hidden;display:grid;grid-template-columns:1fr;">
         <style>@media (min-width:768px){.projeto-destaque{grid-template-columns:1fr 1fr!important;}}</style>
         <div class="projeto-destaque" style="display:grid;grid-template-columns:1fr;">
@@ -33,17 +34,17 @@
             <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;line-height:1.1;color:var(--azul-institucional);text-align:center;margin:0;">Bridging Ukraine<br><em style="font-style:italic;font-weight:500;">&amp; Latin America</em></h2>
           </div>
           <div style="padding:40px;display:flex;flex-direction:column;justify-content:center;">
-            <span style="display:inline-block;width:fit-content;background:var(--amarelo);color:var(--texto-sobre-amarelo);font-family:var(--font-body);font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius-botao);margin-bottom:16px;">Projeto</span>
+            <span style="display:inline-block;width:fit-content;background:var(--amarelo);color:var(--texto-sobre-amarelo);font-family:var(--font-body);font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:var(--radius-botao);margin-bottom:16px;">{{ i18n "label_projeto" }}</span>
             <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 12px;color:#fff;line-height:1.3;">A Transnational Call for Decolonization, Justice, and Scientific Truth</h3>
-            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.75);margin:0 0 12px;">Aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies em abril de 2025, o projeto estabelece cooperação acadêmica entre o NEU/USP e a National University of Kyiv-Mohyla Academy (NaUKMA).</p>
-            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.75);margin:0 0 18px;">Atividades incluem ciclo de conferências com Anna Osypchuk e Maksym Yakovlyev, publicações conjuntas, sessão especial no 49º Encontro da ANPOCS e colóquio na USP em outubro de 2025.</p>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.75);margin:0 0 12px;">{{ .Params.bridging_desc1 }}</p>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.65;color:rgba(255,255,255,0.75);margin:0 0 18px;">{{ .Params.bridging_desc2 }}</p>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
               <span style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:var(--radius-botao);">USP</span>
               <span style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:var(--radius-botao);">Kyiv-Mohyla Academy</span>
               <span style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:var(--radius-botao);">Cedec</span>
               <span style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);padding:4px 12px;border-radius:var(--radius-botao);">ANPOCS</span>
             </div>
-            <a href="{{ "/" | relURL }}contato/" class="btn-primario" style="width:fit-content;">Saiba mais →</a>
+            <a href="{{ "/" | relURL }}contato/" class="btn-primario" style="width:fit-content;">{{ i18n "cta_saiba_mais" }}</a>
           </div>
         </div>
       </div>

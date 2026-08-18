@@ -1,18 +1,54 @@
 - n: "01"
-  title: "Guerra e sociedade"
-  desc: "Impactos humanos e sociais do conflito armado na população civil ucraniana."
+  title:
+    pt: "Guerra e sociedade"
+    en: "War and society"
+    uk: "Війна і суспільство"
+  desc:
+    pt: "Impactos humanos e sociais do conflito armado na população civil ucraniana."
+    en: "Human and social impacts of the armed conflict on the Ukrainian civilian population."
+    uk: "Гуманітарні та соціальні наслідки збройного конфлікту для цивільного населення України."
 - n: "02"
-  title: "Desinformação e guerra da informação"
-  desc: "Circulação transnacional de narrativas e propaganda no conflito russo-ucraniano."
+  title:
+    pt: "Desinformação e guerra da informação"
+    en: "Disinformation and information warfare"
+    uk: "Дезінформація та інформаційна війна"
+  desc:
+    pt: "Circulação transnacional de narrativas e propaganda no conflito russo-ucraniano."
+    en: "Transnational circulation of narratives and propaganda in the Russia-Ukraine conflict."
+    uk: "Транснаціональне поширення наративів і пропаганди в російсько-українському конфлікті."
 - n: "03"
-  title: "Deslocamento e refúgio"
-  desc: "Migração ucraniana, políticas de acolhimento e experiências de deslocamento forçado."
+  title:
+    pt: "Deslocamento e refúgio"
+    en: "Displacement and refuge"
+    uk: "Переміщення та біженство"
+  desc:
+    pt: "Migração ucraniana, políticas de acolhimento e experiências de deslocamento forçado."
+    en: "Ukrainian migration, reception policies and experiences of forced displacement."
+    uk: "Українська міграція, політика прийому та досвід примусового переміщення."
 - n: "04"
-  title: "Política e segurança internacional"
-  desc: "Geopolítica do conflito, indústria de defesa e ordem internacional."
+  title:
+    pt: "Política e segurança internacional"
+    en: "International politics and security"
+    uk: "Міжнародна політика та безпека"
+  desc:
+    pt: "Geopolítica do conflito, indústria de defesa e ordem internacional."
+    en: "Geopolitics of the conflict, defense industry and international order."
+    uk: "Геополітика конфлікту, оборонна промисловість та міжнародний порядок."
 - n: "05"
-  title: "Memória e identidade"
-  desc: "Construção da identidade nacional ucraniana e disputas de memória histórica."
+  title:
+    pt: "Memória e identidade"
+    en: "Memory and identity"
+    uk: "Пам'ять та ідентичність"
+  desc:
+    pt: "Construção da identidade nacional ucraniana e disputas de memória histórica."
+    en: "Construction of Ukrainian national identity and disputes over historical memory."
+    uk: "Формування української національної ідентичності та суперечки щодо історичної пам'яті."
 - n: "06"
-  title: "Direito e crimes de guerra"
-  desc: "Responsabilização internacional, crimes contra a humanidade e justiça de transição."
+  title:
+    pt: "Direito e crimes de guerra"
+    en: "Law and war crimes"
+    uk: "Право та воєнні злочини"
+  desc:
+    pt: "Responsabilização internacional, crimes contra a humanidade e justiça de transição."
+    en: "International accountability, crimes against humanity and transitional justice."
+    uk: "Міжнародна відповідальність, злочини проти людяності та перехідне правосуддя."

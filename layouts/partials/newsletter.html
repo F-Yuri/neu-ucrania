@@ -1,16 +1,16 @@
 <div id="newsletter" class="newsletter vtex-navy">
   <div class="newsletter-text">
-    <div class="section-label on-navy">Fique informado</div>
-    <h2 class="section-title" style="color:#fff;font-size:2rem;">Receba as novidades do NEU</h2>
-    <p class="newsletter-sub">Publicações, eventos e análises sobre a Ucrânia diretamente no seu email.</p>
+    <div class="section-label on-navy">{{ i18n "home_newsletter_label" }}</div>
+    <h2 class="section-title" style="color:#fff;font-size:2rem;">{{ i18n "home_newsletter_titulo" }}</h2>
+    <p class="newsletter-sub">{{ i18n "home_newsletter_sub" }}</p>
   </div>
   <div>
     <form class="newsletter-form" name="newsletter" onsubmit="neuNewsletterSubmit(event)">
-      <input class="newsletter-input" type="email" name="email" placeholder="seu@email.com.br" required>
-      <button class="newsletter-btn" type="submit">Inscrever-se</button>
+      <input class="newsletter-input" type="email" name="email" placeholder="{{ i18n "newsletter_email_placeholder" }}" required>
+      <button class="newsletter-btn" type="submit">{{ i18n "cta_inscrever_se" }}</button>
     </form>
     <p id="neu-newsletter-msg" style="display:none;margin-top:1rem;font-family:var(--body);font-size:13px;color:rgba(255,255,255,0.7);border-left:2px solid var(--yellow);padding-left:12px;">
-      Inscrições temporariamente indisponíveis. Em breve voltamos com novidades!
+      {{ i18n "newsletter_indisponivel_msg" }}
     </p>
   </div>
 </div>

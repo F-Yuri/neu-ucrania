@@ -1,3 +1,38 @@
 ---
 title: "Бібліотека"
+description: "Ресурси, посилання та репозиторії про Україну, відібрані NEU."
+categorias:
+  - titulo: "Дані та моніторинг"
+    links:
+      - label: "ACLED — Conflict Data"
+        desc: "Дані в реальному часі про збройні конфлікти у світі"
+        url: "https://acleddata.com"
+      - label: "УВКБ ООН / UNHCR"
+        desc: "Дані про українських біженців та переміщених осіб"
+        url: "https://www.unhcr.org/ua"
+      - label: "МОМ — Міжнародна організація з міграції"
+        desc: "Моніторинг міграційних потоків"
+        url: "https://www.iom.int/countries/ukraine"
+  - titulo: "Партнерські академічні центри"
+    links:
+      - label: "Києво-Могилянська академія"
+        desc: "Партнер проєкту Bridging Ukraine"
+        url: "https://ukma.edu.ua/en/"
+      - label: "Український католицький університет"
+        desc: "Львів — дослідження в галузі гуманітарних і соціальних наук"
+        url: "https://www.ucu.edu.ua/en/"
+      - label: "Konrad Adenauer Stiftung — Україна"
+        desc: "Політичний аналіз та публікації про Україну"
+        url: "https://www.kas.de/en/web/ukraine"
+  - titulo: "Періодичні видання та медіа"
+    links:
+      - label: "Krytyka — журнал"
+        desc: "Український академічний журнал гуманітарних наук"
+        url: "https://www.kritiki.net"
+      - label: "Foreign Policy — Ukraine"
+        desc: "Міжнародна аналітика та репортажі"
+        url: "https://foreignpolicy.com/tag/ukraine/"
+      - label: "Радіо Свобода"
+        desc: "Незалежна журналістика українською мовою"
+        url: "https://www.currenttime.tv"
 ---

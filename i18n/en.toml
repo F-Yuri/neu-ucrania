@@ -56,6 +56,10 @@ page_biblioteca_eyebrow = "Collection"
 page_biblioteca_title = "Library"
 page_biblioteca_desc = "Reference materials curated by NEU for research on Ukraine."
 
+label_projeto_destaque = "Featured project"
+label_projeto = "Project"
+aria_temas_pesquisa = "Research topics"
+
 filtro_todos = "All"
 filtro_academicos = "Academic"
 filtro_midia = "Media"
@@ -88,6 +92,14 @@ newsletter_titulo = "Get our updates"
 newsletter_desc = "Publications, events and analysis about Ukraine straight to your inbox. No spam."
 placeholder_nome = "Your name"
 cta_inscrever = "Subscribe →"
+
+home_newsletter_label = "Stay informed"
+home_newsletter_titulo = "Get NEU's updates"
+home_newsletter_sub = "Publications, events and analysis about Ukraine straight to your inbox."
+newsletter_email_placeholder = "you@email.com"
+cta_inscrever_se = "Subscribe"
+newsletter_indisponivel_msg = "Subscriptions are temporarily unavailable. We'll be back soon with news!"
+label_pesquisador_generico = "Researcher"
 
 [footer_desc]
 other = "Producing knowledge and academic dialogue about Ukraine — strengthening Ukrainian studies in Brazil since {{ .Fundacao }}."

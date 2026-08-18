@@ -15,23 +15,20 @@
       <div class="nucleo-grid" style="display:grid;grid-template-columns:1fr;gap:20px;">
 
         <div class="neu-card">
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin:0 0 14px;color:var(--tinta);">Como o NEU nasceu</h2>
-          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:0 0 14px;">O Núcleo de Estudos da Ucrânia (NEU) foi fundado em dezembro de 2024 no Departamento de Ciência Política da Universidade de São Paulo, em resposta à crescente necessidade de produção acadêmica qualificada sobre a Ucrânia no Brasil — um campo ainda pouco explorado na academia nacional.</p>
-          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:0 0 14px;">A iniciativa reuniu pesquisadores de múltiplas instituições brasileiras e europeias com trajetórias em Ciência Política, Relações Internacionais, Sociologia, Filosofia e Direitos Humanos, todos dedicados a produzir análises rigorosas sobre a Ucrânia a partir de perspectivas não hegemônicas.</p>
-          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:0;">Em abril de 2025, o NEU teve seu primeiro projeto internacional aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies, em parceria com a National University of Kyiv-Mohyla Academy.</p>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin:0 0 14px;color:var(--tinta);">{{ .Params.historia_titulo }}</h2>
+          {{ $historia := .Params.historia }}
+          {{ range $i, $p := $historia }}
+          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:{{ if eq $i (sub (len $historia) 1) }}0{{ else }}0 0 14px{{ end }};">{{ $p }}</p>
+          {{ end }}
         </div>
 
         <div class="neu-card">
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin:0 0 14px;color:var(--tinta);">O que nos move</h2>
-          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:0 0 20px;">Fortalecer a produção de conhecimento sobre a Ucrânia no Brasil — contribuindo para o debate acadêmico, a formação de pesquisadores e a compreensão pública de um conflito que redefine a ordem internacional.</p>
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin:0 0 14px;color:var(--tinta);">{{ .Params.missao_titulo }}</h2>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:0 0 20px;">{{ .Params.missao_texto }}</p>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <span class="neu-tag">Ciência Política</span>
-            <span class="neu-tag">Relações Internacionais</span>
-            <span class="neu-tag">História</span>
-            <span class="neu-tag">Direitos Humanos</span>
-            <span class="neu-tag">Estudos de Migração</span>
-            <span class="neu-tag">Filosofia Política</span>
-            <span class="neu-tag">Subjetividade e Política</span>
+            {{ range .Params.missao_tags }}
+            <span class="neu-tag">{{ . }}</span>
+            {{ end }}
           </div>
         </div>
 

@@ -4,16 +4,15 @@
 
     <!-- HERO (card branco) -->
     <div class="neu-hero-card" style="margin-bottom:24px;">
-      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">USP · Ciência Política · Fundado em {{ .Site.Params.fundacao }}</div>
-      <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">Referência em estudos sobre a Ucrânia no Brasil</h1>
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">{{ .Params.hero_eyebrow }} {{ .Site.Params.fundacao }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">{{ .Params.hero_titulo }}</h1>
 
       <!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
-      <div class="theme-chips" role="list" aria-label="Temas de pesquisa">
-        <button class="theme-chip" type="button" aria-pressed="true">Todos</button>
-        <button class="theme-chip" type="button" aria-pressed="false">Colonialismo e Imperialismo Russo</button>
-        <button class="theme-chip" type="button" aria-pressed="false">Sociedade Civil Ucraniana</button>
-        <button class="theme-chip" type="button" aria-pressed="false">Guerra e Justiça</button>
-        <button class="theme-chip" type="button" aria-pressed="false">Diáspora e Deslocamento</button>
+      <div class="theme-chips" role="list" aria-label="{{ i18n "aria_temas_pesquisa" }}">
+        <button class="theme-chip" type="button" aria-pressed="true">{{ i18n "filtro_todos" }}</button>
+        {{ range .Params.temas }}
+        <button class="theme-chip" type="button" aria-pressed="false">{{ . }}</button>
+        {{ end }}
       </div>
     </div>
 
@@ -63,7 +62,7 @@
     <aside style="display:flex;flex-direction:column;gap:24px;">
       <div class="sidebar-nucleo">
         <div class="sidebar-nucleo__title">{{ i18n "page_sobre_eyebrow" }}</div>
-        <p class="sidebar-nucleo__text">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país. Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica.</p>
+        <p class="sidebar-nucleo__text">{{ .Params.nucleo_texto }}</p>
         <a href="{{ "/" | relURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">{{ i18n "cta_saiba_mais" }}</a>
       </div>
 
@@ -81,7 +80,7 @@
             {{ end }}
             <div>
               <a href="{{ .RelPermalink }}" class="sidebar-researchers__name" style="text-decoration:none;">{{ .Title }}</a><br>
-              <span class="sidebar-researchers__meta">{{ .Params.instituicao | default "Pesquisador(a)" }}</span>
+              <span class="sidebar-researchers__meta">{{ .Params.instituicao | default (i18n "label_pesquisador_generico") }}</span>
             </div>
           </li>
           {{ end }}
@@ -98,13 +97,13 @@
 <!-- PROJETO BRIDGING -->
 <div style="display:grid;grid-template-columns:1fr 1fr;min-height:420px;" id="bridging">
   <div class="vtex-yellow" style="background:var(--amarelo);display:flex;align-items:center;justify-content:center;padding:4rem;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:2rem;left:2rem;background:var(--azul-institucional);color:var(--amarelo);font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;z-index:2;">Projeto aprovado — abril 2025</div>
+    <div style="position:absolute;top:2rem;left:2rem;background:var(--azul-institucional);color:var(--amarelo);font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;z-index:2;">{{ .Params.bridging_badge }}</div>
     <h2 class="z1" style="font-family:var(--font-display);font-size:2.8rem;font-weight:600;line-height:1.1;color:var(--azul-institucional);text-align:center;">Bridging Ukraine<br><em style="font-style:italic;font-weight:400;font-size:2rem;">&amp; Latin America</em></h2>
   </div>
   <div class="vtex-navy" style="background:var(--azul-institucional);padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
-    <div class="section-label on-navy z1">Projeto em destaque</div>
+    <div class="section-label on-navy z1">{{ i18n "label_projeto_destaque" }}</div>
     <h3 class="z1" style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:1.2rem;line-height:1.15;">Bridging Ukraine and Latin America</h3>
-    <p class="z1" style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;"><em>A Transnational Call for Decolonization, Justice, and Scientific Truth</em> — aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies em abril de 2025, em parceria com a National University of Kyiv-Mohyla Academy.</p>
+    <p class="z1" style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;"><em>A Transnational Call for Decolonization, Justice, and Scientific Truth</em> — {{ .Params.bridging_desc }}</p>
     <div class="z1" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;">
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">USP</span>
       <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Kyiv-Mohyla Academy</span>

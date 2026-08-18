@@ -1,4 +1,38 @@
 ---
 title: "Biblioteca"
 description: "Recursos, links e repositórios sobre a Ucrânia selecionados pelo NEU."
+categorias:
+  - titulo: "Dados e monitoramento"
+    links:
+      - label: "ACLED — Conflict Data"
+        desc: "Dados em tempo real sobre conflitos armados no mundo"
+        url: "https://acleddata.com"
+      - label: "ACNUR / UNHCR"
+        desc: "Dados sobre refugiados e deslocados ucranianos"
+        url: "https://www.unhcr.org/ua"
+      - label: "OIM — Organização Internacional para Migrações"
+        desc: "Monitoramento de fluxos migratórios"
+        url: "https://www.iom.int/countries/ukraine"
+  - titulo: "Centros acadêmicos parceiros"
+    links:
+      - label: "Kyiv-Mohyla Academy"
+        desc: "Parceiro do projeto Bridging Ukraine"
+        url: "https://ukma.edu.ua/en/"
+      - label: "Ukrainian Catholic University"
+        desc: "Lviv — pesquisa em humanidades e ciências sociais"
+        url: "https://www.ucu.edu.ua/en/"
+      - label: "Konrad Adenauer Stiftung — Ucrânia"
+        desc: "Análises políticas e publicações sobre a Ucrânia"
+        url: "https://www.kas.de/en/web/ukraine"
+  - titulo: "Periódicos e mídia"
+    links:
+      - label: "Krytyka — журнал"
+        desc: "Revista acadêmica ucraniana de humanidades"
+        url: "https://www.kritiki.net"
+      - label: "Foreign Policy — Ukraine"
+        desc: "Análises e reportagens internacionais"
+        url: "https://foreignpolicy.com/tag/ukraine/"
+      - label: "Радіо Свобода"
+        desc: "Rádio Liberdade — jornalismo independente em ucraniano"
+        url: "https://www.currenttime.tv"
 ---

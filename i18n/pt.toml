@@ -56,6 +56,10 @@ page_biblioteca_eyebrow = "Acervo"
 page_biblioteca_title = "Biblioteca"
 page_biblioteca_desc = "Materiais de referência selecionados pelo NEU para pesquisa sobre a Ucrânia."
 
+label_projeto_destaque = "Projeto em destaque"
+label_projeto = "Projeto"
+aria_temas_pesquisa = "Temas de pesquisa"
+
 filtro_todos = "Todos"
 filtro_academicos = "Acadêmicos"
 filtro_midia = "Mídia"
@@ -88,6 +92,14 @@ newsletter_titulo = "Receba nossas novidades"
 newsletter_desc = "Publicações, eventos e análises sobre a Ucrânia diretamente no seu email. Sem spam."
 placeholder_nome = "Seu nome"
 cta_inscrever = "Inscrever-se →"
+
+home_newsletter_label = "Fique informado"
+home_newsletter_titulo = "Receba as novidades do NEU"
+home_newsletter_sub = "Publicações, eventos e análises sobre a Ucrânia diretamente no seu email."
+newsletter_email_placeholder = "seu@email.com.br"
+cta_inscrever_se = "Inscrever-se"
+newsletter_indisponivel_msg = "Inscrições temporariamente indisponíveis. Em breve voltamos com novidades!"
+label_pesquisador_generico = "Pesquisador(a)"
 
 [footer_desc]
 other = "Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Fundacao }}."
