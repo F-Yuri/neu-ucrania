@@ -17,7 +17,7 @@ categorias:
     links:
       - label: "Kyiv-Mohyla Academy"
         desc: "Parceiro do projeto Bridging Ukraine"
-        url: "https://ukma.edu.ua/en/"
+        url: "https://ukma.edu.ua/eng/"
       - label: "Ukrainian Catholic University"
         desc: "Lviv — pesquisa em humanidades e ciências sociais"
         url: "https://www.ucu.edu.ua/en/"

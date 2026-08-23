@@ -17,7 +17,7 @@ categorias:
     links:
       - label: "Києво-Могилянська академія"
         desc: "Партнер проєкту Bridging Ukraine"
-        url: "https://ukma.edu.ua/en/"
+        url: "https://ukma.edu.ua/eng/"
       - label: "Український католицький університет"
         desc: "Львів — дослідження в галузі гуманітарних і соціальних наук"
         url: "https://www.ucu.edu.ua/en/"

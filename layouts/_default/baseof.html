@@ -6,9 +6,26 @@
 
   <!-- SEO primário -->
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}</title>
-  <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  {{ $metaDesc := .Site.Params.description }}
+  {{ if .Params.description }}
+    {{ $metaDesc = .Params.description }}
+  {{ else if and (eq .Type "membros") .IsPage }}
+    {{ $frase := index (split (.Plain | strings.TrimSpace) ". ") 0 }}
+    {{ $metaDesc = printf "%s. Pesquisador(a) do NEU — Núcleo de Estudos da Ucrânia." $frase }}
+  {{ else if and (eq .Type "eventos") .IsPage }}
+    {{ if .Summary }}{{ $metaDesc = .Summary | plainify }}{{ end }}
+  {{ else if and (eq .Type "publicacoes") .IsPage }}
+    {{ if .Summary }}{{ $metaDesc = .Summary | plainify }}{{ end }}
+  {{ end }}
+
+  <meta name="description" content="{{ $metaDesc }}">
   <meta name="author" content="Núcleo de Estudos da Ucrânia — USP">
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{/* canonical/og:url sempre no domínio de produção, independente do -b usado no build
+       (preview do Cloudflare Pages usa $CF_PAGES_URL, que não deve vazar pra essas tags) */}}
+  {{ $prodBaseURL := .Site.Params.canonicalBaseURL | default .Site.BaseURL }}
+  {{ $canonicalURL := printf "%s%s" (strings.TrimSuffix "/" $prodBaseURL) .RelPermalink }}
+  <link rel="canonical" href="{{ $canonicalURL }}">
 
   <!-- Multilíngue: PT-BR é o idioma padrão (x-default); EN/UK só têm hreflang
        quando a página específica tem tradução — conteúdo ainda não traduzido
@@ -21,8 +38,8 @@
   <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}">
-  <meta property="og:description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:description" content="{{ $metaDesc }}">
+  <meta property="og:url" content="{{ $canonicalURL }}">
   <meta property="og:site_name" content="NEU — Núcleo de Estudos da Ucrânia">
   <meta property="og:locale" content="{{ cond (eq .Site.Language.Lang "pt") "pt_BR" (cond (eq .Site.Language.Lang "en") "en_US" "uk_UA") }}">
   {{ $ogImage := "assets/img/neu-og-default.jpg" | absURL }}
@@ -33,7 +50,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}">
-  <meta name="twitter:description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:description" content="{{ $metaDesc }}">
   <meta name="twitter:image" content="{{ $ogImage }}">
   {{ if .Site.Params.twitter }}<meta name="twitter:site" content="{{ .Site.Params.twitter }}">{{ end }}
 
@@ -45,7 +62,7 @@
     "@type": "ResearchOrganization",
     "name": "Núcleo de Estudos da Ucrânia",
     "alternateName": "NEU",
-    "url": "{{ .Site.BaseURL }}",
+    "url": "{{ $prodBaseURL }}",
     "description": "{{ .Site.Params.description }}",
     "foundingDate": "{{ .Site.Params.fundacao }}",
     "email": "{{ .Site.Params.email }}",
@@ -90,7 +107,7 @@
   "organizer": {
     "@type": "Organization",
     "name": "Núcleo de Estudos da Ucrânia — USP",
-    "url": "{{ .Site.BaseURL }}"
+    "url": "{{ $prodBaseURL }}"
   }
 }
 </script>

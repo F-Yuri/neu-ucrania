@@ -49,6 +49,11 @@ defaultContentLanguageInSubdir = false
   fundacao = "2024"
   twitter = ""
   instagram = ""
+  # Fixo, nunca sobrescrito pelo -b do build (Cloudflare Pages usa $CF_PAGES_URL
+  # no preview, o que "vazava" pro canonical/og:url/sitemap). Navegação interna
+  # continua usando .Permalink/.Site.BaseURL normalmente — só canonical/og:url/
+  # sitemap usam este valor fixo.
+  canonicalBaseURL = "https://www.neu-ucrania.org/"
 
 [taxonomies]
   tema = "temas"
