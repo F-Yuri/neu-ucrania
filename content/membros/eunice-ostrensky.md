@@ -2,7 +2,10 @@
 title: "Eunice Ostrensky"
 sigla: "EO"
 instituicao: "Departamento de Ciência Política — USP"
-area: "Teoria política, história do pensamento político, crimes contra a humanidade"
+area:
+  - "Teoria política"
+  - "história do pensamento político"
+  - "crimes contra a humanidade"
 foto: "assets/img/eunice-ostrensky.jpg"
 ---
 

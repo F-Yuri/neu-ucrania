@@ -1,0 +1,63 @@
+{{/*
+  materia-relacionados.html — card de sidebar "Materiais e links relacionados".
+  Internos (relacionados[].tipo == "interno", com ref: "secao/slug") ganham thumb
+  puxando a foto real da página referenciada. Externos (tipo == "externo", com
+  label/link) e os campos legados `link`/`podcast` viram texto sublinhado sem thumb.
+  Uso: {{ partial "materia-relacionados.html" (dict "page" .) }}
+*/}}
+{{ $page := .page }}
+{{ $site := $page.Site }}
+{{ $internos := slice }}
+{{ $externos := slice }}
+
+{{ range $page.Params.relacionados }}
+  {{ if eq .tipo "interno" }}
+    {{ with $site.GetPage .ref }}
+      {{ $kind := "Publicação" }}
+      {{ if eq .Type "eventos" }}{{ $kind = "Evento" }}{{ end }}
+      {{ $internos = $internos | append (dict "kind" $kind "title" .Title "link" .RelPermalink "foto" .Params.foto) }}
+    {{ end }}
+  {{ else if eq .tipo "externo" }}
+    {{ $externos = $externos | append (dict "label" .label "link" .link) }}
+  {{ end }}
+{{ end }}
+
+{{ if $page.Params.link }}
+  {{ $lbl := "Página do evento" }}
+  {{ if eq $page.Type "publicacoes" }}{{ $lbl = "Acessar publicação" }}{{ end }}
+  {{ $externos = $externos | append (dict "label" $lbl "link" $page.Params.link) }}
+{{ end }}
+{{ if $page.Params.podcast }}
+  {{ $externos = $externos | append (dict "label" "Ouvir podcast" "link" $page.Params.podcast) }}
+{{ end }}
+
+{{ if or $internos $externos }}
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Materiais e links relacionados</div>
+
+  {{ if $internos }}
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    {{ range $internos }}
+    <a href="{{ .link }}" class="related-link">
+      <div class="related-link__thumb">{{ if .foto }}<img src="/{{ .foto }}" alt="" loading="lazy">{{ end }}</div>
+      <div>
+        <div class="related-link__kind">{{ .kind }}</div>
+        <div class="related-link__title">{{ .title }}</div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ if and $internos $externos }}<div style="height:1px;background:var(--borda-sutil);margin:14px 0;"></div>{{ end }}
+
+  {{ if $externos }}
+  <div class="neu-subseccao-label" style="margin-top:0;">Links externos</div>
+  <div class="related-external-list">
+    {{ range $externos }}
+    <a href="{{ .link }}" target="_blank" rel="noopener">{{ .label }} ↗</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

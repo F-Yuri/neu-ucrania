@@ -1,207 +1,143 @@
 {{ define "main" }}
-<!-- HERO -->
-<div class="hero-bar vtex-navy" style="background:var(--navy);padding:8rem 4rem 4.5rem;position:relative;overflow:hidden;">
-  <div class="z1">
-    <div class="hero-label" style="color:rgba(245,197,24,0.75);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:2.5rem;">
-      <span style="width:28px;height:1px;background:var(--yellow);opacity:0.6;display:inline-block;vertical-align:middle;margin-right:12px;"></span>
-      Fundado em {{ .Site.Params.fundacao }} — Departamento de Ciência Política / USP
-    </div>
-    <h1 class="hero-title" style="font-family:'Cormorant',serif;font-size:clamp(3rem,6vw,5.8rem);font-weight:600;line-height:1.0;color:#ffffff;margin-bottom:0.5rem;max-width:820px;">
-      Fortalecendo os estudos<br>
-      da <em style="color:#F5C518;font-style:italic;font-weight:400;">Ucrânia</em>
-      no Brasil
-    </h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">{{ .Site.Params.description }}</p>
-      <div class="hero-actions" style="gap:0.8rem;">
-        <a href="{{ .Site.BaseURL }}sobre/" class="btn-yellow">Conheça o NEU <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h10M6 1l5 5-5 5"/></svg></a>
-        <a href="{{ .Site.BaseURL }}publicacoes/" class="btn-ghost-light">Ver publicações</a>
+<div style="background:var(--fundo-neutro);padding:24px 0 64px;">
+  <div class="neu-container">
+
+    <!-- HERO (card branco) -->
+    <div class="neu-hero-card" style="margin-bottom:24px;">
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">{{ .Params.hero_eyebrow }} {{ .Site.Params.fundacao }}</div>
+      <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">{{ .Params.hero_titulo }}</h1>
+
+      <!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
+      <div class="theme-chips" role="group" aria-label="{{ i18n "aria_temas_pesquisa" }}">
+        <button class="theme-chip" type="button" aria-pressed="true">{{ i18n "filtro_todos" }}</button>
+        {{ range .Params.temas }}
+        <button class="theme-chip" type="button" aria-pressed="false">{{ . }}</button>
+        {{ end }}
       </div>
     </div>
-  </div>
-</div>
 
-<!-- DIVIDER navy strip -->
-<svg width="100%" height="44" style="display:block;background:var(--navy)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><pattern id="p1" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#F5C518" stroke-width="1.2" opacity="0.32"><polyline points="4,44 4,32 12,32 12,24 20,24 20,16 28,16 28,24 36,24 36,32 44,32 44,44"/><polyline points="8,44 8,34 16,34 16,26 24,26 24,20 28,20 32,20 32,26 40,26 40,34 48,34 48,44"/><line x1="20" y1="16" x2="20" y2="10"/><line x1="17" y1="13" x2="23" y2="13"/><polygon points="4,8 8,12 4,16 0,12"/><polygon points="76,8 80,12 76,16 72,12"/></g></pattern></defs>
-  <rect width="800" height="44" fill="url(#p1)"/>
-</svg>
+    <!-- FEED + SIDEBAR -->
+    {{ $rm := partial "lib/pages-for-type.html" (dict "site" .Site "type" "membros") }}
+    {{ $pesquisadores := $rm.pages }}
 
-<!-- TEMAS STRIP -->
-<div class="strip" role="list" aria-label="Temas de pesquisa">
-  <div class="strip-label">Temas de pesquisa</div>
-  <div class="strip-items">
-    <div class="strip-item" role="listitem">Colonialismo e Imperialismo Russo</div>
-    <div class="strip-item" role="listitem">Sociedade Civil Ucraniana</div>
-    <div class="strip-item" role="listitem">Guerra e Justiça</div>
-    <div class="strip-item" role="listitem">Diáspora e Deslocamento</div>
-    <div class="strip-item" role="listitem">Desinformação</div>
-    <div class="strip-item" role="listitem">Relações Brasil–Ucrânia</div>
-  </div>
-</div>
+    <!-- feed de destaques unificado: eventos + publicações, até 3, ordenado por destaque_ordem -->
+    {{ $rpub := partial "lib/pages-for-type.html" (dict "site" .Site "type" "publicacoes") }}
+    {{ $rev := partial "lib/pages-for-type.html" (dict "site" .Site "type" "eventos") }}
+    {{ $todasPaginas := union $rpub.pages $rev.pages }}
+    {{ $destaquesFallback := or $rpub.fallback $rev.fallback }}
+    {{ $destaques := where $todasPaginas "Params.destaque" true }}
+    {{ $destaques = $destaques.ByParam "destaque_ordem" }}
+    <div class="neu-layout-2col">
 
-<!-- DIVIDER strip cream -->
-<svg width="100%" height="44" style="display:block;background:var(--cream)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><pattern id="p2" x="0" y="0" width="80" height="44" patternUnits="userSpaceOnUse"><g fill="none" stroke="#0B1929" stroke-width="1.2" opacity="0.14"><polyline points="4,0 4,12 12,12 12,20 20,20 20,28 28,28 28,20 36,20 36,12 44,12 44,0"/><polyline points="8,0 8,10 16,10 16,18 24,18 24,24 28,24 32,24 32,18 40,18 40,10 48,10 48,0"/><line x1="20" y1="28" x2="20" y2="34"/><line x1="17" y1="31" x2="23" y2="31"/><polygon points="4,36 8,32 4,28 0,32"/><polygon points="76,36 80,32 76,28 72,32"/></g></pattern></defs>
-  <rect width="800" height="44" fill="url(#p2)"/>
-</svg>
-
-{{ $destaques := where (where .Site.RegularPages "Type" "eventos") "Params.destaque" true }}
-{{ $principal := where $destaques "Params.destaque_ordem" 1 }}
-{{ $secundarios := where $destaques "Params.destaque_ordem" "in" (slice 2 3) }}
-
-
-{{ range $principal }}
-<section style="background:var(--navy);padding:0;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
-    <div style="overflow:hidden;">
-      <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div style="padding:4rem;display:flex;flex-direction:column;justify-content:center;">
-      <div class="section-label on-navy" style="margin-bottom:1rem;">Evento em destaque</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;opacity:0.8;">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
-      <h2 style="font-family:var(--display);font-size:1.8rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1.2rem;">{{ .Title }}</h2>
-      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;">{{ .Summary }}</p>
-      <a href="{{ .Permalink }}" class="btn-yellow" style="align-self:flex-start;">Ver cobertura completa →</a>
-    </div>
-  </div>
-</section>
-{{ end }}
-
-{{ if $secundarios }}
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(11,25,41,0.15);">
-  {{ range $secundarios }}
-  <article style="background:var(--navy);padding:2.5rem 3rem;display:flex;gap:2rem;align-items:flex-start;">
-    {{ if .Params.foto }}
-    <div style="width:100px;min-width:100px;height:70px;overflow:hidden;flex-shrink:0;">
-      <img src="/{{ .Params.foto }}" alt="{{ .Title }}" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    {{ end }}
     <div>
-      <div style="font-family:var(--mono);font-size:9px;color:var(--yellow);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;opacity:0.7;">◆ {{ .Params.tipo | title }}</div>
-      <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:0.6rem;"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-      <a href="{{ .Permalink }}" style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:0.1em;">Ver cobertura →</a>
+      {{ if $destaques }}
+      {{ if $destaquesFallback }}<div style="margin-bottom:14px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
+      <div class="feed-grid">
+        {{ range $i, $p := first 3 $destaques }}
+        <a href="{{ $p.RelPermalink }}" class="neu-card feed-card {{ if eq $i 0 }}feed-card--destaque{{ end }}">
+          <div class="feed-card__media">
+            {{ if eq $i 0 }}
+            <span class="neu-badge-destaque feed-card__badge">{{ $p.Params.tipo | title }}</span>
+            {{ else }}
+            <span class="neu-tag feed-card__badge">{{ $p.Params.tipo | title }}</span>
+            {{ end }}
+            {{ if $p.Params.foto }}{{ if eq $i 0 }}<img src="/{{ $p.Params.foto }}" alt="" fetchpriority="high">{{ else }}<img src="/{{ $p.Params.foto }}" alt="" loading="lazy">{{ end }}{{ end }}
+          </div>
+          <div class="feed-card__body">
+            <h2 class="feed-card__title">{{ $p.Title }}</h2>
+            <div class="feed-card__meta">
+              {{ if eq $p.Type "publicacoes" }}
+                {{ $p.Params.autores }}{{ if $p.Params.veiculo }} — {{ $p.Params.veiculo }}{{ end }}{{ if $p.Params.ano }}, {{ $p.Params.ano }}{{ end }}
+              {{ else }}
+                {{ $p.Params.local }}{{ if $p.Params.data }} · {{ $p.Params.data | time.Format "02 Jan 2006" }}{{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
     </div>
-  </article>
-  {{ end }}
+
+    <aside style="display:flex;flex-direction:column;gap:24px;">
+      <div class="sidebar-nucleo">
+        <div class="sidebar-nucleo__title">{{ i18n "page_sobre_eyebrow" }}</div>
+        <p class="sidebar-nucleo__text">{{ .Params.nucleo_texto }}</p>
+        <a href="{{ "/" | relLangURL }}sobre/" class="btn-fantasma-escuro" style="align-self:flex-start;">{{ i18n "cta_saiba_mais" }}</a>
+      </div>
+
+      {{ if $pesquisadores }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">{{ i18n "nav_pesquisadores" }}</div>
+        {{ if $rm.fallback }}<div style="margin-bottom:10px;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
+        <ul class="sidebar-researchers">
+          {{ range first 4 $pesquisadores }}
+          <li>
+            {{ if .Params.foto }}
+            <img class="researcher-card__avatar" src="{{ .Params.foto | relURL }}" alt="" loading="lazy">
+            {{ else }}
+            <div class="researcher-card__avatar">{{ .Params.sigla | upper }}</div>
+            {{ end }}
+            <div>
+              <a href="{{ .RelPermalink }}" class="sidebar-researchers__name" style="text-decoration:none;">{{ .Title }}</a><br>
+              <span class="sidebar-researchers__meta">{{ .Params.instituicao | default (i18n "label_pesquisador_generico") }}</span>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+        <a href="{{ "/" | relLangURL }}membros/" class="btn-fantasma-claro" style="margin-top:16px;display:inline-flex;font-size:12px;padding:8px 16px;">{{ i18n "cta_ver_todos" }}</a>
+      </div>
+      {{ end }}
+    </aside>
+
+    </div>
+  </div>
 </div>
-{{ end }}
-
-<!-- MISSION + STATS -->
-<section class="section-cream vtex" aria-labelledby="mission-title" style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
-  <div class="z1">
-    <div class="section-label">Missão</div>
-    <h2 id="mission-title" class="section-title">Um espaço dedicado ao conhecimento sobre a Ucrânia</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">Criado em dezembro de 2024 no Departamento de Ciência Política da USP, o NEU reúne pesquisadores de instituições no Brasil e no exterior para fortalecer os estudos ucranianos no país.</p>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2rem;">Atuamos com pesquisas interdisciplinares, eventos, cooperação internacional e divulgação científica, estabelecendo pontes entre o Brasil e a Ucrânia.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <span class="theme-tag">Ciência Política</span>
-      <span class="theme-tag">Relações Internacionais</span>
-      <span class="theme-tag">História</span>
-      <span class="theme-tag">Direitos Humanos</span>
-      <span class="theme-tag">Estudos de Migração</span>
-      <span class="theme-tag">Subjetividade e Política</span>
-    </div>
-  </div>
-  <div class="z1">
-    <div class="card-grid-2" style="background:rgba(11,25,41,0.1);border:1px solid rgba(11,25,41,0.12);">
-      <div class="stat-card">
-        <div class="stat-number">{{ len (where .Site.Pages "Type" "membros") | default "8" }}</div>
-        <div class="stat-label">Pesquisadores ativos</div>
-      </div>
-      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Instituições parceiras</div></div>
-      <div class="stat-card">
-        <div class="stat-number">{{ len (where .Site.Pages "Type" "publicacoes") | default "0" }}+</div>
-        <div class="stat-label">Publicações mapeadas</div>
-      </div>
-      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Projeto aprovado</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- DIVIDER cream navy -->
-<svg width="100%" height="44" style="display:block;background:var(--navy)" preserveAspectRatio="none" viewBox="0 0 800 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <rect width="800" height="44" fill="url(#p1)"/>
-</svg>
-
-<!-- PUBLICAÇÕES RECENTES -->
-<section class="section-navy vtex-navy" aria-labelledby="pub-title">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;position:relative;z-index:1;flex-wrap:wrap;gap:1rem;">
-    <div>
-      <div class="section-label on-navy">Produções recentes</div>
-      <h2 id="pub-title" class="section-title on-navy">Pesquisa do NEU</h2>
-    </div>
-    <a href="{{ .Site.BaseURL }}publicacoes/" class="link-arrow-light" style="position:relative;z-index:1;">Ver todas →</a>
-  </div>
-  {{ $pubs := where .Site.RegularPages "Type" "publicacoes" }}
-  {{ if $pubs }}
-  <div class="card-grid-3" style="margin-bottom:2.5rem;position:relative;z-index:1;">
-    {{ range first 6 $pubs }}
-    <article class="pub-card {{ if .Params.featured }}featured{{ end }}" data-tipo="{{ .Params.tipo }}">
-      <div class="pub-type">◆ {{ if eq .Params.tipo "midia" }}Mídia{{ else if eq .Params.tipo "academico" }}Acadêmico{{ else if eq .Params.tipo "livro" }}Livro{{ else if eq .Params.tipo "capitulo" }}Capítulo{{ else }}{{ .Params.tipo | title }}{{ end }}</div>
-      <h3 class="pub-title"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-      <div class="pub-meta">
-        <span>{{ .Params.autores }}{{ if .Params.veiculo }} — {{ .Params.veiculo }}{{ end }}{{ if .Params.ano }}, {{ .Params.ano }}{{ end }}</span>
-        <a href="{{ .Permalink }}" class="pub-link" aria-label="Ver publicação: {{ .Title }}">→</a>
-      </div>
-    </article>
-    {{ end }}
-  </div>
-  {{ else }}
-  <div class="card-grid-3" style="margin-bottom:2.5rem;position:relative;z-index:1;">
-    <article class="pub-card featured" data-tipo="livro"><div class="pub-type">◆ Livro</div><h3 class="pub-title"><em>Guerra na Ucrânia: olhares não hegemônicos</em></h3><div class="pub-meta"><span>RUSEISHVILI, S. (org.) — EdUFSCar, 2023</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Acadêmico</div><h3 class="pub-title">Why Russia invaded Ukraine and how wars benefit autocrats</h3><div class="pub-meta"><span>FERRARO, V. — IPSR, 2024</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="midia"><div class="pub-type">◆ Mídia</div><h3 class="pub-title">Jornalismo na frente russa</h3><div class="pub-meta"><span>OSTRENSKY et al. — FSP, 2024</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Acadêmico</div><h3 class="pub-title">What is this thing called peace?</h3><div class="pub-meta"><span>LAMPERT, F. — Studia Phil. Est., 2024</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Acadêmico</div><h3 class="pub-title">Ucrânia: política partidária, a esquerda e Zelensky</h3><div class="pub-meta"><span>BARRETO, M. — Semina, 2024</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-    <article class="pub-card" data-tipo="academico"><div class="pub-type">◆ Acadêmico</div><h3 class="pub-title">Mobilidades forçadas: impactos da guerra da Ucrânia no refúgio</h3><div class="pub-meta"><span>VITCHMICHEN, H.S. — 2024</span><a href="{{ .Site.BaseURL }}publicacoes/" class="pub-link">→</a></div></article>
-  </div>
-  {{ end }}
-</section>
 
 <!-- PROJETO BRIDGING -->
 <div style="display:grid;grid-template-columns:1fr 1fr;min-height:420px;" id="bridging">
-  <div class="vtex-yellow" style="background:var(--yellow);display:flex;align-items:center;justify-content:center;padding:4rem;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:2rem;left:2rem;background:var(--navy);color:var(--yellow);font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;z-index:2;">Projeto aprovado — abril 2025</div>
-    <h2 class="z1" style="font-family:var(--display);font-size:2.8rem;font-weight:600;line-height:1.1;color:var(--navy);text-align:center;">Bridging Ukraine<br><em style="font-style:italic;font-weight:400;font-size:2rem;">&amp; Latin America</em></h2>
+  <div class="vtex-yellow" style="background:var(--amarelo);display:flex;align-items:center;justify-content:center;padding:4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:2rem;left:2rem;background:var(--azul-institucional);color:var(--amarelo);font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;z-index:2;">{{ .Params.bridging_badge }}</div>
+    <h2 class="z1" style="font-family:var(--font-display);font-size:2.8rem;font-weight:600;line-height:1.1;color:var(--azul-institucional);text-align:center;">Bridging Ukraine<br><em style="font-style:italic;font-weight:400;font-size:2rem;">&amp; Latin America</em></h2>
   </div>
-  <div class="vtex-navy" style="background:var(--navy);padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
-    <div class="section-label on-navy z1">Projeto em destaque</div>
-    <h3 class="z1" style="font-family:var(--display);font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:1.2rem;line-height:1.15;">Bridging Ukraine and Latin America</h3>
-    <p class="z1" style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;"><em>A Transnational Call for Decolonization, Justice, and Scientific Truth</em> — aprovado pelo programa Lysiak-Rudnytsky Ukrainian Studies em abril de 2025, em parceria com a National University of Kyiv-Mohyla Academy.</p>
+  <div class="vtex-navy" style="background:var(--azul-institucional);padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+    <div class="section-label on-navy z1">{{ i18n "label_projeto_destaque" }}</div>
+    <h3 class="z1" style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:1.2rem;line-height:1.15;">Bridging Ukraine and Latin America</h3>
+    <p class="z1" style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;"><em>A Transnational Call for Decolonization, Justice, and Scientific Truth</em> — {{ .Params.bridging_desc }}</p>
     <div class="z1" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;">
-      <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">USP</span>
-      <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Kyiv-Mohyla Academy</span>
-      <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Cedec</span>
-      <span style="font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">ANPOCS</span>
+      <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">USP</span>
+      <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Kyiv-Mohyla Academy</span>
+      <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">Cedec</span>
+      <span style="font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.14);padding:4px 12px;">ANPOCS</span>
     </div>
-    <a href="{{ .Site.BaseURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">Saiba mais →</a>
+    <a href="{{ "/" | relLangURL }}pesquisa/#bridging" class="btn-yellow z1" style="align-self:flex-start;">{{ i18n "cta_saiba_mais" }}</a>
   </div>
 </div>
 
 <!-- EVENTOS RECENTES -->
-{{ $eventos := where .Site.RegularPages "Type" "eventos" }}
+{{ $eventos := $rev.pages }}
 <section class="section-cream vtex" aria-labelledby="eventos-title">
   <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;position:relative;z-index:1;">
     <div>
-      <div class="section-label">Agenda</div>
-      <h2 id="eventos-title" class="section-title">Eventos recentes</h2>
+      <div class="section-label">{{ i18n "page_eventos_eyebrow" }}</div>
+      <h2 id="eventos-title" class="section-title">{{ i18n "home_eventos_recentes" }}</h2>
     </div>
-    <a href="{{ .Site.BaseURL }}eventos/" class="link-arrow">Ver todos →</a>
+    <a href="{{ "/" | relLangURL }}eventos/" class="link-arrow">{{ i18n "cta_ver_todos" }}</a>
   </div>
-  <div style="display:grid;grid-template-columns:2fr 1fr;gap:1px;background:rgba(11,25,41,0.08);border:1px solid rgba(11,25,41,0.1);position:relative;z-index:1;">
-    <div style="display:flex;flex-direction:column;gap:1px;background:rgba(11,25,41,0.08);">
+  {{ if $rev.fallback }}<div style="margin:-2rem 0 2rem;position:relative;z-index:1;">{{ partial "fallback-badge.html" . }}</div>{{ end }}
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:1px;background:rgba(0,69,115,0.08);border:1px solid rgba(0,69,115,0.1);position:relative;z-index:1;">
+    <div style="display:flex;flex-direction:column;gap:1px;background:rgba(0,69,115,0.08);">
       {{ if $eventos }}
         {{ range first 3 (where $eventos "Params.status" "realizado") }}
         <article class="event-card">
           <div class="event-date-block">
             <div class="event-day">{{ .Params.data | time.Format "02" }}</div>
-            <div class="event-month">{{ .Params.data | time.Format "Jan 2026" }}</div>
+            <div class="event-month">{{ .Params.data | time.Format "Jan 2006" }}</div>
           </div>
           <div>
             <div class="event-type">◆ {{ .Params.tipo | title }}{{ if .Params.local }} · {{ .Params.local }}{{ end }}</div>
-            <h3 class="event-title"><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
-            <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--navy);">Vídeo disponível</a>{{ end }}</div>
+            <h3 class="event-title"><a href="{{ .RelPermalink }}" style="color:inherit;text-decoration:none;">{{ .Title }}</a></h3>
+            <div class="event-meta">{{ .Summary }}{{ if .Params.video }} · <a href="{{ .Params.video }}" style="color:var(--azul-institucional);">{{ i18n "video_disponivel" }}</a>{{ end }}</div>
           </div>
         </article>
         {{ end }}
@@ -211,12 +147,12 @@
         <article class="event-card"><div class="event-date-block"><div class="event-day">07</div><div class="event-month">Fev 2022</div></div><div><div class="event-type">◆ Live de análise</div><h3 class="event-title">Tensões entre Rússia, Ucrânia e EUA: riscos de uma guerra?</h3><div class="event-meta">Com Ruseishvili (UFSCar) e Ferraro (FGV)</div></div></article>
       {{ end }}
     </div>
-    <div class="vtex-navy" style="background:var(--navy);padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+    <div class="vtex-navy" style="background:var(--azul-institucional);padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
       <div>
-        <h3 style="font-family:var(--display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">Próximos eventos em 2026</h3>
-        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">Acompanhe a agenda do NEU para os próximos meses.</p>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;position:relative;z-index:1;">{{ i18n "home_proximos_eventos_titulo" }}</h3>
+        <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2.5rem;position:relative;z-index:1;">{{ i18n "home_proximos_eventos_desc" }}</p>
       </div>
-      <a href="{{ .Site.BaseURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">Ver agenda →</a>
+      <a href="{{ "/" | relLangURL }}eventos/" class="btn-yellow" style="align-self:flex-start;position:relative;z-index:1;font-size:12px;padding:11px 20px;">{{ i18n "cta_ver_agenda" }}</a>
     </div>
   </div>
 </section>

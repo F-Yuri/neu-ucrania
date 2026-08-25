@@ -2,7 +2,10 @@
 title: "Vicente Ferraro"
 sigla: "VF"
 instituicao: "Fundação Getulio Vargas"
-area: "Guerras civis e interestatais, violência política, política ucraniana e russa"
+area:
+  - "Guerras civis e interestatais"
+  - "violência política"
+  - "política ucraniana e russa"
 foto: "assets/img/vicente-ferraro.jpg"
 ---
 

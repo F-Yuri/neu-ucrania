@@ -9,6 +9,17 @@ status: "realizado"
 destaque: true
 destaque_ordem: 1
 foto: "assets/img/coloquio-usp-2026/conferencia_ucrania_SP_15.jpg"
+video: "https://youtu.be/M__410RVbbE"
+relacionados:
+  - tipo: interno
+    ref: "publicacoes/ferraro-wars-impact-public-administration-2025"
+  - tipo: externo
+    label: "Ferraro, V.; Freller, F. (2026). Beyond Just and Unjust Peace: Moral Criteria for Evaluating War Outcomes in Ukraine. Scielo Preprints."
+    link: "https://preprints.scielo.org/index.php/scielo/preprint/view/15681/31089"
+temas:
+  - "Guerra Rússia–Ucrânia"
+  - "Descolonização"
+  - "Relações Brasil–Ucrânia"
 galeria:
   - foto: "/assets/img/coloquio-usp-2026/conferencia_ucrania_SP_00.jpg"
     legenda: ""

@@ -1,0 +1,27 @@
+{{/*
+  materia-media-abertura.html
+  Container de abertura flexível — aceita UM dos três tipos, nesta ordem de prioridade:
+  video (embed) > foto (imagem única + legenda opcional) > embed_externo (HTML bruto).
+  Não renderiza nada se nenhum dos três existir.
+  Uso: {{ partial "materia-media-abertura.html" (dict "page" .) }}
+*/}}
+{{ $page := .page }}
+{{ if $page.Params.video }}
+<div>
+  {{ partial "video-embed.html" (dict "url" $page.Params.video "title" $page.Title) }}
+  {{ if $page.Params.videos }}
+  <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem;">
+    {{ range $page.Params.videos }}
+    {{ partial "video-embed.html" (dict "url" .url "title" .titulo) }}
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ else if $page.Params.foto }}
+<div class="neu-media-foto">
+  <img src="/{{ $page.Params.foto }}" alt="{{ $page.Title }}">
+</div>
+{{ if $page.Params.foto_legenda }}<div class="neu-media-foto__legenda">{{ $page.Params.foto_legenda }}</div>{{ end }}
+{{ else if $page.Params.embed_externo }}
+<div class="neu-media-embed">{{ $page.Params.embed_externo | safeHTML }}</div>
+{{ end }}

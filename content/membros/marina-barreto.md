@@ -2,7 +2,10 @@
 title: "Marina Slhessarenko Barreto"
 sigla: "MB"
 instituicao: "Departamento de Ciência Política — USP / CEBRAP"
-area: "Ciência Política, Filosofia, direito e democracia"
+area:
+  - "Ciência Política"
+  - "Filosofia"
+  - "direito e democracia"
 foto: "assets/img/marina-slhessarenko-barreto.jpg"
 ---
 

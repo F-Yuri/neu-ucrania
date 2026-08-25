@@ -1,18 +1,18 @@
 
 ---
 title: "Pesquisadora do NEU fala à Folha sobre o atendimento psicológico a brasileiros na Guerra da Ucrânia"
-data: "2026-07-25"
 date: "2026-07-25"
+ano: "2026"
 tipo: "entrevista"
 veiculo: "Folha de S.Paulo"
 status: "publicado"
 destaque: true
-destaque_ordem: 4
-foto: "static/assets/img/claudia_serathiuk_folha_SP_01.jpg"
+destaque_ordem: 3
+foto: "assets/img/claudia_serathiuk_folha_SP_01.jpg"
 galeria:
-  - foto: "static/assets/img/claudia_serathiuk_folha_SP_01.jpg"
+  - foto: "/assets/img/claudia_serathiuk_folha_SP_01.jpg"
     legenda: ""
-  - foto: "static/assets/img/claudia_serathiuk_folha_SP_02.jpg"
+  - foto: "/assets/img/claudia_serathiuk_folha_SP_02.jpg"
     legenda: ""
 link: "https://www1.folha.uol.com.br/mundo/2026/07/psicologa-atende-brasileiros-que-estao-no-front-da-guerra-da-ucrania.shtml"
 ---

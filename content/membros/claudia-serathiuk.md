@@ -2,7 +2,10 @@
 title: "Cláudia Serathiuk"
 sigla: "CS"
 instituicao: ""
-area: "Subjetividade e violência, sofrimento psíquico em situações extremas, guerra"
+area:
+  - "Subjetividade e violência"
+  - "sofrimento psíquico em situações extremas"
+  - "guerra"
 foto: "assets/img/Claudia-Serathiuk.jpg"
 ---
 

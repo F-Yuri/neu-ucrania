@@ -1,40 +1,48 @@
 <nav id="mainNav">
-  <a href="{{ .Site.BaseURL }}" class="nav-logo">
-    <div class="nav-logo-mark">NEU</div>
-    <div>
-      <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
-      <div class="nav-logo-sub">USP — Ciência Política</div>
-    </div>
+  <a href="{{ "/" | relLangURL }}" class="nav-logo">
+    <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="42">
   </a>
   <ul class="nav-links">
-    <li><a href="{{ .Site.BaseURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>O Núcleo</a></li>
-    <li><a href="{{ .Site.BaseURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>Pesquisadores</a></li>
-    <li><a href="{{ .Site.BaseURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>Pesquisa</a></li>
-    <li><a href="{{ .Site.BaseURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>Produções</a></li>
-    <li><a href="{{ .Site.BaseURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>Eventos</a></li>
-    <li><a href="{{ .Site.BaseURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>Biblioteca</a></li>
+    <li><a href="{{ "/" | relLangURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>{{ i18n "nav_sobre" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>{{ i18n "nav_pesquisadores" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>{{ i18n "nav_pesquisa" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>{{ i18n "nav_producoes" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>{{ i18n "nav_eventos" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
   <div class="nav-right">
-    <div class="nav-lang"><span>PT</span> | EN</div>
-    <a href="{{ .Site.BaseURL }}contato/" class="nav-cta">↗ Contato</a>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
+    <div class="nav-utility">
+      <div class="nav-lang-selector">{{ partial "language-selector.html" . }}</div>
+      <!-- busca visual — sem índice de busca implementado ainda -->
+      <div class="nav-search" role="search">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="6" r="4.5"/><path d="M9.5 9.5L13 13"/></svg>
+        <input type="text" placeholder="{{ i18n "nav_buscar_placeholder" }}" aria-label="{{ i18n "nav_buscar_aria" }}" disabled>
+      </div>
+    </div>
+    <a href="{{ "/" | relLangURL }}contato/" class="nav-cta">↗ {{ i18n "nav_contato" }}</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="{{ i18n "nav_abrir_menu" }}" aria-expanded="false">
       <div class="hamburger-icon"><span></span><span></span><span></span></div>
     </button>
   </div>
 </nav>
+<!-- faixa de idioma mobile — sempre visível, separada do menu hambúrguer -->
+<div class="mobile-lang-strip">
+  <div class="mobile-lang-strip__langs">{{ partial "language-selector.html" . }}</div>
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+</div>
+<div class="neu-nav-divider" aria-hidden="true"></div>
 
 <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
   <div class="mobile-drawer-vline"></div>
   <ul class="mobile-drawer-links">
-    <li><a href="{{ .Site.BaseURL }}sobre/">O Núcleo</a></li>
-    <li><a href="{{ .Site.BaseURL }}membros/">Pesquisadores</a></li>
-    <li><a href="{{ .Site.BaseURL }}pesquisa/">Pesquisa</a></li>
-    <li><a href="{{ .Site.BaseURL }}publicacoes/">Produções</a></li>
-    <li><a href="{{ .Site.BaseURL }}eventos/">Eventos</a></li>
-    <li><a href="{{ .Site.BaseURL }}biblioteca/">Biblioteca</a></li>
+    <li><a href="{{ "/" | relLangURL }}sobre/">{{ i18n "nav_sobre" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}pesquisa/">{{ i18n "nav_pesquisa" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "nav_producoes" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
+    <li><a href="{{ "/" | relLangURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
   <div class="mobile-drawer-bottom">
-    <div class="mobile-drawer-lang"><span>PT</span> | EN</div>
-    <a href="{{ .Site.BaseURL }}contato/" class="mobile-drawer-cta">↗ Contato</a>
+    <a href="{{ "/" | relLangURL }}contato/" class="mobile-drawer-cta">↗ {{ i18n "nav_contato" }}</a>
   </div>
 </div>

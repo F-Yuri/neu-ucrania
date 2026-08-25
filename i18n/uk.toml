@@ -1,0 +1,110 @@
+# Рядки інтерфейсу — українською
+# Контент (публікації, події, біографії) поки що не перекладено — тільки елементи інтерфейсу.
+
+nav_sobre = "Про нас"
+nav_pesquisadores = "Дослідники"
+nav_pesquisa = "Дослідження"
+nav_producoes = "Публікації"
+nav_eventos = "Події"
+nav_biblioteca = "Бібліотека"
+nav_contato = "Контакти"
+nav_buscar_placeholder = "Пошук…"
+nav_buscar_aria = "Пошук на сайті"
+nav_abrir_menu = "Відкрити меню"
+
+footer_sobre_neu = "Про NEU"
+footer_col_nucleo = "Про нас"
+footer_col_pesquisa = "Дослідження"
+footer_col_acesso_rapido = "Швидкі посилання"
+footer_linhas_pesquisa = "Напрями досліджень"
+footer_bridging = "Bridging Ukraine"
+footer_publicacoes = "Публікації"
+footer_artigos_midia = "Публікації в ЗМІ"
+footer_newsletter = "Розсилка"
+footer_copy_org = "Центр україністики — USP"
+
+cta_saiba_mais = "Дізнатися більше →"
+cta_ver_todos = "Переглянути всі →"
+cta_conheca_nucleo = "Дізнатися про центр →"
+cta_ver_perfis_completos = "Переглянути повні профілі →"
+cta_ver_perfil_completo = "Переглянути повний профіль →"
+cta_ver_detalhes = "Переглянути деталі →"
+cta_ver_agenda = "Переглянути розклад →"
+
+fallback_conteudo_pt = "Контент доступний лише португальською (PT-BR)"
+
+page_eventos_eyebrow = "Розклад"
+page_eventos_title = "Події"
+page_eventos_desc = "Конференції, семінари та панельні дискусії, організовані NEU."
+page_eventos_anteriores = "Минулі події"
+
+page_publicacoes_eyebrow = "Публікації"
+page_publicacoes_title = "Публікації та статті"
+page_publicacoes_desc = "Академічні дослідження, авторські статті та участь NEU у пресі."
+
+page_membros_eyebrow = "Команда"
+page_membros_title = "Дослідники NEU"
+
+page_sobre_eyebrow = "Про нас"
+page_sobre_title = "Про NEU"
+
+page_pesquisa_eyebrow = "Напрям досліджень"
+page_pesquisa_title = "Дослідження"
+page_pesquisa_desc = "Напрями досліджень NEU та поточні проєкти з україністики."
+
+page_biblioteca_eyebrow = "Колекція"
+page_biblioteca_title = "Бібліотека"
+page_biblioteca_desc = "Довідкові матеріали, відібрані NEU для досліджень з україністики."
+
+label_projeto_destaque = "Проєкт у фокусі"
+label_projeto = "Проєкт"
+aria_temas_pesquisa = "Теми досліджень"
+
+filtro_todos = "Усі"
+filtro_academicos = "Академічні"
+filtro_midia = "ЗМІ"
+filtro_livros = "Книги"
+tipo_midia = "ЗМІ"
+tipo_academico = "Академічне"
+tipo_livro = "Книга"
+tipo_capitulo = "Розділ"
+
+cta_faca_parte_eyebrow = "Приєднуйтесь"
+cta_faca_parte_titulo = "Хочете приєднатися до NEU?"
+cta_faca_parte_desc = "Напишіть нам, щоб дізнатися, як взяти участь."
+
+home_eventos_recentes = "Останні події"
+video_disponivel = "Відео доступне"
+home_proximos_eventos_titulo = "Найближчі події у 2026 році"
+home_proximos_eventos_desc = "Стежте за розкладом NEU на найближчі місяці."
+
+contato_eyebrow = "Контакти"
+contato_titulo_hero = "Зв'яжіться з"
+contato_titulo_hero_em = "нами"
+contato_fale_conosco = "Напишіть нам"
+contato_titulo = "Контакти"
+contato_desc = "Для академічної співпраці, запитів від преси, інформації про дослідницьку програму або участі в подіях, зв'яжіться з нами."
+contato_label_email = "Електронна пошта"
+contato_label_endereco = "Адреса"
+contato_label_fundado_em = "Засновано у"
+contato_fundado_mes = "грудні"
+newsletter_titulo = "Отримуйте наші новини"
+newsletter_desc = "Публікації, події та аналітика про Україну прямо на вашу пошту. Без спаму."
+cta_inscrever = "Підписатися →"
+
+home_newsletter_label = "Будьте в курсі"
+home_newsletter_titulo = "Отримуйте новини NEU"
+home_newsletter_sub = "Публікації, події та аналітика про Україну прямо на вашу пошту."
+newsletter_email_placeholder = "Ваша ел. пошта"
+cta_inscrever_se = "Підписатися"
+newsletter_indisponivel_msg = "Підписка тимчасово недоступна. Незабаром повернемось з новинами!"
+label_pesquisador_generico = "Дослідник(-ця)"
+
+aviso_erro_texto = "Знайшли помилку в тексті?"
+aviso_erro_cta = "Повідомте нас"
+
+[footer_desc]
+other = "Створення знань та академічного діалогу про Україну — зміцнення україністики в Бразилії з {{ .Fundacao }} року."
+
+[cta_ver_todos_count]
+other = "Переглянути всі ({{ .Count }})"

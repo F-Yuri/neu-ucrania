@@ -1,0 +1,110 @@
+# Strings de interface — Português (idioma padrão)
+# Conteúdo (publicações, eventos, bios) NÃO passa por aqui — só chrome/UI fixa.
+
+nav_sobre = "O Núcleo"
+nav_pesquisadores = "Pesquisadores"
+nav_pesquisa = "Pesquisa"
+nav_producoes = "Produções"
+nav_eventos = "Eventos"
+nav_biblioteca = "Biblioteca"
+nav_contato = "Contato"
+nav_buscar_placeholder = "Buscar…"
+nav_buscar_aria = "Buscar no site"
+nav_abrir_menu = "Abrir menu"
+
+footer_sobre_neu = "Sobre o NEU"
+footer_col_nucleo = "O Núcleo"
+footer_col_pesquisa = "Pesquisa"
+footer_col_acesso_rapido = "Acesso rápido"
+footer_linhas_pesquisa = "Linhas de pesquisa"
+footer_bridging = "Bridging Ukraine"
+footer_publicacoes = "Publicações"
+footer_artigos_midia = "Artigos na mídia"
+footer_newsletter = "Newsletter"
+footer_copy_org = "Núcleo de Estudos da Ucrânia — USP"
+
+cta_saiba_mais = "Saiba mais →"
+cta_ver_todos = "Ver todos →"
+cta_conheca_nucleo = "Conheça o Núcleo →"
+cta_ver_perfis_completos = "Ver perfis completos →"
+cta_ver_perfil_completo = "Ver perfil completo →"
+cta_ver_detalhes = "Ver detalhes →"
+cta_ver_agenda = "Ver agenda →"
+
+fallback_conteudo_pt = "Conteúdo disponível apenas em PT-BR"
+
+page_eventos_eyebrow = "Agenda"
+page_eventos_title = "Eventos"
+page_eventos_desc = "Conferências, seminários e painéis promovidos pelo NEU."
+page_eventos_anteriores = "Eventos anteriores"
+
+page_publicacoes_eyebrow = "Produções"
+page_publicacoes_title = "Publicações e artigos"
+page_publicacoes_desc = "Pesquisa acadêmica, artigos de opinião e participações do NEU na imprensa."
+
+page_membros_eyebrow = "Equipe"
+page_membros_title = "Pesquisadores do NEU"
+
+page_sobre_eyebrow = "O Núcleo"
+page_sobre_title = "Sobre o NEU"
+
+page_pesquisa_eyebrow = "Investigação"
+page_pesquisa_title = "Pesquisa"
+page_pesquisa_desc = "Linhas de investigação do NEU e projetos em andamento sobre a Ucrânia."
+
+page_biblioteca_eyebrow = "Acervo"
+page_biblioteca_title = "Biblioteca"
+page_biblioteca_desc = "Materiais de referência selecionados pelo NEU para pesquisa sobre a Ucrânia."
+
+label_projeto_destaque = "Projeto em destaque"
+label_projeto = "Projeto"
+aria_temas_pesquisa = "Temas de pesquisa"
+
+filtro_todos = "Todos"
+filtro_academicos = "Acadêmicos"
+filtro_midia = "Mídia"
+filtro_livros = "Livros"
+tipo_midia = "Mídia"
+tipo_academico = "Acadêmico"
+tipo_livro = "Livro"
+tipo_capitulo = "Capítulo"
+
+cta_faca_parte_eyebrow = "Faça parte"
+cta_faca_parte_titulo = "Gostaria de integrar o NEU?"
+cta_faca_parte_desc = "Escreva para nós e saiba como participar."
+
+home_eventos_recentes = "Eventos recentes"
+video_disponivel = "Vídeo disponível"
+home_proximos_eventos_titulo = "Próximos eventos em 2026"
+home_proximos_eventos_desc = "Acompanhe a agenda do NEU para os próximos meses."
+
+contato_eyebrow = "Contato"
+contato_titulo_hero = "Entre em"
+contato_titulo_hero_em = "contato"
+contato_fale_conosco = "Fale conosco"
+contato_titulo = "Contato"
+contato_desc = "Para colaborações acadêmicas, solicitações de imprensa, informações sobre o programa de pesquisa ou participação em eventos, entre em contato."
+contato_label_email = "Email"
+contato_label_endereco = "Endereço"
+contato_label_fundado_em = "Fundado em"
+contato_fundado_mes = "Dezembro"
+newsletter_titulo = "Receba nossas novidades"
+newsletter_desc = "Publicações, eventos e análises sobre a Ucrânia diretamente no seu email. Sem spam."
+cta_inscrever = "Inscrever-se →"
+
+home_newsletter_label = "Fique informado"
+home_newsletter_titulo = "Receba as novidades do NEU"
+home_newsletter_sub = "Publicações, eventos e análises sobre a Ucrânia direto no seu e-mail."
+newsletter_email_placeholder = "Seu e-mail"
+cta_inscrever_se = "Assinar"
+newsletter_indisponivel_msg = "Inscrições temporariamente indisponíveis. Em breve voltamos com novidades!"
+label_pesquisador_generico = "Pesquisador(a)"
+
+aviso_erro_texto = "Encontrou algum erro no texto?"
+aviso_erro_cta = "Avise-nos"
+
+[footer_desc]
+other = "Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Fundacao }}."
+
+[cta_ver_todos_count]
+other = "Ver todos ({{ .Count }})"

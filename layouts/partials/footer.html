@@ -1,44 +1,40 @@
 <footer>
   <div class="footer-top">
     <div>
-      <a href="{{ .Site.BaseURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
-        <div class="nav-logo-mark">NEU</div>
-        <div>
-          <div class="nav-logo-text">Núcleo de Estudos da Ucrânia</div>
-          <div class="nav-logo-sub">USP — Ciência Política</div>
-        </div>
+      <a href="{{ "/" | relLangURL }}" class="nav-logo" style="display:inline-flex;margin-bottom:0.8rem;">
+        <img src="{{ "assets/img/neu-logo-horizontal-reverso.svg" | absURL }}" alt="NEU — Núcleo de Estudos da Ucrânia, USP Ciência Política" height="42">
       </a>
-      <p class="footer-desc">Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Site.Params.fundacao }}.</p>
+      <p class="footer-desc">{{ i18n "footer_desc" (dict "Fundacao" .Site.Params.fundacao) }}</p>
       <a href="mailto:{{ .Site.Params.email }}" class="footer-email">{{ .Site.Params.email }}</a>
     </div>
     <div>
-      <div class="footer-col-title">O Núcleo</div>
+      <div class="footer-col-title">{{ i18n "footer_col_nucleo" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}sobre/">Sobre o NEU</a></li>
-        <li><a href="{{ .Site.BaseURL }}membros/">Pesquisadores</a></li>
-        <li><a href="{{ .Site.BaseURL }}contato/">Contato</a></li>
+        <li><a href="{{ "/" | relLangURL }}sobre/">{{ i18n "footer_sobre_neu" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}contato/">{{ i18n "nav_contato" }}</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Pesquisa</div>
+      <div class="footer-col-title">{{ i18n "footer_col_pesquisa" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}pesquisa/">Linhas de pesquisa</a></li>
-        <li><a href="{{ .Site.BaseURL }}pesquisa/#bridging">Bridging Ukraine</a></li>
-        <li><a href="{{ .Site.BaseURL }}publicacoes/">Publicações</a></li>
-        <li><a href="{{ .Site.BaseURL }}biblioteca/">Biblioteca</a></li>
+        <li><a href="{{ "/" | relLangURL }}pesquisa/">{{ i18n "footer_linhas_pesquisa" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}pesquisa/#bridging">{{ i18n "footer_bridging" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "footer_publicacoes" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Acesso rápido</div>
+      <div class="footer-col-title">{{ i18n "footer_col_acesso_rapido" }}</div>
       <ul class="footer-links">
-        <li><a href="{{ .Site.BaseURL }}eventos/">Eventos</a></li>
-        <li><a href="{{ .Site.BaseURL }}publicacoes/?tipo=midia">Artigos na mídia</a></li>
-        <li><a href="{{ .Site.BaseURL }}contato/#newsletter">Newsletter</a></li>
+        <li><a href="{{ "/" | relLangURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}publicacoes/?tipo=midia">{{ i18n "footer_artigos_midia" }}</a></li>
+        <li><a href="{{ "/" | relLangURL }}contato/#newsletter">{{ i18n "footer_newsletter" }}</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© {{ now.Year }} Núcleo de Estudos da Ucrânia — USP</div>
+    <div class="footer-copy">© {{ now.Year }} {{ i18n "footer_copy_org" }}</div>
     <div class="footer-copy">{{ .Site.Params.instituicao }}</div>
   </div>
 </footer>

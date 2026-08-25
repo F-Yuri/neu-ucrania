@@ -1,0 +1,18 @@
+{{/*
+  lib/pages-for-type.html — retorna as páginas do tipo pedido no idioma atual;
+  se não houver nenhuma (conteúdo ainda não traduzido), cai pro site em PT.
+  Retorna um dict: { pages: Pages, fallback: bool }
+  Uso: {{ $r := partial "lib/pages-for-type.html" (dict "site" .Site "type" "eventos") }}
+       {{ $r.pages }} {{ $r.fallback }}
+*/}}
+{{ $type := .type }}
+{{ $current := where .site.RegularPages "Type" $type }}
+{{ $result := dict "pages" $current "fallback" false }}
+{{ if not $current }}
+  {{ range hugo.Sites }}
+    {{ if eq .Language.Lang "pt" }}
+      {{ $result = dict "pages" (where .RegularPages "Type" $type) "fallback" true }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $result }}

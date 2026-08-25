@@ -1,28 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ .Site.Language.Locale }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO primário -->
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}</title>
-  <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  {{ $metaDesc := .Site.Params.description }}
+  {{ if .Params.description }}
+    {{ $metaDesc = .Params.description }}
+  {{ else if and (eq .Type "membros") .IsPage }}
+    {{ $frase := index (split (.Plain | strings.TrimSpace) ". ") 0 }}
+    {{ $metaDesc = printf "%s. Pesquisador(a) do NEU — Núcleo de Estudos da Ucrânia." $frase }}
+  {{ else if and (eq .Type "eventos") .IsPage }}
+    {{ if .Summary }}{{ $metaDesc = .Summary | plainify }}{{ end }}
+  {{ else if and (eq .Type "publicacoes") .IsPage }}
+    {{ if .Summary }}{{ $metaDesc = .Summary | plainify }}{{ end }}
+  {{ end }}
+
+  <meta name="description" content="{{ $metaDesc }}">
   <meta name="author" content="Núcleo de Estudos da Ucrânia — USP">
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{/* canonical/og:url sempre no domínio de produção, independente do -b usado no build
+       (preview do Cloudflare Pages usa $CF_PAGES_URL, que não deve vazar pra essas tags) */}}
+  {{ $prodBaseURL := .Site.Params.canonicalBaseURL | default .Site.BaseURL }}
+  {{ $canonicalURL := printf "%s%s" (strings.TrimSuffix "/" $prodBaseURL) .RelPermalink }}
+  <link rel="canonical" href="{{ $canonicalURL }}">
+
+  <!-- Multilíngue: PT-BR é o idioma padrão (x-default); EN/UK só têm hreflang
+       quando a página específica tem tradução — conteúdo ainda não traduzido
+       não gera hreflang morto. -->
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ if eq .Language.Lang "pt" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}
+  {{ end }}
 
   <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}">
-  <meta property="og:description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:description" content="{{ $metaDesc }}">
+  <meta property="og:url" content="{{ $canonicalURL }}">
   <meta property="og:site_name" content="NEU — Núcleo de Estudos da Ucrânia">
-  <meta property="og:locale" content="pt_BR">
-  {{ if .Params.image }}<meta property="og:image" content="{{ .Params.image | absURL }}">{{ end }}
+  <meta property="og:locale" content="{{ cond (eq .Site.Language.Lang "pt") "pt_BR" (cond (eq .Site.Language.Lang "en") "en_US" "uk_UA") }}">
+  {{ $ogImage := "assets/img/neu-og-default.jpg" | absURL }}
+  {{ if .Params.image }}{{ $ogImage = .Params.image | absURL }}
+  {{ else if .Params.foto }}{{ $ogImage = printf "/%s" .Params.foto | absURL }}{{ end }}
+  <meta property="og:image" content="{{ $ogImage }}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NEU{{ end }}">
-  <meta name="twitter:description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:description" content="{{ $metaDesc }}">
+  <meta name="twitter:image" content="{{ $ogImage }}">
   {{ if .Site.Params.twitter }}<meta name="twitter:site" content="{{ .Site.Params.twitter }}">{{ end }}
 
   <!-- Schema.org JSON-LD (Google Rich Results) -->
@@ -33,7 +62,7 @@
     "@type": "ResearchOrganization",
     "name": "Núcleo de Estudos da Ucrânia",
     "alternateName": "NEU",
-    "url": "{{ .Site.BaseURL }}",
+    "url": "{{ $prodBaseURL }}",
     "description": "{{ .Site.Params.description }}",
     "foundingDate": "{{ .Site.Params.fundacao }}",
     "email": "{{ .Site.Params.email }}",
@@ -44,7 +73,7 @@
     }
   }
   </script>
-  {{ else if eq .Type "publicacoes" }}
+  {{ else if and (eq .Type "publicacoes") .IsPage }}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,7 +107,7 @@
   "organizer": {
     "@type": "Organization",
     "name": "Núcleo de Estudos da Ucrânia — USP",
-    "url": "{{ .Site.BaseURL }}"
+    "url": "{{ $prodBaseURL }}"
   }
 }
 </script>
@@ -90,10 +119,17 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap"></noscript>
 
+  <!-- Fontes da identidade nova (redesign 2026) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- CSS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-<link rel="stylesheet" href="{{ "assets/css/main.css" | absURL }}">
-  <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="{{ "assets/img/favicon.svg" | absURL }}">
+<link rel="stylesheet" href="{{ "assets/css/main.css" | relURL }}">
+  <!-- Design tokens da identidade nova (redesign 2026) -->
+  <link rel="stylesheet" href="{{ "assets/css/tokens.css" | relURL }}">
+  <!-- Favicon — identidade nova (redesign 2026), ícone "У" -->
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "assets/img/neu-favicon-16.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "assets/img/neu-favicon-32.png" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "assets/img/neu-apple-touch-icon-180.png" | relURL }}">
   <!-- Sitemap -->
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
@@ -107,11 +143,12 @@
   {{ block "main" . }}{{ end }}
 </main>
 
+{{ partial "error-notice.html" . }}
 {{ partial "newsletter.html" . }}
 {{ partial "footer.html" . }}
 
 <!-- JS principal — caminho relativo para funcionar em subdiretório (GitHub Pages) -->
-<script src="{{ "assets/js/main.js" | absURL }}"></script>
+<script src="{{ "assets/js/main.js" | relURL }}"></script>
 
 </body>
 </html>

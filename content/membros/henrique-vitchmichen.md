@@ -2,7 +2,10 @@
 title: "Henrique Schlumberger Vitchmichen"
 sigla: "HV"
 instituicao: "UFPR / Carleton University (Canadá)"
-area: "Imigração ucraniana ao Brasil, refúgio, história e memória"
+area:
+  - "Imigração ucraniana ao Brasil"
+  - "refúgio"
+  - "história e memória"
 foto: "assets/img/Henrique-Schlumberger-Vitchmichen.jpg"
 ---
 

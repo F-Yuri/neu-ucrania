@@ -1,14 +1,14 @@
 
 ---
 title: "Pesquisador do NEU escreve no Ukrainska Pravda sobre a educação como linha de frente do genocídio cultural na Ucrânia"
-data: "2026-07-01"
 date: "2026-07-01"
+ano: "2026"
 tipo: "artigo de divulgação"
 veiculo: "Ukrainska Pravda"
 status: "publicado"
 destaque: true
-destaque_ordem: 3
-foto: "static/assets/img/vicente-ferraro-ukrainska-pravda.jpg"
+destaque_ordem: 4
+foto: "assets/img/vicente-ferraro-ukrainska-pravda.jpg"
 link: "https://www.pravda.com.ua/eng/columns/2026/07/01/8041697/"
 ---
 

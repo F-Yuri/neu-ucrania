@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div style="background:var(--fundo-neutro);padding:24px 0 64px;">
+  <div class="neu-container">
+
+    <a href="{{ "/" | relLangURL }}" class="neu-link" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:16px;">← Início</a>
+
+    <div style="padding:8px 0 4px;max-width:640px;">
+      <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:8px;">Tema</div>
+      <h1 class="neu-h1" style="color:var(--tinta);margin-bottom:10px;">{{ .Title }}</h1>
+      <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;color:var(--texto-corpo);margin:0;">Publicações e eventos do NEU sobre este tema.</p>
+    </div>
+
+    {{ $paginas := .Pages }}
+    {{ if $paginas }}
+    <div style="padding:28px 0 4px;">
+      <div class="feed-grid">
+        {{ range $paginas }}
+        <a href="{{ .RelPermalink }}" class="neu-card feed-card">
+          <div class="feed-card__media">
+            <span class="neu-tag feed-card__badge">{{ .Params.tipo | title }}</span>
+            {{ if .Params.foto }}<img src="/{{ .Params.foto }}" alt="" loading="lazy">{{ end }}
+          </div>
+          <div class="feed-card__body">
+            <h2 class="feed-card__title">{{ .Title }}</h2>
+            <div class="feed-card__meta">
+              {{ if eq .Type "publicacoes" }}
+                {{ .Params.autores }}{{ if .Params.veiculo }} — {{ .Params.veiculo }}{{ end }}{{ if .Params.ano }}, {{ .Params.ano }}{{ end }}
+              {{ else }}
+                {{ .Params.local }}{{ if .Params.data }} · {{ .Params.data | time.Format "02 Jan 2006" }}{{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ else }}
+    <p style="font-family:var(--font-body);color:var(--texto-secundario);padding-top:20px;">Nenhum conteúdo marcado com este tema ainda.</p>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}

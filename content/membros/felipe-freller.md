@@ -2,7 +2,11 @@
 title: "Felipe Freller"
 sigla: "FF"
 instituicao: "Departamento de Ciência Política — USP"
-area: "História do pensamento político, liberalismo, totalitarismo, realismo político"
+area:
+  - "História do pensamento político"
+  - "liberalismo"
+  - "totalitarismo"
+  - "realismo político"
 foto: "assets/img/felipe-freller.jpg"
 ---
 
