@@ -1,0 +1,7 @@
+# Build do Hugo — gerado, não é fonte
+public/
+resources/
+.hugo_build.lock
+
+# macOS
+.DS_Store
