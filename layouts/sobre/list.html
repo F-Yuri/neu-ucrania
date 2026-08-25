@@ -18,7 +18,7 @@
           <h2 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin:0 0 14px;color:var(--tinta);">{{ .Params.historia_titulo }}</h2>
           {{ $historia := .Params.historia }}
           {{ range $i, $p := $historia }}
-          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:{{ if eq $i (sub (len $historia) 1) }}0{{ else }}0 0 14px{{ end }};">{{ $p }}</p>
+          <p style="font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--texto-corpo);margin:{{ if eq $i (sub (len $historia) 1) }}0{{ else }}0 0 14px{{ end }};">{{ $p | safeHTML }}</p>
           {{ end }}
         </div>
 
