@@ -2,9 +2,11 @@
 # Контент (публікації, події, біографії) поки що не перекладено — тільки елементи інтерфейсу.
 
 nav_sobre = "Про нас"
-nav_pesquisadores = "Дослідники"
-nav_pesquisa = "Дослідження"
+nav_pesquisadores = "Учасники"
+nav_pesquisa = "Напрями досліджень"
 nav_producoes = "Публікації"
+nav_producoes_todas = "Усі публікації"
+nav_producoes_midia = "У медіа"
 nav_eventos = "Події"
 nav_biblioteca = "Бібліотека"
 nav_contato = "Контакти"

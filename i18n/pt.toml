@@ -2,9 +2,11 @@
 # Conteúdo (publicações, eventos, bios) NÃO passa por aqui — só chrome/UI fixa.
 
 nav_sobre = "O Núcleo"
-nav_pesquisadores = "Pesquisadores"
-nav_pesquisa = "Pesquisa"
+nav_pesquisadores = "Membros"
+nav_pesquisa = "Linhas de pesquisa"
 nav_producoes = "Produções"
+nav_producoes_todas = "Todas as Produções"
+nav_producoes_midia = "Na Mídia"
 nav_eventos = "Eventos"
 nav_biblioteca = "Biblioteca"
 nav_contato = "Contato"

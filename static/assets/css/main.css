@@ -87,6 +87,18 @@ nav {
 .nav-cta { background: var(--yellow); color: var(--navy); font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 9px 20px; transition: background 0.2s; }
 .nav-cta:hover { background: var(--yellow-lt); }
 
+/* ── NAV DROPDOWN (desktop) ── */
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd-trigger { display: flex; align-items: center; gap: 5px; font-family: var(--body); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); background: none; border: none; padding: 0; cursor: pointer; transition: color 0.2s; }
+.nav-dd-trigger .nav-dd-chevron { font-size: 9px; line-height: 1; transition: transform 0.2s; }
+.nav-dd-trigger:hover, .nav-dd-trigger[aria-current="true"] { color: var(--yellow); }
+.nav-dd:hover .nav-dd-trigger .nav-dd-chevron, .nav-dd.open .nav-dd-trigger .nav-dd-chevron { transform: rotate(180deg); }
+.nav-dd::after { content: ''; position: absolute; top: 100%; left: -24px; right: -24px; height: 18px; }
+.nav-dd-panel { display: none; position: absolute; top: 100%; left: -20px; margin-top: 18px; background: var(--cream); border: 1px solid rgba(11,25,41,0.1); border-top: 2px solid var(--yellow); box-shadow: 0 16px 28px rgba(16,22,31,0.16); min-width: 190px; padding: 8px 0; z-index: 220; }
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel { display: block; }
+.nav-dd-panel a { display: block; padding: 11px 20px; font-family: var(--body); font-size: 13px; font-weight: 500; letter-spacing: normal; text-transform: none; color: var(--ink); text-decoration: none; transition: none; }
+.nav-dd-panel a:hover { background: var(--cream-dk); color: var(--navy); }
+
 /* ── HAMBURGER ── */
 .hamburger {
   display: none; align-items: center; justify-content: center;
@@ -114,6 +126,15 @@ nav {
 .mobile-drawer-links a { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: #fff; text-decoration: none; transition: color 0.2s; }
 .mobile-drawer-links a::after { content: '→'; font-size: 1rem; color: rgba(255,255,255,0.25); font-family: var(--body); }
 .mobile-drawer-links a:active { color: var(--yellow); }
+
+/* ── NAV DROPDOWN (mobile) ── */
+.mobile-drawer-group-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: #fff; background: none; border: none; text-align: left; cursor: pointer; }
+.mobile-drawer-group-trigger .nav-dd-chevron { font-size: 1.1rem; color: rgba(255,255,255,0.3); transition: transform 0.2s; }
+.mobile-drawer-group-trigger[aria-expanded="true"] .nav-dd-chevron { transform: rotate(180deg); }
+.mobile-drawer-group-panel { display: none; padding: 0 0 1rem 0.2rem; }
+.mobile-drawer-group-panel.open { display: block; }
+.mobile-drawer-group-panel a { display: block; padding: 0.75rem 0 0.75rem 1rem; font-family: var(--body); font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+.mobile-drawer-group-panel a:active { color: var(--yellow); }
 .mobile-drawer-bottom { margin-top: auto; padding-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
 .mobile-drawer-cta { background: var(--yellow); color: var(--navy); font-family: var(--body); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 16px; text-align: center; display: block; }
 .mobile-drawer-vline { height: 28px; width: 100%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='28' viewBox='0 0 40 28'%3E%3Cg fill='none' stroke='%23F5C518' stroke-width='1' opacity='0.18'%3E%3Cpolygon points='20,4 26,14 20,24 14,14'/%3E%3Cline x1='20' y1='0' x2='20' y2='7'/%3E%3Cline x1='20' y1='21' x2='20' y2='28'/%3E%3Cline x1='0' y1='14' x2='13' y2='14'/%3E%3Cline x1='27' y1='14' x2='40' y2='14'/%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; margin: 1.5rem 0; }

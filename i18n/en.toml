@@ -2,9 +2,11 @@
 # Content (publications, events, bios) is not translated yet — interface chrome only.
 
 nav_sobre = "About Us"
-nav_pesquisadores = "Researchers"
-nav_pesquisa = "Research"
+nav_pesquisadores = "Members"
+nav_pesquisa = "Research Areas"
 nav_producoes = "Publications"
+nav_producoes_todas = "All Publications"
+nav_producoes_midia = "In the Media"
 nav_eventos = "Events"
 nav_biblioteca = "Library"
 nav_contato = "Contact"

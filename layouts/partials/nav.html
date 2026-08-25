@@ -6,7 +6,15 @@
     <li><a href="{{ "/" | relLangURL }}sobre/" {{ if eq .Section "sobre" }}class="active"{{ end }}>{{ i18n "nav_sobre" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}membros/" {{ if eq .Section "membros" }}class="active"{{ end }}>{{ i18n "nav_pesquisadores" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}pesquisa/" {{ if eq .Section "pesquisa" }}class="active"{{ end }}>{{ i18n "nav_pesquisa" }}</a></li>
-    <li><a href="{{ "/" | relLangURL }}publicacoes/" {{ if eq .Section "publicacoes" }}class="active"{{ end }}>{{ i18n "nav_producoes" }}</a></li>
+    <li class="nav-dd">
+      <button type="button" class="nav-dd-trigger" aria-expanded="false" {{ if eq .Section "publicacoes" }}aria-current="true"{{ end }}>
+        {{ i18n "nav_producoes" }} <span class="nav-dd-chevron">▾</span>
+      </button>
+      <div class="nav-dd-panel">
+        <a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "nav_producoes_todas" }}</a>
+        <a href="{{ "/" | relLangURL }}publicacoes/?tipo=midia">{{ i18n "nav_producoes_midia" }}</a>
+      </div>
+    </li>
     <li><a href="{{ "/" | relLangURL }}eventos/" {{ if eq .Section "eventos" }}class="active"{{ end }}>{{ i18n "nav_eventos" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}biblioteca/" {{ if eq .Section "biblioteca" }}class="active"{{ end }}>{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
@@ -38,7 +46,15 @@
     <li><a href="{{ "/" | relLangURL }}sobre/">{{ i18n "nav_sobre" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}membros/">{{ i18n "nav_pesquisadores" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}pesquisa/">{{ i18n "nav_pesquisa" }}</a></li>
-    <li><a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "nav_producoes" }}</a></li>
+    <li class="mobile-drawer-group">
+      <button type="button" class="mobile-drawer-group-trigger" aria-expanded="false" aria-controls="mobileDDProducoes">
+        <span>{{ i18n "nav_producoes" }}</span><span class="nav-dd-chevron">▾</span>
+      </button>
+      <div class="mobile-drawer-group-panel" id="mobileDDProducoes">
+        <a href="{{ "/" | relLangURL }}publicacoes/">{{ i18n "nav_producoes_todas" }}</a>
+        <a href="{{ "/" | relLangURL }}publicacoes/?tipo=midia">{{ i18n "nav_producoes_midia" }}</a>
+      </div>
+    </li>
     <li><a href="{{ "/" | relLangURL }}eventos/">{{ i18n "nav_eventos" }}</a></li>
     <li><a href="{{ "/" | relLangURL }}biblioteca/">{{ i18n "nav_biblioteca" }}</a></li>
   </ul>
