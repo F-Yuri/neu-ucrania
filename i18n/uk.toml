@@ -105,6 +105,8 @@ label_pesquisador_generico = "Дослідник(-ця)"
 aviso_erro_texto = "Знайшли помилку в тексті?"
 aviso_erro_cta = "Повідомте нас"
 
+footer_dgp = 'NEU зареєстрований у <a href="http://dgp.cnpq.br/dgp/espelhogrupo/815537" target="_blank" rel="noopener">DGP CNPq</a>.'
+
 [footer_desc]
 other = "Створення знань та академічного діалогу про Україну — зміцнення україністики в Бразилії з {{ .Fundacao }} року."
 

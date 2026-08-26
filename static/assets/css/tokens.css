@@ -582,6 +582,25 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
 /* ≤900px a faixa de idioma (fixed, 40px) entra entre o nav e o divisor */
 @media (max-width: 900px) { .neu-nav-divider { top: calc(var(--nav-h) + var(--mobile-lang-strip-h)); } }
 
+/* nav ficou mais longa (Linhas de pesquisa + dropdown Produções) e passou a
+   quebrar linha em telas de laptop comuns (1280/1366px); aperta essa faixa
+   escondendo a busca (não-funcional) e reduzindo o espaçamento do bloco de
+   idioma, em vez de mexer no breakpoint mobile (900px) acima, usado por
+   outros componentes. Entre 901-1020px nem essa versão espremida cabe, então
+   usa o hambúrguer do mobile também nessa faixa (ver main.css). Estas regras
+   precisam vir depois das definições base de .nav-utility/.nav-search/
+   .mobile-lang-strip/.neu-nav-divider acima para vencer no cascade (mesma
+   especificidade, ordem de declaração decide). */
+@media (min-width: 901px) and (max-width: 1020px) {
+  .nav-utility { display: none; }
+  .mobile-lang-strip { display: flex; }
+  .neu-nav-divider { top: calc(var(--nav-h) + var(--mobile-lang-strip-h)); }
+}
+@media (min-width: 1021px) and (max-width: 1449px) {
+  .nav-search { display: none; }
+  .nav-utility { padding-left: 14px; margin-left: 0; gap: 12px; }
+}
+
 /* ============================================
    Hero em card branco (Home, Evento — mockups reais)
    ============================================ */

@@ -41,6 +41,7 @@ body {
    ≤900px a faixa de idioma mobile (também fixed) entra no meio, então soma a altura dela também. */
 #main-content { padding-top: calc(var(--nav-h) + 14px); }
 @media (max-width: 900px) { #main-content { padding-top: calc(var(--nav-h) + var(--mobile-lang-strip-h) + 14px); } }
+@media (min-width: 901px) and (max-width: 1020px) { #main-content { padding-top: calc(var(--nav-h) + var(--mobile-lang-strip-h) + 14px); } }
 
 /* ── VYSHYVKA TEXTURES ── */
 .vtex::before, .vtex-navy::before, .vtex-yellow::before {
@@ -235,6 +236,9 @@ nav {
 footer { background: var(--ink); padding: 4rem 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.04); }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
 .footer-desc { font-size: 13px; font-weight: 300; color: var(--rodape-corpo); line-height: 1.8; margin: 1rem 0 1.5rem; max-width: 260px; }
+.footer-dgp { font-size: 13px; font-weight: 300; color: var(--rodape-corpo); line-height: 1.8; margin: 0 0 1.5rem; max-width: 260px; }
+.footer-dgp a { color: var(--rodape-link); text-decoration: none; transition: color 0.2s; }
+.footer-dgp a:hover { text-decoration: underline; }
 .footer-email { font-family: var(--display); font-size: 20px; font-weight: 700; color: var(--yellow); text-decoration: none; display: inline-block; transition: opacity 0.15s; }
 .footer-email:hover { opacity: 0.8; text-decoration: underline; }
 .footer-col-title { font-family: var(--body); font-size: 10px; font-weight: 600; color: var(--yellow); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0.8; }
@@ -278,6 +282,25 @@ footer { background: var(--ink); padding: 4rem 4rem 2rem; border-top: 1px solid 
   .newsletter { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
   .newsletter-input { flex: 1; min-width: 0; width: auto; }
   .newsletter-form { width: 100%; }
+}
+
+/* nav ficou mais longa (Linhas de pesquisa + dropdown Produções) e passou a
+   quebrar linha em telas de laptop comuns (1280/1366px); aperta o espaçamento
+   nessa faixa em vez de mexer no breakpoint mobile (900px) acima, que é usado
+   por vários outros componentes (footer, grids, newsletter etc). */
+@media (min-width: 1021px) and (max-width: 1449px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 0.9rem; }
+  .nav-links a, .nav-dd-trigger { font-size: 11px; letter-spacing: 0.04em; white-space: nowrap; }
+}
+
+/* faixa estreita (901-1020px) onde nem a versão espremida acima cabe (sobra
+   ~1005px de conteúdo mínimo); usa o mesmo hambúrguer do mobile aqui também. */
+@media (min-width: 901px) and (max-width: 1020px) {
+  :root { --nav-h: 60px; }
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .hamburger { display: flex; }
 }
 
 @media (max-width: 560px) {

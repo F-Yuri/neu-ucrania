@@ -105,6 +105,8 @@ label_pesquisador_generico = "Pesquisador(a)"
 aviso_erro_texto = "Encontrou algum erro no texto?"
 aviso_erro_cta = "Avise-nos"
 
+footer_dgp = 'O NEU está registrado no <a href="http://dgp.cnpq.br/dgp/espelhogrupo/815537" target="_blank" rel="noopener">DGP CNPq</a>.'
+
 [footer_desc]
 other = "Produção de conhecimento e diálogo acadêmico sobre a Ucrânia — fortalecendo os estudos ucranianos no Brasil desde {{ .Fundacao }}."
 

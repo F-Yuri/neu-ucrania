@@ -105,6 +105,8 @@ label_pesquisador_generico = "Researcher"
 aviso_erro_texto = "Found a mistake in the text?"
 aviso_erro_cta = "Let us know"
 
+footer_dgp = 'NEU is registered with <a href="http://dgp.cnpq.br/dgp/espelhogrupo/815537" target="_blank" rel="noopener">DGP CNPq</a>.'
+
 [footer_desc]
 other = "Producing knowledge and academic dialogue about Ukraine — strengthening Ukrainian studies in Brazil since {{ .Fundacao }}."
 
