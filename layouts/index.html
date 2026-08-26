@@ -3,15 +3,15 @@
   <div class="neu-container">
 
     <!-- HERO (card branco) -->
-    <div class="neu-hero-card" style="margin-bottom:24px;">
+    <div class="neu-hero-card neu-hero-card--compact" style="margin-bottom:24px;">
       <div class="neu-eyebrow neu-eyebrow--on-branco" style="margin-bottom:12px;">{{ .Params.hero_eyebrow }} {{ .Site.Params.fundacao }}</div>
-      <h1 class="neu-h1" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">{{ .Params.hero_titulo }}</h1>
+      <h1 class="neu-h1 neu-h1--home" style="color:var(--tinta);max-width:640px;margin-bottom:20px;">{{ .Params.hero_titulo }}</h1>
 
-      <!-- CHIPS DE TEMA — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade -->
-      <div class="theme-chips" role="group" aria-label="{{ i18n "aria_temas_pesquisa" }}">
-        <button class="theme-chip" type="button" aria-pressed="true">{{ i18n "filtro_todos" }}</button>
+      <!-- LISTA DE TEMAS — só visual: não existe campo "tema" no front matter ainda pra filtrar de verdade.
+           Renderizada como tags neutras (não-clicáveis), não como botões, pra não sugerir uma interação que não existe. -->
+      <div class="theme-chips" aria-label="{{ i18n "aria_temas_pesquisa" }}">
         {{ range .Params.temas }}
-        <button class="theme-chip" type="button" aria-pressed="false">{{ . }}</button>
+        <span class="theme-chip">{{ . }}</span>
         {{ end }}
       </div>
     </div>

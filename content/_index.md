@@ -2,7 +2,7 @@
 title: "NEU — Núcleo de Estudos da Ucrânia"
 description: "Pesquisa interdisciplinar sobre a Ucrânia reunindo pesquisadores brasileiros e europeus. USP — Departamento de Ciência Política."
 hero_eyebrow: "USP · Ciência Política · Fundado em"
-hero_titulo: "Referência em estudos sobre a Ucrânia no Brasil"
+hero_titulo: "Fortalecendo o campo de estudos da Ucrânia no Brasil"
 temas:
   - "Colonialismo e Imperialismo Russo"
   - "Sociedade Civil Ucraniana"

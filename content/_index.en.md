@@ -2,7 +2,7 @@
 title: "NEU — Center for Ukrainian Studies"
 description: "Interdisciplinary research on Ukraine bringing together Brazilian and European researchers. USP — Department of Political Science."
 hero_eyebrow: "USP · Political Science · Founded in"
-hero_titulo: "A leading reference for Ukrainian studies in Brazil"
+hero_titulo: "Strengthening the field of Ukrainian studies in Brazil"
 temas:
   - "Russian Colonialism and Imperialism"
   - "Ukrainian Civil Society"

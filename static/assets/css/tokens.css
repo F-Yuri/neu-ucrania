@@ -283,11 +283,14 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
 @media (min-width: 1024px) { .neu-h1 { font-size: 38px; } }
 .neu-h1--evento { font-size: var(--h1-size-evento); }
 @media (min-width: 1024px) { .neu-h1--evento { font-size: 32px; } }
+.neu-h1--home { font-size: 26px; }
+@media (min-width: 1024px) { .neu-h1--home { font-size: 30px; } }
 
-/* chips de tema — spec "feed de cards", visual only (sem taxonomia nos .md ainda) */
+/* chips de tema — lista de tags neutras, não-clicáveis (sem taxonomia nos .md ainda pra filtrar de verdade) */
 .theme-chips {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
   overflow-x: auto;
   padding-bottom: 2px;
   scrollbar-width: none;
@@ -303,11 +306,6 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   border: 1.5px solid var(--borda-sutil);
   background: var(--branco);
   color: #282E38;
-}
-.theme-chip[aria-pressed="true"], .theme-chip.active {
-  background: var(--azul-institucional);
-  border-color: var(--azul-institucional);
-  color: var(--branco);
 }
 
 /* grid de posts — spec seção 4: 2 colunas desktop dentro da coluna principal */
@@ -611,6 +609,8 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   padding: var(--padding-card-mobile);
 }
 @media (min-width: 1024px) { .neu-hero-card { padding: 32px var(--padding-card-desktop); } }
+.neu-hero-card--compact { padding: 20px var(--padding-card-mobile); }
+@media (min-width: 1024px) { .neu-hero-card--compact { padding: 22px var(--padding-card-desktop); } }
 
 /* ============================================
    Matéria (Evento/Publicação) — mídia de abertura,
