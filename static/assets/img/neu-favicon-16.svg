@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
   <rect width="16" height="16" fill="#80C1E1"></rect>
-  <text x="8" y="15.4" font-family="Montserrat, sans-serif" font-weight="700" font-size="14.3" fill="#FFFFFF" text-anchor="middle">У</text>
+  <rect x="5" y="2" width="2" height="2" fill="#004573"></rect>
+  <rect x="9" y="2" width="2" height="2" fill="#004573"></rect>
+  <rect x="7" y="5" width="2" height="10" fill="#004573"></rect>
 </svg>
