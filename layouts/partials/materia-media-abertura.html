@@ -25,3 +25,5 @@
 {{ else if $page.Params.embed_externo }}
 <div class="neu-media-embed">{{ $page.Params.embed_externo | safeHTML }}</div>
 {{ end }}
+{{ with $page.Params.flourish }}{{ partial "flourish-embed.html" . }}{{ end }}
+{{ with $page.Params.pdf }}{{ partial "pdf-download.html" . }}{{ end }}

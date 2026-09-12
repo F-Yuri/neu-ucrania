@@ -389,3 +389,8 @@ body { font-size: 1.05rem; }
     padding-bottom: 2rem !important;
   }
 }
+
+.flourish-embed { margin: 2rem 0; }
+
+.pdf-download { margin: 1.5rem 0; }
+.pdf-download a { display:inline-block; padding:.5rem 1rem; border:1px solid currentColor; border-radius:4px; text-decoration:none; }
