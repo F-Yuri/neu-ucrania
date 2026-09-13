@@ -30,6 +30,13 @@ content:
             options:
               values: [proximo, realizado]
           - { name: podcast, label: "Link do podcast", type: string }
+          - name: galeria
+            label: "Galeria de fotos"
+            type: object
+            list: true
+            fields:
+              - { name: foto, label: "Foto", type: image }
+              - { name: legenda, label: "Legenda da foto", type: string, description: "Aparece no leitor de tela e na galeria ampliada" }
           - { name: video, label: "Link do vídeo (YouTube)", type: string }
           - { name: flourish, label: "Link do gráfico (Flourish)", type: string, description: "Cole o link do Flourish (public.flourish.studio ou flo.uri.sh)" }
           - { name: pdf, label: "Link do PDF", type: string, description: "Cole o link de um PDF já hospedado (Google Drive, upload via Media, etc)" }
@@ -56,6 +63,13 @@ content:
           - { name: link, label: "Link", type: string }
           - { name: description, label: "Resumo", type: text }
           - { name: foto, label: "Foto (opcional)", type: image }
+          - name: galeria
+            label: "Galeria de fotos"
+            type: object
+            list: true
+            fields:
+              - { name: foto, label: "Foto", type: image }
+              - { name: legenda, label: "Legenda da foto", type: string, description: "Aparece no leitor de tela e na galeria ampliada" }
           - { name: video, label: "Link do vídeo (YouTube)", type: string }
           - { name: flourish, label: "Link do gráfico (Flourish)", type: string, description: "Cole o link do Flourish (public.flourish.studio ou flo.uri.sh)" }
           - { name: pdf, label: "Link do PDF", type: string, description: "Cole o link de um PDF já hospedado (Google Drive, upload via Media, etc)" }
