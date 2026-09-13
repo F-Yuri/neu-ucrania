@@ -1,1 +1,2 @@
-/admin  /admin/index.html  200
+/admin https://app.pagescms.org/f-yuri/neu-ucrania/ 302
+/admin/* https://app.pagescms.org/f-yuri/neu-ucrania/ 302
