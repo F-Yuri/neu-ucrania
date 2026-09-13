@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: {{ printf "%s%s" (strings.TrimSuffix "/" (.Site.Params.canonicalBaseURL | default .Site.BaseURL)) "/sitemap.xml" }}
