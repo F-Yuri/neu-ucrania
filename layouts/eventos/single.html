@@ -96,7 +96,7 @@
 <style>#gallery-grid button:hover .foto-legenda{opacity:1!important;}</style>
 
 <script>
-const FOTOS=[{{ range .Params.galeria }}{src:"{{ .foto }}",caption:"{{ .legenda | default "" }}"},{{ end }}];
+const FOTOS=[{{ range $i, $foto := .Params.galeria }}{src:"{{ $foto.foto }}",caption:"{{ $foto.legenda | default (printf "Foto %d de %d — %s" (add $i 1) (len $.Params.galeria) $.Title) }}"},{{ end }}];
 let cur=0;
 function openLightbox(i){cur=i;updateLB();document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}
 function closeLightbox(){document.getElementById('lightbox').style.display='none';document.body.style.overflow='';}
