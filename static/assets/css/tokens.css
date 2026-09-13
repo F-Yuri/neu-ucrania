@@ -533,9 +533,10 @@ a.neu-link:disabled { opacity: 0.4; pointer-events: none; }
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 13.5px;
-  color: rgba(255,255,255,0.55);
   text-decoration: none;
 }
+.nav-lang-selector a { color: rgba(255,255,255,0.6); }
+.mobile-lang-strip__langs a { color: rgba(255,255,255,0.55); }
 .nav-lang-selector a.active,
 .mobile-lang-strip__langs a.active {
   font-weight: 800;
